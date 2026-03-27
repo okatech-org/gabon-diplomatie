@@ -44,6 +44,7 @@ jobs:
           docker build \
             -f apps/backoffice-web/Dockerfile \
             --build-arg VITE_CONVEX_URL=${{ secrets.VITE_CONVEX_URL }} \
+            --build-arg VITE_CONVEX_SITE_URL=${{ secrets.VITE_CONVEX_SITE_URL }} \
             --build-arg VITE_SITE_URL=https://admin.consulat.ga \
             --build-arg VITE_POSTHOG_KEY=${{ secrets.VITE_POSTHOG_KEY }} \
             --build-arg VITE_POSTHOG_HOST=${{ secrets.VITE_POSTHOG_HOST }} \
