@@ -1,0 +1,9 @@
+{
+  "extends": "@workspace/tsconfig/base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "locales/**/*.json"],
+  "exclude": ["node_modules"]
+}

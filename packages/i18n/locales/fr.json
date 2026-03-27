@@ -1,0 +1,4588 @@
+{
+	"heroCore": {
+		"badge": "Plateforme Consulaire Officielle du Gabon",
+		"title": "Vos services consulaires",
+		"titleHighlight": "où que vous soyez",
+		"description": "Passeport, état civil, protection consulaire... Effectuez vos démarches administratives gabonaises en ligne, 24h/24, depuis n'importe quel pays.",
+		"cta": {
+			"register": "M'inscrire au Consulat",
+			"access": "Accéder à mon espace",
+			"services": "Découvrir les services",
+			"mySpace": "Mon espace consulaire"
+		},
+		"stats": {
+			"representations": "représentations",
+			"services": "services",
+			"users": "usagers"
+		}
+	},
+	"hero": {
+		"badge": "Plateforme Officielle",
+		"title": "Services Consulaires de la",
+		"titleHighlight": "République Gabonaise",
+		"subtitle": "Votre consulat, où que vous soyez dans le monde",
+		"description": "Accédez à tous vos services consulaires en ligne : passeport, visa, état civil, inscription consulaire et bien plus encore.",
+		"bookAppointment": "Prendre Rendez-vous",
+		"ourServices": "Nos Services",
+		"trackApplication": "Suivi de Dossier",
+		"createSpace": "Créer mon espace consulaire",
+		"accessSpace": "Accéder à mon espace",
+		"emergencyLabel": "Urgence Consulaire 24h/24",
+		"quickAccess": {
+			"news": "Actualités",
+			"newsDesc": "Dernières informations",
+			"services": "Services",
+			"servicesDesc": "Tous nos services",
+			"directory": "Annuaire",
+			"directoryDesc": "Nos consulats",
+			"faq": "FAQ",
+			"faqDesc": "Questions fréquentes"
+		}
+	},
+	"profiles": {
+		"title": "Qui êtes-vous ?",
+		"subtitle": "Accédez à un espace personnalisé selon votre situation",
+		"cta": "Accéder",
+		"resident": {
+			"title": "Résident à l'étranger",
+			"subtitle": "Gabonais installé hors du pays (+6 mois)",
+			"description": "Inscription consulaire complète, renouvellement de passeport, actes d'état civil, protection consulaire."
+		},
+		"passage": {
+			"title": "De passage à l'étranger",
+			"subtitle": "Gabonais en séjour temporaire (-6 mois)",
+			"description": "Déclaration temporaire, assistance d'urgence, laissez-passer en cas de perte de documents."
+		},
+		"visitor": {
+			"title": "Visiteur / Étranger",
+			"subtitle": "Souhaitant se rendre au Gabon",
+			"description": "Demande de visa, légalisation de documents, informations sur l'entrée au Gabon."
+		}
+	},
+	"map": {
+		"title": "Les représentations du Gabon dans le monde",
+		"subtitle": "Consulat, corps, notre réseau diplomatique, vous accompagne partout",
+		"embassy": "Ambassade",
+		"consulate": "Consulat",
+		"company": "Entreprise",
+		"association": "Association",
+		"locationFound": "Position trouvée !",
+		"locationError": "Impossible de vous localiser.",
+		"locationUnsupported": "Géolocalisation non supportée.",
+		"explore": "Explorer le réseau",
+		"stats": {
+			"representations": "Ambassades & Consulats",
+			"assistance": "Assistance d'Urgence"
+		},
+		"directions": "Y aller",
+		"details": "Détails"
+	},
+	"why": {
+		"title": "Pourquoi Consulat.ga ?",
+		"subtitle": "Une plateforme moderne au service des Gabonais du monde entier",
+		"secure": {
+			"title": "Sécurisé",
+			"description": "Vos données sont protégées selon les standards internationaux"
+		},
+		"fast": {
+			"title": "Rapide",
+			"description": "Démarches simplifiées, suivi en temps réel de vos demandes"
+		},
+		"accessible": {
+			"title": "Accessible",
+			"description": "Disponible 24h/24, 7j/7, depuis n'importe quel pays"
+		},
+		"modern": {
+			"title": "Moderne",
+			"description": "Interface intuitive adaptée à tous les appareils"
+		}
+	},
+	"cta": {
+		"title": "Rejoignez la communauté consulaire",
+		"subtitle": "Inscrivez-vous gratuitement et accédez à l'ensemble des services consulaires depuis votre espace personnel sécurisé.",
+		"button": "Créer mon compte consulaire"
+	},
+	"services": {
+		"badge": "Nos Services",
+		"title": "Services les plus demandés",
+		"pageTitle": "Services Consulaires",
+		"description": "Accédez rapidement aux démarches consulaires les plus courantes",
+		"pageDescription": "Découvrez l'ensemble des services proposés par les représentations consulaires de la République Gabonaise à l'étranger.",
+		"knowMore": "En savoir plus",
+		"free": "Gratuit",
+		"filters": "Filtres",
+		"clearAll": "Tout effacer",
+		"searchPlaceholder": "Rechercher un service...",
+		"days_one": "jour",
+		"days_other": "jours",
+		"categories": "Catégories",
+		"category": {
+			"all": "Tous",
+			"passport": "Passeports",
+			"visa": "Visas",
+			"civilStatus": "État Civil",
+			"registration": "Inscription",
+			"certification": "Administratif",
+			"assistance": "Assistance"
+		},
+		"categoriesMap": {
+			"assistance": "Assistance",
+			"certification": "Certification",
+			"identity": "Identité",
+			"notification": "Notification",
+			"passport": "Passeport",
+			"visa": "Visa",
+			"civil_status": "État Civil",
+			"registration": "Inscription Consulaire",
+			"legalization": "Légalisation",
+			"transcript": "Transcription",
+			"travel_document": "Titre de Voyage",
+			"emergency": "Assistance d'Urgence",
+			"other": "Autre"
+		},
+		"notEligible": "Votre profil n'est pas éligible pour ce service",
+		"notAvailableInJurisdiction": "Ce service n'est pas disponible dans votre juridiction",
+		"checkingAvailability": "Vérification...",
+		"notAvailableOnline": "Non disponible en ligne pour votre pays",
+		"availableOnline": "Disponible en ligne",
+		"onSiteOnly": "Sur place uniquement",
+		"notAvailableOnlineTitle": "Non disponible en ligne",
+		"notAvailableOnlineDesc": "Aucun consulat ou ambassade n'offre ce service en ligne pour votre pays de résidence. Veuillez vous rendre sur place.",
+		"appointmentRequired": "Rendez-vous requis",
+		"required": "Obligatoire",
+		"detailsTitle": "Informations détaillées",
+		"requiredDocuments": "Documents requis",
+		"availableCount_one": "{{count}} service disponible",
+		"availableCount_other": "{{count}} services disponibles",
+		"notFound": "Service introuvable",
+		"notFoundDesc": "Ce service n'existe pas ou n'est pas disponible.",
+		"modal": {
+			"eligibleBeneficiaries": "Bénéficiaires éligibles",
+			"citizens": "Citoyens gabonais",
+			"residents": "Étrangers résidents",
+			"requiredDocuments": "Documents requis",
+			"downloadForm": "Télécharger le formulaire",
+			"createRequest": "Créer une demande",
+			"importantInfo": "Informations importantes",
+			"infoPoints": {
+				"docs": "Les documents doivent être originaux ou copies certifiées conformes",
+				"delay": "Le délai de traitement est indicatif et peut varier selon le consulat",
+				"identity": "Présentez-vous avec une pièce d'identité valide"
+			},
+			"formDownloaded": "Formulaire téléchargé",
+			"formDownloadedDesc": "Formulaire de demande pour {{serviceName}}",
+			"profileTypes": {
+				"long_stay": "Gabonais résidant à l'étranger",
+				"short_stay": "Gabonais de passage",
+				"visa_tourism": "Étranger (visa tourisme)",
+				"visa_business": "Étranger (visa affaires)",
+				"visa_long_stay": "Étranger (visa long séjour)",
+				"admin_services": "Étranger (services administratifs)"
+			}
+		},
+		"viewAll": "Voir Tous les Services",
+		"passport": {
+			"title": "Passeport",
+			"description": "Demande, renouvellement et suivi de votre passeport gabonais. Procédure simplifiée et sécurisée."
+		},
+		"visa": {
+			"title": "Visa",
+			"description": "Demandes de visa pour le Gabon. Visa touristique, affaires, travail et autres catégories."
+		},
+		"civilStatus": {
+			"title": "État Civil",
+			"description": "Actes de naissance, mariage, décès. Transcription et légalisation des documents."
+		},
+		"registration": {
+			"title": "Inscription Consulaire",
+			"description": "Inscrivez-vous au registre des Gabonais de l'étranger. Restez informé et protégé."
+		},
+		"legalization": {
+			"title": "Légalisation",
+			"description": "Authentification et légalisation de vos documents officiels pour usage international."
+		},
+		"emergency": {
+			"title": "Assistance d'Urgence",
+			"description": "Aide consulaire en cas d'urgence : perte de documents, difficultés à l'étranger."
+		},
+		"empty": "Aucun service disponible pour le moment.",
+		"backToServices": "Retour aux services",
+		"descriptionTitle": "Description",
+		"actions": "Actions",
+		"allCategories": "Tous"
+	},
+	"news": {
+		"title": "Actualités",
+		"subtitle": "Restez informé des dernières nouvelles, événements et communiqués officiels du Consulat.",
+		"empty": "Aucune actualité pour le moment",
+		"emptyHint": "Revenez bientôt pour découvrir les dernières nouvelles.",
+		"backToNews": "Retour aux actualités",
+		"notFound": "Article non trouvé",
+		"notFoundHint": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+		"categories": {
+			"all": "Toutes",
+			"news": "Actualités",
+			"event": "Événements",
+			"announcement": "Communiqués"
+		},
+		"detail": {
+			"downloadPdf": "Télécharger le PDF",
+			"eventInfo": "Informations pratiques",
+			"date": "Date",
+			"location": "Lieu",
+			"tickets": "Billetterie"
+		},
+		"backToList": "Retour aux actualités",
+		"event": {
+			"date": "Date",
+			"location": "Lieu",
+			"getTickets": "Billetterie / Inscription"
+		},
+		"communique": {
+			"document": "Document officiel"
+		},
+		"badge": "Informations"
+	},
+	"consulates": {
+		"badge": "Nos Représentations",
+		"title": "Consulats du Gabon dans le Monde",
+		"description": "Trouvez le consulat gabonais le plus proche de chez vous pour effectuer vos démarches administratives.",
+		"headquarters": "Siège Principal",
+		"viewDetails": "Voir les détails",
+		"viewAll": "Voir Tous les Consulats",
+		"embassy": "Ambassade",
+		"empty": "Aucune représentation disponible."
+	},
+	"orgs": {
+		"pageTitle": "Réseau Mondial",
+		"pageDescription": "Retrouvez l'ensemble des représentations diplomatiques et consulaires de la République Gabonaise à travers le monde.",
+		"searchPlaceholder": "Rechercher une ambassade, un consulat, une ville...",
+		"noResults": "Aucun résultat trouvé",
+		"noResultsDesc": "Essayez de modifier votre recherche.",
+		"viewAll": "Voir toutes les représentations",
+		"mapView": "Carte",
+		"gridView": "Grille",
+		"allContinents": "Tous",
+		"representations": "représentations",
+		"otherRepresentations": "autre(s) représentation(s)",
+		"countries": "pays",
+		"viewDetails": "Voir les détails",
+		"notFound": "Représentation non trouvée",
+		"notFoundDesc": "La représentation demandée n'existe pas ou a été supprimée.",
+		"backToOrgs": "Retour aux représentations",
+		"address": "Adresse",
+		"contact": "Contact",
+		"openingHours": "Horaires d'ouverture",
+		"closed": "Fermé",
+		"noContact": "Aucune information de contact disponible.",
+		"discoverServices": "Découvrez nos services",
+		"servicesDesc": "Consultez la liste des services consulaires disponibles.",
+		"viewServices": "Voir les services",
+		"continents": {
+			"africa": "Afrique",
+			"europe": "Europe",
+			"asia": "Asie",
+			"americas": "Amériques",
+			"middle_east": "Moyen-Orient"
+		},
+		"type": {
+			"embassy": "Ambassade",
+			"generalConsulate": "Consulat Général",
+			"consulate": "Consulat",
+			"honoraryConsulate": "Consulat Honoraire",
+			"highCommission": "Haut-Commissariat",
+			"permanentMission": "Mission Permanente",
+			"thirdParty": "Partenaire tiers"
+		},
+		"servicesOffered": "Services disponibles en ligne"
+	},
+	"citizenCta": {
+		"badge": "Compte Citoyen",
+		"title": "Créez votre Compte Citoyen Gabonais",
+		"description": "Un compte unique pour accéder à tous les services consulaires en ligne. Simplifiez vos démarches administratives où que vous soyez dans le monde.",
+		"createAccount": "Créer mon compte",
+		"existingAccount": "J'ai déjà un compte",
+		"benefits": {
+			"tracking": {
+				"title": "Suivi en temps réel",
+				"description": "Suivez l'avancement de vos demandes à tout moment"
+			},
+			"documents": {
+				"title": "Documents dématérialisés",
+				"description": "Accédez à vos documents officiels en ligne"
+			},
+			"payment": {
+				"title": "Paiement sécurisé",
+				"description": "Réglez vos frais consulaires en toute sécurité"
+			},
+			"appointments": {
+				"title": "Rendez-vous simplifiés",
+				"description": "Réservez vos créneaux en quelques clics"
+			}
+		},
+		"stats": {
+			"citizens": "Citoyens inscrits",
+			"consulates": "Consulats connectés",
+			"satisfaction": "Satisfaction",
+			"availability": "Disponibilité"
+		},
+		"testimonial": "Grâce à Consulat.ga, j'ai pu renouveler mon passeport depuis Londres sans avoir à me déplacer. Service rapide et efficace !",
+		"testimonialAuthor": "Marie N., Londres"
+	},
+	"footer": {
+		"brand": {
+			"name": "Consulat.ga",
+			"description": "Plateforme officielle des services consulaires de la République Gabonaise à travers le monde."
+		},
+		"officialLinks": {
+			"title": "Plateforme",
+			"ministry": "Services consulaires",
+			"embassy": "Réseau mondial",
+			"consular": "Actualités"
+		},
+		"contact": {
+			"title": "Contact",
+			"email": "Email: contact@consulat.ga",
+			"phone": "",
+			"license": ""
+		},
+		"copyright": "© {{year}} Consulat.ga — République Gabonaise",
+		"version": ""
+	},
+	"theme": {
+		"toggle": "Changer le thème",
+		"light": "Clair",
+		"dark": "Sombre",
+		"system": "Système"
+	},
+	"register": {
+		"hero": {
+			"title": "Votre consulat à portée de main",
+			"subtitle": "Un service consulaire en ligne, numérique et augmenté pour simplifier vos démarches administratives."
+		},
+		"backToProfile": "← Changer de profil",
+		"alreadyRegistered": {
+			"title": "Profil déjà créé",
+			"description": "Vous avez déjà un profil consulaire. Accédez à votre espace pour suivre vos démarches.",
+			"cta": "Accéder à mon espace consulaire"
+		},
+		"selectProfile": {
+			"title": "Bienvenue sur le Portail Consulaire",
+			"subtitle": "Veuillez sélectionner votre profil pour commencer l'inscription"
+		},
+		"profiles": {
+			"resident": {
+				"title": "Résident à l'étranger",
+				"description": "Gabonais résidant à l'étranger depuis plus de 6 mois",
+				"feature1": "Inscription consulaire complète",
+				"feature2": "Renouvellement de passeport",
+				"feature3": "Actes d'état civil",
+				"feature4": "Carte consulaire"
+			},
+			"passage": {
+				"title": "De passage",
+				"description": "Gabonais de passage à l'étranger (moins de 6 mois)",
+				"feature1": "Déclaration de passage",
+				"feature2": "Assistance consulaire",
+				"feature3": "Laissez-passer d'urgence"
+			},
+			"foreigner": {
+				"title": "Usager étranger",
+				"description": "Demandes de visa et services administratifs",
+				"feature1": "Demandes de visa",
+				"feature2": "Légalisation de documents",
+				"feature3": "Certificats spécifiques",
+				"feature4": "Assistance administrative"
+			}
+		},
+		"startRegistration": "Commencer l'inscription",
+		"steps": {
+			"account": "Compte",
+			"purpose": "Motif",
+			"documents": "Documents",
+			"baseInfo": "Identité",
+			"family": "Famille",
+			"contacts": "Contacts",
+			"profession": "Profession",
+			"review": "Révision",
+			"passport": "Passeport"
+		},
+		"citizen": {
+			"steps": {
+				"account": {
+					"title": "Créer votre compte",
+					"description": "Créez un compte sécurisé",
+					"descriptionSignIn": "Connectez-vous à votre compte"
+				},
+				"documents": {
+					"title": "Documents Requis",
+					"description": "Fournissez vos pièces justificatives"
+				},
+				"basicInfo": {
+					"title": "Informations de Base",
+					"description": "Vos informations personnelles"
+				},
+				"family": {
+					"title": "Situation Familiale",
+					"description": "État civil et filiation"
+				},
+				"contacts": {
+					"title": "Coordonnées",
+					"description": "Adresses et contacts"
+				},
+				"profession": {
+					"title": "Situation Professionnelle",
+					"description": "Emploi et activité"
+				},
+				"review": {
+					"title": "Révision et Soumission",
+					"description": "Vérifiez vos informations"
+				}
+			}
+		},
+		"foreigner": {
+			"title": "Inscription Usager Étranger",
+			"subtitle": "Complétez votre profil pour accéder aux services consulaires",
+			"steps": {
+				"account": {
+					"title": "Créer votre compte"
+				},
+				"documents": {
+					"title": "Documents",
+					"description": "Fournissez vos pièces justificatives"
+				},
+				"passport": {
+					"title": "Informations Passeport",
+					"description": "Détails de votre document de voyage"
+				},
+				"basicInfo": {
+					"title": "Identité",
+					"description": "Vos informations personnelles"
+				},
+				"contacts": {
+					"title": "Coordonnées",
+					"description": "Adresse et moyens de contact"
+				},
+				"review": {
+					"title": "Révision",
+					"description": "Vérifiez et validez vos informations"
+				}
+			},
+			"passportNumber": "Numéro de Passeport",
+			"passportIssueDate": "Date de Délivrance",
+			"passportExpiryDate": "Date d'Expiration",
+			"passportIssuingCountry": "Pays de Délivrance",
+			"readyToSubmit": "Profil prêt",
+			"submissionNote": "Votre profil sera enregistré. Vous pourrez ensuite accéder à votre espace et effectuer vos demandes de services.",
+			"certifyInfo": "Je certifie l'exactitude des informations fournies",
+			"acceptPrivacy": "J'accepte la politique de confidentialité",
+			"submit": "Enregistrer mon profil",
+			"purpose": {
+				"title": "Motif de séjour",
+				"description": "Sélectionnez le motif de votre sollicitation auprès du consulat",
+				"tourism": {
+					"title": "Visa Tourisme",
+					"description": "Séjour touristique de courte durée",
+					"feature1": "Visa court séjour (90 jours max)",
+					"feature2": "Tourisme, visite familiale"
+				},
+				"business": {
+					"title": "Visa Affaires",
+					"description": "Déplacement professionnel ou mission",
+					"feature1": "Visa professionnel",
+					"feature2": "Conférences, réunions, missions"
+				},
+				"longStay": {
+					"title": "Visa Long Séjour",
+					"description": "Installation ou séjour prolongé au Gabon",
+					"feature1": "Visa long séjour / installation",
+					"feature2": "Travail, études, regroupement familial"
+				},
+				"admin": {
+					"title": "Services Administratifs",
+					"description": "Légalisation, apostille et certificats",
+					"feature1": "Légalisation de documents",
+					"feature2": "Apostille, certificats spécifiques"
+				}
+			}
+		},
+		"documents": {
+			"photo": "Photo d'identité",
+			"passport": "Passeport",
+			"birthCertificate": "Acte de Naissance",
+			"proofOfAddress": "Justificatif de Domicile"
+		},
+		"scan": {
+			"title": "Pré-remplissage automatique",
+			"description": "Analysez vos documents pour pré-remplir automatiquement le formulaire",
+			"button": "Pré-remplir avec l'IA",
+			"scanning": "Analyse...",
+			"notReady": "Le stockage local n'est pas prêt",
+			"noNewData": "Aucune nouvelle donnée extraite",
+			"noDocuments": "Aucun document à analyser",
+			"success": "{{count}} champ(s) pré-rempli(s) automatiquement",
+			"error": "Erreur lors de l'analyse des documents"
+		},
+		"success": {
+			"title": "Demande envoyée !",
+			"reference": "Référence",
+			"profileCreated": "Profil créé avec succès !",
+			"profileCreatedDesc": "Votre profil a été enregistré. Vous pouvez maintenant accéder à votre espace consulaire.",
+			"goToSpace": "Accéder à mon Espace",
+			"description": "Votre demande sera traitée par {{orgName}}"
+		},
+		"noOrg": {
+			"title": "Profil créé",
+			"goToSpace": "Accéder à mon Espace",
+			"description": "Votre profil a été créé, mais aucun organisme consulaire n'est configuré pour votre pays de résidence ({{country}}). Vous pourrez soumettre votre demande d'inscription plus tard."
+		},
+		"error": {
+			"title": "Une erreur est survenue",
+			"description": "Veuillez réessayer ou contacter le support."
+		},
+		"errors": {
+			"fixErrors": "Veuillez corriger les erreurs",
+			"submission": "Une erreur est survenue",
+			"missingDocuments": "Veuillez fournir les documents suivants : {{documents}}",
+			"documentRequired": "Ce document est obligatoire"
+		},
+		"submitting": {
+			"uploading": "Envoi des documents...",
+			"creatingProfile": "Création de votre profil...",
+			"findingOrg": "Recherche de votre organisme...",
+			"submittingRequest": "Soumission de la demande..."
+		},
+		"dataRestored": "Données précédemment saisies restaurées",
+		"review": {
+			"ready": "Prêt à soumettre",
+			"identity": "Identité",
+			"contact": "Coordonnées",
+			"address": "Adresse de résidence",
+			"family": "Situation familiale",
+			"description": "Votre dossier sera transmis au service consulaire pour validation. Vous recevrez une notification dès que votre statut changera.",
+			"emergencyResidence": "Contact d'urgence (résidence)",
+			"emergencyHomeland": "Contact d'urgence (pays d'origine)",
+			"profession": "Situation professionnelle",
+			"fields": {
+				"lastName": "Nom",
+				"firstName": "Prénom",
+				"birthDate": "Né(e) le",
+				"birthPlace": "À",
+				"birthCountry": "Pays de naissance",
+				"gender": "Genre",
+				"nationality": "Nationalité",
+				"nip": "NIP",
+				"acquisition": "Acquisition",
+				"passportNumber": "N°",
+				"passportAuthority": "Autorité",
+				"passportIssueDate": "Délivré le",
+				"passportExpiryDate": "Expire le",
+				"email": "Email",
+				"phone": "Tél",
+				"maritalStatus": "État civil",
+				"spouse": "Conjoint(e)",
+				"father": "Père",
+				"mother": "Mère",
+				"status": "Statut",
+				"employer": "Employeur",
+				"professionTitle": "Profession"
+			}
+		},
+		"submit": "Soumettre le dossier",
+		"progress": {
+			"uploadingDocuments": "Envoi de vos documents...",
+			"creatingProfile": "Création de votre profil...",
+			"findingOrg": "Recherche de votre organisme de rattachement...",
+			"submitting": "Envoi de votre demande..."
+		}
+	},
+	"common": {
+		"notFound": {
+			"title": "404",
+			"heading": "Page non trouvée",
+			"description": "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
+			"backHome": "Retour à l'accueil"
+		},
+		"step": "Étape",
+		"profile": "Mon Profil",
+		"requests": "Mes Demandes",
+		"documents": "Mes Documents",
+		"appointments": "Mes Rendez-vous",
+		"dashboard": "Tableau de bord",
+		"menu": "Menu",
+		"actions": "Actions",
+		"noResults": "Aucun résultat trouvé.",
+		"cancel": "Annuler",
+		"save": "Enregistrer",
+		"saved": "Modifications enregistrées",
+		"back": "Retour",
+		"previous": "Précédent",
+		"next": "Suivant",
+		"edit": "Modifier",
+		"delete": "Supprimer",
+		"confirm": "Confirmer",
+		"close": "Fermer",
+		"loading": "Chargement...",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"postalCode": "Code postal",
+		"greeting": "Bonjour {{firstName}}",
+		"name": "Nom",
+		"error": "Erreur",
+		"reference": "Référence",
+		"logout": "Déconnexion",
+		"search": "Rechercher",
+		"active": "Actif",
+		"inactive": "Inactif",
+		"days": {
+			"monday": "Lundi",
+			"tuesday": "Mardi",
+			"wednesday": "Mercredi",
+			"thursday": "Jeudi",
+			"friday": "Vendredi",
+			"saturday": "Samedi",
+			"sunday": "Dimanche"
+		},
+		"yes": "Oui",
+		"no": "Non",
+		"view": "Voir",
+		"daysUnit": "jours",
+		"backToServices": "Retour aux services",
+		"logoutConfirmTitle": "Se déconnecter ?",
+		"logoutConfirmDescription": "Vous allez être déconnecté de votre session. Vous devrez vous reconnecter pour accéder à votre espace.",
+		"retry": "Réessayer",
+		"birthDate": "Date de naissance",
+		"birthPlace": "Lieu de naissance",
+		"select": "Sélectionner",
+		"gender": {
+			"male": "Homme",
+			"female": "Femme"
+		},
+		"continue": "Continuer",
+		"info": "Informations",
+		"members": "Membres",
+		"settings": "Paramètres",
+		"dangerZone": "Zone dangereuse",
+		"decline": "Refuser",
+		"accept": "Accepter",
+		"other": "Autre",
+		"deleting": "Suppression...",
+		"required": "Obligatoire",
+		"optional": "Optionnel",
+		"saveAndContinue": "Enregistrer et continuer",
+		"today": "Aujourd'hui",
+		"yesterday": "Hier",
+		"country": {
+			"placeholder": "Sélectionner un pays",
+			"search": "Rechercher...",
+			"empty": "Aucun pays trouvé"
+		},
+		"selectOrg": "Sélectionnez une organisation",
+		"change": "Changer",
+		"saving": "Enregistrement...",
+		"enabled": "Activé",
+		"disabled": "Désactivé",
+		"viewAll": "Voir tout",
+		"reject": "Refuser",
+		"approve": "Approuver",
+		"create": "Créer",
+		"preview": "Aperçu",
+		"download": "Télécharger",
+		"share": "Partager",
+		"redirecting": "Redirection en cours...",
+		"email": "Email",
+		"password": "Mot de passe"
+	},
+	"settings": {
+		"notifications": {
+			"title": "Notifications",
+			"description": "Gérez vos préférences de notifications.",
+			"email": "Notifications par email",
+			"emailDesc": "Recevez des emails pour les mises à jour importantes.",
+			"push": "Notifications push",
+			"pushDesc": "Recevez des notifications sur votre appareil.",
+			"sms": "Notifications SMS",
+			"smsDesc": "Recevez des SMS pour les rendez-vous."
+		},
+		"display": {
+			"title": "Affichage",
+			"description": "Personnalisez l'apparence de l'application.",
+			"darkMode": "Mode sombre",
+			"darkModeDesc": "Activez le thème sombre pour réduire la fatigue visuelle."
+		},
+		"consularTheme": {
+			"title": "Thème de l'espace consulaire",
+			"description": "Choisissez le style visuel de votre espace.",
+			"default": "Classique",
+			"defaultDesc": "Style plat et moderne",
+			"homeomorphism": "Homéomorphisme",
+			"homeomorphismDesc": "Surfaces en relief et ombres douces"
+		},
+		"language": {
+			"title": "Langue",
+			"description": "Choisissez la langue de l'interface."
+		},
+		"privacy": {
+			"title": "Confidentialité",
+			"description": "Gérez vos paramètres de confidentialité.",
+			"analytics": "Analytiques",
+			"analyticsDesc": "Aidez-nous à améliorer l'application en partageant des données anonymes."
+		},
+		"account": {
+			"title": "Compte",
+			"description": "Gérez votre session."
+		},
+		"security": {
+			"accountInfo": "Informations du compte",
+			"accountInfoDesc": "Vos informations de connexion.",
+			"memberSince": "Membre depuis",
+			"changePassword": "Modifier le mot de passe",
+			"changePasswordDesc": "Mettez à jour votre mot de passe pour sécuriser votre compte.",
+			"currentPassword": "Mot de passe actuel",
+			"newPassword": "Nouveau mot de passe",
+			"confirmPassword": "Confirmer le nouveau mot de passe",
+			"revokeOtherSessions": "Déconnecter les autres sessions",
+			"revokeOtherSessionsDesc": "Déconnectez tous les autres appareils après le changement.",
+			"updatePassword": "Mettre à jour le mot de passe",
+			"changeSuccess": "Mot de passe modifié avec succès.",
+			"changeFailed": "Échec de la modification du mot de passe.",
+			"passwordMismatch": "Les mots de passe ne correspondent pas.",
+			"passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
+			"currentPasswordPlaceholder": "Laissez vide si vous n'en avez pas",
+			"currentPasswordHint": "Optionnel — uniquement si vous avez déjà un mot de passe.",
+			"noCredentialAccount": "Ce compte n'a pas de mot de passe. Connectez-vous par code OTP ou IDN pour accéder à votre compte.",
+			"orResetViaEmail": "ou réinitialiser par email",
+			"sendResetCode": "Envoyer un code de réinitialisation",
+			"otpSentTo": "Un code a été envoyé à {{email}}.",
+			"otpCode": "Code de vérification",
+			"resetPassword": "Réinitialiser le mot de passe",
+			"resetSuccess": "Mot de passe réinitialisé avec succès."
+		},
+		"memberPreferences": {
+			"title": "Mes préférences de membre",
+			"description": "Configurez vos préférences en tant que membre de cette organisation.",
+			"notifyOnNewRequest": "Nouvelles demandes",
+			"notifyOnNewRequestDesc": "Recevoir une notification lorsqu'une nouvelle demande arrive dans l'organisation.",
+			"notifyOnAssignment": "Assignations",
+			"notifyOnAssignmentDesc": "Recevoir une notification lorsqu'une demande vous est assignée.",
+			"dailyDigest": "Résumé quotidien",
+			"dailyDigestDesc": "Recevoir un résumé quotidien par email de l'activité de l'organisation.",
+			"updateSuccess": "Préférences mises à jour",
+			"updateError": "Erreur lors de la mise à jour des préférences",
+			"notMember": "Vous n'êtes pas membre de cette organisation."
+		}
+	},
+	"requests": {
+		"statuses": {
+			"draft": "Brouillon",
+			"pending": "En attente",
+			"processing": "En traitement",
+			"completed": "Terminée",
+			"cancelled": "Annulée",
+			"submitted": "Soumise",
+			"underReview": "En examen",
+			"inProduction": "En production",
+			"rejected": "Rejetée",
+			"appointment_scheduled": "RDV planifié",
+			"ready_for_pickup": "Prête à retirer",
+			"pending_completion": "Compléments requis",
+			"edited": "Modifiée",
+			"validated": "Validée"
+		},
+		"detail": {
+			"title": "Demande",
+			"newRequest": "Nouvelle demande",
+			"submittedOn": "Soumise le {{date}}",
+			"serviceInfo": "Informations du service",
+			"serviceName": "Service demandé",
+			"organization": "Organisme",
+			"attachments": "Pièces jointes",
+			"timeline": "Chronologie",
+			"created": "Créée",
+			"submitted": "Soumise",
+			"actions": "Actions",
+			"cancel": "Annuler la demande",
+			"delete": "Supprimer le brouillon",
+			"cancelled": "Demande annulée",
+			"deleted": "Brouillon supprimé",
+			"cancelError": "Erreur lors de l'opération",
+			"cancelConfirmTitle": "Annuler cette demande ?",
+			"deleteConfirmTitle": "Supprimer ce brouillon ?",
+			"cancelConfirmDesc": "Cette action est irréversible. La demande sera définitivement annulée.",
+			"deleteConfirmDesc": "Cette action est irréversible. Le brouillon et ses documents seront définitivement supprimés.",
+			"confirmCancel": "Confirmer l'annulation",
+			"confirmDelete": "Confirmer la suppression",
+			"appointmentScheduled": "Rendez-vous programmé",
+			"viewAppointment": "Voir le rendez-vous",
+			"orgContact": {
+				"title": "Organisme en charge",
+				"email": "Email",
+				"phone": "Téléphone",
+				"address": "Adresse",
+				"openingHours": "Horaires d'ouverture",
+				"callOrg": "Appeler l'organisme",
+				"callAction": {
+					"embassy": "Contacter l'ambassade",
+					"general_consulate": "Contacter le consulat général",
+					"consulate": "Contacter le consulat",
+					"honorary_consulate": "Contacter le consulat honoraire",
+					"high_commission": "Contacter le haut-commissariat",
+					"permanent_mission": "Contacter la mission",
+					"third_party": "Contacter le partenaire",
+					"other": "Contacter l'organisme",
+					"default": "Contacter l'organisme"
+				},
+				"noContact": "Aucune information de contact disponible",
+				"website": "Site web"
+			}
+		},
+		"draft": {
+			"subtitle": "Complétez et soumettez votre demande"
+		},
+		"preparingDraft": "Préparation de votre demande...",
+		"actionTypes": {
+			"documents": "Documents manquants",
+			"info": "Informations à compléter",
+			"appointment": "Rendez-vous à prendre",
+			"payment": "Paiement requis",
+			"confirm": "Confirmation requise"
+		},
+		"actionSent": "Réponse envoyée avec succès",
+		"actionError": "Erreur lors de l'envoi",
+		"required": "Requis",
+		"uploaded": "Téléchargé",
+		"confirmUpload": "J'ai téléchargé mes documents",
+		"sendInfo": "Envoyer mes informations",
+		"confirmAppointment": "J'ai pris rendez-vous",
+		"payNow": "Procéder au paiement",
+		"confirmAndSend": "Confirmer",
+		"actionCompleted": "Réponse envoyée",
+		"unknownService": "Service inconnu",
+		"unknownOrg": "Organisme",
+		"resumeDraft": "Reprendre la demande",
+		"chat": {
+			"title": "Messages",
+			"empty": "Aucun message pour le moment",
+			"attachFile": "Joindre un fichier"
+		},
+		"new": "Nouvelle demande",
+		"empty": {
+			"title": "Aucune demande",
+			"action": "Découvrir les services"
+		}
+	},
+	"requestDetail": {
+		"title": "Détail de la demande",
+		"formData": {
+			"title": "Données du formulaire",
+			"fieldsVerified": "champs vérifiés",
+			"allVerified": "Tout vérifié",
+			"empty": "Aucune donnée de formulaire"
+		},
+		"actionRequired": {
+			"title": "Action requise du citoyen",
+			"types": {
+				"documents": "Documents manquants",
+				"info": "Informations à compléter",
+				"appointment": "Rendez-vous à prendre",
+				"payment": "Paiement requis",
+				"confirm": "Confirmation requise"
+			}
+		},
+		"actionCompleted": {
+			"title": "Réponse reçue du citoyen",
+			"badge": "À traiter",
+			"description": "Le citoyen a fourni les éléments demandés. Vérifiez et validez sa réponse."
+		},
+		"agentAssignment": {
+			"title": "Agent assigné",
+			"unassigned": "Il n'y a pas d'agent assigné à cette demande pour le moment."
+		},
+		"agentAssigned": "Agent assigné avec succès",
+		"assignAgent": "Assigner à un agent...",
+		"notFound": "Demande introuvable",
+		"backToList": "Retour aux demandes",
+		"statusUpdated": "Statut mis à jour",
+		"unknownService": "Service inconnu",
+		"documents": {
+			"validated": "Document validé",
+			"rejected": "Document rejeté",
+			"validateError": "Erreur lors de la validation",
+			"rejectError": "Erreur lors du rejet"
+		},
+		"appointment": {
+			"title": "Rendez-vous associé",
+			"view": "Détails du rendez-vous"
+		},
+		"timeline": {
+			"title": "Historique"
+		},
+		"notes": {
+			"title": "Notes internes",
+			"empty": "Aucune note",
+			"aiAnalysis": "Analyse IA",
+			"confidence": "confiance",
+			"placeholder": "Ajouter une note...",
+			"added": "Note ajoutée",
+			"addError": "Erreur lors de l'ajout"
+		}
+	},
+	"payment": {
+		"title": "Paiement",
+		"pending": "Paiement en cours de traitement",
+		"required": "Paiement requis pour ce service",
+		"failed": "Le paiement a échoué. Veuillez réessayer.",
+		"successToast": "Paiement effectué avec succès !",
+		"error": "Erreur de paiement",
+		"success": "Paiement réussi !",
+		"successTitle": "Paiement réussi",
+		"processing": "Traitement...",
+		"initError": "Erreur d'initialisation",
+		"noSecret": "Impossible de créer le paiement",
+		"succeeded": "Réussi",
+		"refunded": "Remboursé"
+	},
+	"request": {
+		"submitted_success": "Demande soumise avec succès",
+		"submitted_description": "Vous recevrez une notification lorsque le statut changera.",
+		"appointment_required": "Veuillez maintenant prendre rendez-vous."
+	},
+	"appointment": {
+		"required_title": "Rendez-vous de dépôt requis",
+		"required_desc": "Un rendez-vous est nécessaire pour déposer votre dossier. Veuillez en réserver un.",
+		"book_now": "Prendre rendez-vous"
+	},
+	"error": {
+		"generic": "Erreur",
+		"request_failed": "Impossible de soumettre la demande.",
+		"createDraft": "Impossible de créer la demande"
+	},
+	"form": {
+		"fillWithAI": "Remplir avec l'IA",
+		"aiAssistantTitle": "Assistant IA",
+		"aiAssistantDescription": "Ouvrez l'assistant et demandez-lui de remplir le formulaire avec votre passeport.",
+		"upload_hint": "Glissez ou cliquez pour ajouter"
+	},
+	"header": {
+		"hours": "Lun-Ven: 9h00-16h00",
+		"nav": {
+			"home": "Accueil",
+			"news": "Actualités",
+			"consulates": "Consulats",
+			"faq": "FAQ",
+			"contact": "Contact",
+			"services": "Services",
+			"worldNetwork": "Réseau Mondial",
+			"information": "Information",
+			"academy": "Académie",
+			"community": "Communauté",
+			"profile": "Mon Profil",
+			"requests": "Mes Demandes",
+			"documents": "Mes Documents",
+			"appointments": "Mes Rendez-vous",
+			"dashboard": "Tableau de bord",
+			"mySpace": "Mon Espace",
+			"signIn": "Se connecter",
+			"signUp": "S'inscrire"
+		},
+		"switchSpace": "Changer d'espace",
+		"space": {
+			"admin": "Administration",
+			"adminDesc": "Tableau de bord super admin",
+			"citizen": "Espace Citoyen",
+			"citizenDesc": "Mon espace personnel"
+		},
+		"appointment": "Rendez-vous",
+		"bookAppointment": "Prendre Rendez-vous",
+		"openMenu": "Ouvrir le menu",
+		"closeMenu": "Fermer le menu",
+		"country": "République Gabonaise",
+		"language": {
+			"fr": "Français",
+			"en": "English"
+		}
+	},
+	"sidebar": {
+		"switchToAdmin": "Administration",
+		"switchToCitizen": "Espace Citoyen"
+	},
+	"mySpace": {
+		"title": "Mon Espace Consulaire",
+		"syncing": "Synchronisation de votre compte...",
+		"noProfile": {
+			"title": "Profil introuvable",
+			"message": "Vous n'avez pas encore de profil. Nous vous redirigeons vers l'espace d'inscription consulaire pour compléter votre profil et vous inscrire.",
+			"countdown": "Redirection dans {{seconds}}s..."
+		},
+		"header": {
+			"dossier": "Dossier N°",
+			"managedBy": "Géré par"
+		},
+		"screens": {
+			"index": {
+				"heading": "Tableau de bord",
+				"subtitle": "Gérez vos démarches consulaires depuis votre espace personnel."
+			},
+			"profile": {
+				"heading": "Mon profil",
+				"subtitle": "Gérez votre profil et vos informations personnelles."
+			},
+			"requests": {
+				"heading": "Mes demandes",
+				"subtitle": "Suivez l'avancement de vos demandes consulaires."
+			},
+			"documents": {
+				"heading": "Mes documents",
+				"subtitle": "Gérez vos documents officiels en ligne."
+			},
+			"appointments": {
+				"heading": "Mes rendez-vous",
+				"subtitle": "Prenez rendez-vous en ligne pour vos démarches consulaires."
+			},
+			"settings": {
+				"heading": "Paramètres",
+				"subtitle": "Personnalisez votre expérience et gérez vos préférences."
+			},
+			"notifications": {
+				"heading": "Notifications",
+				"subtitle": "Consultez vos alertes et mises à jour."
+			},
+			"services": {
+				"heading": "Services & Démarches",
+				"subtitle": "Découvrez et initiez vos démarches consulaires",
+				"searchPlaceholder": "Rechercher un service, document ou démarche...",
+				"trackRequests": "Suivre mes demandes",
+				"noResults": "Aucun service trouvé",
+				"noResultsDesc": "Aucun service ne correspond à votre recherche.",
+				"viewAll": "Voir tous les services",
+				"reset": "Réinitialiser",
+				"forQuery": "pour"
+			},
+			"iboite": {
+				"heading": "iBoîte",
+				"subtitle": "Votre messagerie consulaire sécurisée",
+				"comingSoon": "Fonctionnalité bientôt disponible",
+				"description": "iBoîte vous permettra de communiquer de manière sécurisée avec votre consulat, recevoir des notifications importantes et gérer votre correspondance officielle."
+			}
+		},
+		"nav": {
+			"navigation": "Navigation",
+			"dashboard": "Tableau de bord",
+			"profile": "iProfil",
+			"requests": "Démarches",
+			"timeline": "Suivi Timeline",
+			"documents": "iDocuments",
+			"iboite": "iBoîte",
+			"icv": "iCV",
+			"companies": "Entreprises",
+			"associations": "Associations",
+			"appointments": "Rendez-vous",
+			"settings": "Paramètres",
+			"collapse": "Réduire",
+			"expand": "Agrandir",
+			"catalog": "Catalogue",
+			"myRequests": "Mes demandes",
+			"vault": "Coffre-fort",
+			"sectionIdentity": "Mon identité",
+			"sectionServices": "Mes démarches",
+			"sectionDocuments": "Mes documents",
+			"sectionNetwork": "Mon réseau",
+			"sectionAssistance": "Assistance",
+			"support": "Support"
+		},
+		"actions": {
+			"reportTravel": "Signaler mon déplacement",
+			"newRequest": "Nouvelle demande"
+		},
+		"registration": {
+			"cta": "Faire mon inscription consulaire",
+			"dialog": {
+				"title": "Inscription consulaire",
+				"checking": "Recherche d'un organisme de rattachement...",
+				"orgFound": "Organisme de rattachement trouvé",
+				"readyDescription": "Un organisme consulaire a été trouvé pour votre pays de résidence.",
+				"confirmQuestion": "Souhaitez-vous envoyer votre demande d'inscription consulaire à cet organisme ?",
+				"send": "Envoyer ma demande",
+				"submitting": "Envoi de votre demande...",
+				"success": "Demande envoyée !",
+				"foundDescription": "Votre demande a été envoyée à {{orgName}}",
+				"reference": "Référence",
+				"confirm": "Fermer",
+				"notFound": "Aucun organisme disponible",
+				"notFoundDescription": "Aucun organisme consulaire n'offre ce service en ligne pour votre pays de résidence. Veuillez réessayer plus tard.",
+				"retry": "Réessayer plus tard",
+				"retryNow": "Réessayer"
+			}
+		},
+		"notification": {
+			"cta": "Signaler ma présence",
+			"dialog": {
+				"title": "Signalement consulaire",
+				"description": "Signalez votre déplacement temporaire auprès du consulat compétent.",
+				"selectCountry": "Dans quel pays vous rendez-vous ?",
+				"countryPlaceholder": "Sélectionner le pays de destination",
+				"searching": "Recherche du consulat compétent...",
+				"orgFound": "Consulat compétent trouvé",
+				"confirmMessage": "Confirmez-vous vouloir signaler votre présence auprès de ce consulat ?",
+				"confirm": "Confirmer le signalement",
+				"submitting": "Envoi de votre signalement...",
+				"success": "Signalement envoyé avec succès !",
+				"successOrg": "Consulat : {{orgName}}",
+				"reference": "Référence",
+				"notApplicable": "Le signalement n'est pas disponible pour votre profil.",
+				"notFound": "Aucun consulat compétent trouvé pour ce pays de destination.",
+				"unknownError": "Une erreur inconnue est survenue.",
+				"submissionFailed": "La soumission a échoué.",
+				"unexpectedError": "Erreur inattendue."
+			}
+		},
+		"consularCard": {
+			"title": "Carte Consulaire",
+			"active": "Active",
+			"validUntil": "Valide jusqu'au",
+			"viewCard": "Voir la carte",
+			"cardNumber": "Numéro",
+			"holder": "Titulaire",
+			"issuedAt": "Délivrée le",
+			"expiresAt": "Expire le",
+			"expired": "Expirée",
+			"renew": "Renouveler",
+			"pending": "En cours",
+			"notIssued": "Non émise",
+			"request": "Demander"
+		},
+		"currentRequest": {
+			"title": "Demande en cours",
+			"updated": "Mise à jour"
+		},
+		"communications": {
+			"viewAll": "Tout voir"
+		},
+		"upcomingAppointments": {
+			"title": "Prochains RDV"
+		},
+		"popularServices": {
+			"viewAll": "Tout voir"
+		}
+	},
+	"errors": {
+		"unauthorized": "Accès non autorisé",
+		"superadminRequired": "Vous n'avez pas les droits requis pour accéder à cette page.",
+		"insufficientPermissions": "Accès refusé",
+		"insufficientPermissionsDesc": "Vous n'avez pas les permissions nécessaires pour accéder à cette page. Contactez un administrateur si vous pensez que c'est une erreur.",
+		"genericError": "Une erreur est survenue",
+		"auth": {
+			"noAuthentication": "Authentification requise",
+			"pleaseSignIn": "Veuillez vous connecter pour accéder à votre espace.",
+			"welcomeBack": "Bon retour",
+			"accessAccount": "Accédez à votre compte services consulaires",
+			"createAccount": "Créer un compte",
+			"joinPlatform": "Rejoignez la plateforme des services consulaires",
+			"signInFailed": "Échec de la connexion. Vérifiez vos identifiants.",
+			"signUpFailed": "Échec de l'inscription. Veuillez réessayer.",
+			"noAccount": "Pas encore de compte ?",
+			"alreadyHaveAccount": "Vous avez déjà un compte ?",
+			"signIn": "Se connecter",
+			"signUp": "S'inscrire",
+			"orDivider": "ou",
+			"signInWithIDN": "Se connecter avec Identite.ga",
+			"emailOrPhone": "Email ou téléphone",
+			"otp": {
+				"sendCode": "Recevoir un code par email",
+				"sendCodeBySms": "Recevoir un code par SMS",
+				"signInWithPassword": "Se connecter avec mot de passe",
+				"codeSent": "Un code de vérification a été envoyé à",
+				"smsCodeSent": "Un code SMS a été envoyé au",
+				"codeLabel": "Code de vérification",
+				"resendCode": "Renvoyer le code",
+				"sendFailed": "Échec de l'envoi du code. Veuillez réessayer.",
+				"invalidCode": "Code invalide ou expiré. Veuillez réessayer.",
+				"forgotPassword": "Mot de passe oublié ?",
+				"phoneNotFound": "Aucun compte trouvé avec ce numéro.",
+				"expired": "Le code a expiré. Veuillez en demander un nouveau."
+			},
+			"invalidCredentials": "Email ou mot de passe incorrect."
+		},
+		"appointments": {
+			"notFound": "Rendez-vous introuvable",
+			"slotNotAvailable": "Ce créneau horaire n'est pas disponible",
+			"cannotReschedule": "Impossible de reprogrammer ce rendez-vous"
+		},
+		"users": {
+			"notFound": "Utilisateur introuvable"
+		},
+		"admin": {
+			"cannotDemoteSelf": "Vous ne pouvez pas rétrograder votre propre compte",
+			"cannotDisableSelf": "Vous ne pouvez pas désactiver votre propre compte"
+		},
+		"orgs": {
+			"notFound": "Organisation introuvable",
+			"slugExists": "Ce slug d'organisation existe déjà",
+			"memberAlreadyExists": "Cet utilisateur est déjà membre de cette organisation",
+			"memberNotFound": "Cet utilisateur n'est pas membre de cette organisation",
+			"cannotRemoveSelf": "Vous ne pouvez pas vous retirer de l'organisation"
+		},
+		"services": {
+			"notFound": "Service introuvable",
+			"slugExists": "Ce slug de service existe déjà",
+			"alreadyActivated": "Ce service est déjà activé pour cette organisation",
+			"notAvailable": "Ce service n'est pas disponible actuellement"
+		},
+		"requests": {
+			"notFound": "Demande introuvable",
+			"notAuthorizedToSubmit": "Vous n'êtes pas autorisé à soumettre cette demande",
+			"notAuthorizedToCancel": "Vous n'êtes pas autorisé à annuler cette demande",
+			"onlyDraftCanBeSubmitted": "Seules les demandes en brouillon peuvent être soumises",
+			"onlyStaffCanAddInternalNotes": "Seul le personnel peut ajouter des notes internes",
+			"cannotCancelProcessing": "Impossible d'annuler une demande en cours de traitement"
+		},
+		"fields": {
+			"firstName": {
+				"min": "Le prénom doit contenir au moins 2 caractères"
+			}
+		},
+		"field": {
+			"required": "Ce champ est obligatoire",
+			"firstName": {
+				"min": "Le prénom doit contenir au moins 2 caractères"
+			},
+			"lastName": {
+				"min": "Le nom doit contenir au moins 2 caractères"
+			},
+			"birthDate": {
+				"required": "La date de naissance est requise"
+			},
+			"birthPlace": {
+				"min": "Le lieu de naissance doit contenir au moins 2 caractères"
+			},
+			"email": {
+				"invalid": "Email invalide"
+			},
+			"phone": {
+				"invalid": "Format attendu : +33 6 XX XX XX XX"
+			},
+			"number": {
+				"invalid": "Nombre invalide"
+			},
+			"date": {
+				"invalid": "Date invalide"
+			},
+			"document": {
+				"required": "Document requis"
+			},
+			"country": {
+				"invalid": "Pays invalide"
+			},
+			"gender": {
+				"invalid": "Genre invalide"
+			},
+			"address": {
+				"street": {
+					"min": "L'adresse doit contenir au moins 3 caractères"
+				},
+				"city": {
+					"min": "La ville doit contenir au moins 2 caractères"
+				}
+			},
+			"terms": {
+				"required": "Vous devez accepter les conditions"
+			}
+		},
+		"profile": {
+			"addresses": {
+				"street": {
+					"required": "L'adresse est requise"
+				},
+				"city": {
+					"required": "La ville est requise"
+				},
+				"postalCode": {
+					"required": "Le code postal est requis"
+				},
+				"country": {
+					"invalid": "Pays invalide"
+				}
+			},
+			"contacts": {
+				"email": {
+					"invalid": "Email invalide"
+				},
+				"emergency": {
+					"firstName": {
+						"min": "Le prénom doit contenir au moins 2 caractères"
+					},
+					"lastName": {
+						"min": "Le nom doit contenir au moins 2 caractères"
+					},
+					"phone": {
+						"required": "Le numéro de téléphone est requis"
+					},
+					"email": {
+						"invalid": "Email invalide"
+					},
+					"relationship": {
+						"invalid": "Lien de parenté invalide"
+					}
+				}
+			},
+			"family": {
+				"maritalStatus": {
+					"invalid": "Statut matrimonial invalide"
+				},
+				"parent": {
+					"firstName": {
+						"min": "Le prénom doit contenir au moins 2 caractères"
+					},
+					"lastName": {
+						"min": "Le nom doit contenir au moins 2 caractères"
+					}
+				},
+				"spouse": {
+					"firstName": {
+						"required": "Le prénom du conjoint est requis"
+					},
+					"lastName": {
+						"required": "Le nom du conjoint est requis"
+					}
+				}
+			},
+			"identity": {
+				"firstName": {
+					"min": "Le prénom doit contenir au moins 2 caractères"
+				},
+				"lastName": {
+					"min": "Le nom doit contenir au moins 2 caractères"
+				},
+				"birthDate": {
+					"past": "La date de naissance doit être dans le passé",
+					"adult": "Vous devez être majeur"
+				},
+				"birthPlace": {
+					"min": "Le lieu de naissance doit contenir au moins 2 caractères"
+				},
+				"birthCountry": {
+					"invalid": "Pays de naissance invalide"
+				},
+				"gender": {
+					"invalid": "Genre invalide"
+				},
+				"nationality": {
+					"invalid": "Nationalité invalide"
+				},
+				"nationalityAcquisition": {
+					"invalid": "Mode d'acquisition invalide"
+				}
+			},
+			"passportInfo": {
+				"number": {
+					"min": "Le numéro de passeport doit contenir au moins 6 caractères"
+				},
+				"issueDate": {
+					"past": "La date de délivrance doit être dans le passé"
+				},
+				"expiryDate": {
+					"future": "La date d'expiration doit être dans le futur",
+					"afterIssue": "La date d'expiration doit être après la date de délivrance"
+				},
+				"issuingAuthority": {
+					"min": "L'autorité de délivrance doit contenir au moins 2 caractères"
+				}
+			},
+			"countryOfResidence": {
+				"invalid": "Pays de résidence invalide"
+			},
+			"profession": {
+				"status": {
+					"invalid": "Statut professionnel invalide"
+				}
+			}
+		}
+	},
+	"superadmin": {
+		"nav": {
+			"dashboard": "Tableau de bord",
+			"users": "Utilisateurs",
+			"allUsers": "Tous les utilisateurs",
+			"organizations": "Organisations",
+			"allOrganizations": "Toutes les organisations",
+			"newOrganization": "Nouvelle organisation",
+			"roles": "Rôles & Permissions",
+			"rolesCatalog": "Catalogue des rôles",
+			"services": "Services",
+			"commonServices": "Services communs",
+			"auditLogs": "Journaux d'audit",
+			"settings": "Paramètres",
+			"support": "Support & Tickets",
+			"posts": "Actualités",
+			"tutorials": "Tutoriels",
+			"events": "Événements",
+			"associationClaims": "Revendications Associations",
+			"requests": "Demandes"
+		},
+		"roles": {
+			"title": "Système de Rôles & Permissions",
+			"subtitle": "Configuration modulaire des rôles, tâches et postes par type d'organisme",
+			"tabs": {
+				"overview": "Vue d'ensemble",
+				"modules": "Modules de rôle",
+				"templates": "Templates d'organisme",
+				"tasks": "Catalogue de tâches",
+				"orgs": "Organismes"
+			},
+			"stats": {
+				"tasks": "Tâches",
+				"atomicPermissions": "Permissions atomiques",
+				"modules": "Modules de rôle",
+				"taskGroups": "Groupes de tâches",
+				"templates": "Templates",
+				"orgModels": "Modèles d'organisme",
+				"positions": "Postes définis",
+				"acrossTemplates": "Sur tous les templates"
+			},
+			"architecture": {
+				"title": "Architecture du Système",
+				"description": "Comment les tâches, modules, postes et organismes s'articulent"
+			},
+			"arch": {
+				"tasks": "Tâches",
+				"total": "au total",
+				"tasksDesc": "Permissions atomiques — une action précise sur une ressource",
+				"modules": "Modules de Rôle",
+				"modulesDesc": "Groupes fonctionnels de tâches — peuvent être combinés",
+				"positions": "Postes",
+				"positionsDesc": "Un poste = un titre + plusieurs modules de rôle",
+				"templatesDesc": "Configurations types prêtes à l'emploi par type d'organisme",
+				"level": "Niveau {{level}}"
+			},
+			"riskMatrix": {
+				"title": "Matrice des Risques",
+				"description": "Répartition des tâches par niveau de risque"
+			},
+			"risk": {
+				"low": "Bas",
+				"medium": "Moyen",
+				"high": "Élevé",
+				"critical": "Critique"
+			},
+			"more": "autres",
+			"modules": {
+				"title": "Modules de Rôle Système",
+				"subtitle": "modules définissant les groupes de permissions",
+				"label": "modules"
+			},
+			"taskCount": "tâches",
+			"system": "Système",
+			"templates": {
+				"title": "Templates d'Organisme",
+				"select": "Choisir un template..."
+			},
+			"postsCount": "postes",
+			"required": "obligatoire",
+			"modulesUsed": "modules utilisés",
+			"assignedModules": "Modules de rôle attribués",
+			"allTasks": "Toutes les tâches",
+			"tasks": {
+				"title": "Catalogue de Tâches",
+				"subtitle": "permissions atomiques regroupées par catégorie"
+			},
+			"orgs": {
+				"title": "Gestion par organisme",
+				"select": "Sélectionner un organisme...",
+				"search": "Rechercher un organisme...",
+				"notFound": "Aucun organisme trouvé.",
+				"prompt": "Sélectionnez un organisme pour gérer ses postes, directions et modules."
+			}
+		},
+		"dashboard": {
+			"title": "Centre de Commandement",
+			"welcome": "Vue stratégique globale",
+			"stats": {
+				"users": "Ressortissants",
+				"totalUsers": "Comptes actifs",
+				"organizations": "Représentations",
+				"consulatesEmbassies": "Consulats et ambassades",
+				"services": "Services",
+				"availableServices": "Services disponibles",
+				"requests": "Demandes",
+				"pendingRequests": "Total des demandes",
+				"registrations": "Inscriptions",
+				"totalRegistrations": "Inscriptions consulaires"
+			},
+			"recentActivity": "Activité récente",
+			"recentActivityDesc": "Dernières actions effectuées sur la plateforme",
+			"requestsByStatus": "Demandes par statut",
+			"requestsByStatusDesc": "Répartition des demandes selon leur statut de traitement",
+			"recentRequests": "Demandes récentes",
+			"recentRequestsDesc": "Les 10 dernières demandes sur la plateforme",
+			"viewAll": "Voir tout",
+			"quickActions": "Actions rapides",
+			"quickActionsDesc": "Raccourcis vers les tâches courantes",
+			"addUser": "Ajouter un utilisateur",
+			"addOrg": "Ajouter une organisation",
+			"addService": "Ajouter un service",
+			"viewLogs": "Voir les journaux",
+			"security": {
+				"title": "Sécurité & Alertes",
+				"description": "Surveillance réseau, cyber-sécurité et intrusions"
+			},
+			"deployment": {
+				"title": "Déploiement des Représentations",
+				"description": "Couverture géographique et progression du réseau diplomatique"
+			}
+		},
+		"users": {
+			"title": "Utilisateurs",
+			"description": "Gérer les utilisateurs de la plateforme et leurs rôles",
+			"columns": {
+				"avatar": "Avatar",
+				"name": "Nom",
+				"email": "Email",
+				"phone": "Téléphone",
+				"role": "Rôle",
+				"residenceCountry": "Pays de résidence",
+				"status": "Statut",
+				"createdAt": "Créé le",
+				"actions": "Actions"
+			},
+			"filters": {
+				"allRoles": "Tous les rôles",
+				"allStatus": "Tous les statuts",
+				"active": "Actif",
+				"inactive": "Inactif",
+				"searchPlaceholder": "Rechercher des utilisateurs..."
+			},
+			"actions": {
+				"editRole": "Modifier le rôle",
+				"enable": "Activer",
+				"disable": "Désactiver",
+				"viewDetails": "Voir les détails"
+			},
+			"roles": {
+				"user": "Utilisateur",
+				"superadmin": "Super Admin"
+			},
+			"roleDialog": {
+				"title": "Modifier le rôle de l'utilisateur",
+				"description": "Sélectionnez un nouveau rôle pour {{name}}",
+				"confirm": "Confirmer",
+				"cancel": "Annuler"
+			},
+			"noResults": "Aucun utilisateur trouvé",
+			"details": {
+				"infos": "Informations",
+				"organizations": "Organisations",
+				"orgMembership": "Appartenance aux organisations",
+				"activity": "Activité récente",
+				"lastActions": "Les 10 dernières actions",
+				"nationality": "Nationalité",
+				"residence": "Pays de résidence",
+				"registered": "Inscrit le",
+				"verified": "vérifié",
+				"unverified": "non vérifié",
+				"since": "Depuis le",
+				"noOrg": "Aucune organisation",
+				"noActivity": "Aucune activité"
+			}
+		},
+		"organizations": {
+			"title": "Organisations",
+			"description": "Gérer les consulats, ambassades et organisations",
+			"columns": {
+				"logo": "Logo",
+				"name": "Nom",
+				"slug": "Slug",
+				"type": "Type",
+				"address": "Adresse",
+				"contact": "Contact",
+				"membersCount": "Membres",
+				"status": "Statut",
+				"createdAt": "Créé le",
+				"actions": "Actions"
+			},
+			"types": {
+				"consulate": "Consulat",
+				"embassy": "Ambassade",
+				"ministry": "Ministère",
+				"other": "Autre",
+				"general_consulate": "Consulat Général",
+				"honorary_consulate": "Consulat Honoraire",
+				"permanent_mission": "Mission Permanente",
+				"high_commission": "Haut-Commissariat",
+				"third_party": "Tiers"
+			},
+			"filters": {
+				"allTypes": "Tous les types",
+				"allCountries": "Tous les pays",
+				"searchPlaceholder": "Rechercher des organisations..."
+			},
+			"actions": {
+				"view": "Voir",
+				"edit": "Modifier",
+				"manageMembers": "Gérer les membres",
+				"manageServices": "Gérer les services",
+				"enable": "Activer",
+				"disable": "Désactiver"
+			},
+			"form": {
+				"create": "Créer une organisation",
+				"edit": "Modifier l'organisation",
+				"name": "Nom",
+				"namePlaceholder": "ex. Consulat du Gabon à Paris",
+				"slug": "Slug",
+				"slugPlaceholder": "ex. gabon-paris",
+				"slugHelp": "Identifiant URL (généré automatiquement à partir du nom)",
+				"type": "Type",
+				"address": "Adresse",
+				"street": "Rue",
+				"street2": "Rue 2 (optionnel)",
+				"city": "Ville",
+				"postalCode": "Code postal",
+				"state": "État/Province (optionnel)",
+				"country": "Pays",
+				"contact": "Contact",
+				"email": "Email",
+				"phone": "Téléphone",
+				"website": "Site web",
+				"timezone": "Fuseau horaire",
+				"jurisdiction": "Juridiction",
+				"jurisdictionPlaceholder": "Ajouter un pays...",
+				"logoUrl": "URL du Logo",
+				"advancedConfig": "Configuration Avancée",
+				"appointmentDelay": "Délai RDV (heures)",
+				"maxActiveRequests": "Max Demandes Actives",
+				"typeReadonly": "Le type d'organisation ne peut pas être modifié.",
+				"save": "Enregistrer",
+				"saving": "Enregistrement...",
+				"cancel": "Annuler",
+				"error": {
+					"nameLength": "Le nom doit contenir au moins 3 caractères",
+					"slugLength": "Le slug doit contenir au moins 2 caractères",
+					"addressRequired": "La rue, la ville et le pays sont requis"
+				}
+			},
+			"detail": {
+				"tabs": {
+					"details": "Détails",
+					"members": "Membres",
+					"services": "Services"
+				}
+			},
+			"tabs": {
+				"overview": "Vue d'ensemble",
+				"members": "Membres",
+				"services": "Services"
+			},
+			"details": "Détails de l'organisation",
+			"detailsDesc": "Informations supplémentaires sur cette organisation",
+			"servicesDesc": "Services proposés par cette organisation",
+			"noResults": "Aucune organisation trouvée"
+		},
+		"members": {
+			"title": "Membres de l'organisation",
+			"description": "Gérer les membres de cette organisation",
+			"columns": {
+				"user": "Utilisateur",
+				"role": "Rôle",
+				"joinedAt": "Rejoint le",
+				"actions": "Actions"
+			},
+			"roles": {
+				"admin": "Administrateur",
+				"agent": "Agent",
+				"viewer": "Observateur"
+			},
+			"actions": {
+				"changeRole": "Modifier le rôle",
+				"remove": "Retirer"
+			},
+			"addMember": "Ajouter un membre",
+			"addMemberDialog": {
+				"title": "Ajouter un membre",
+				"description": "Ajouter un utilisateur à cette organisation",
+				"searchUser": "Rechercher un utilisateur",
+				"selectRole": "Sélectionner un rôle",
+				"add": "Ajouter",
+				"cancel": "Annuler"
+			},
+			"noMembers": "Aucun membre dans cette organisation"
+		},
+		"orgMembers": {
+			"title": "Membres de l'organisation",
+			"description": "Gérer les membres de cette organisation",
+			"addMember": "Ajouter un membre",
+			"addMemberDesc": "Rechercher un utilisateur ou créer un nouveau compte pour l'ajouter à cette organisation",
+			"removeMember": "Retirer le membre",
+			"memberRemoved": "Membre retiré avec succès",
+			"memberAdded": "Membre ajouté avec succès",
+			"emailRequired": "L'email est requis",
+			"noMembers": "Aucun membre dans cette organisation",
+			"roles": {
+				"admin": "Administrateur",
+				"agent": "Agent",
+				"viewer": "Observateur"
+			},
+			"tabs": {
+				"existing": "Utilisateur existant",
+				"new": "Nouvel utilisateur"
+			},
+			"searchPlaceholder": "Rechercher par nom ou email...",
+			"noUsersFound": "Aucun utilisateur trouvé",
+			"selectUser": "Sélectionner un utilisateur",
+			"newUser": {
+				"firstName": "Prénom",
+				"lastName": "Nom",
+				"email": "Email",
+				"create": "Créer et ajouter"
+			}
+		},
+		"services": {
+			"title": "Services",
+			"description": "Gérer le catalogue global des services",
+			"tabs": {
+				"commonServices": "Services communs",
+				"orgServices": "Services des organisations"
+			},
+			"columns": {
+				"name": "Nom",
+				"slug": "Slug",
+				"category": "Catégorie",
+				"description": "Description",
+				"documentsCount": "Documents requis",
+				"status": "Statut",
+				"createdAt": "Créé le",
+				"actions": "Actions"
+			},
+			"table": {
+				"fee": "Frais",
+				"appointmentRequired": "RDV requis"
+			},
+			"categories": {
+				"passport": "Passeport",
+				"visa": "Visa",
+				"civil_status": "État civil",
+				"registration": "Inscription consulaire",
+				"legalization": "Légalisation",
+				"emergency": "Urgence",
+				"other": "Autre"
+			},
+			"status": {
+				"active": "Actif",
+				"inactive": "Inactif"
+			},
+			"filters": {
+				"allCategories": "Toutes les catégories",
+				"searchPlaceholder": "Rechercher des services..."
+			},
+			"actions": {
+				"edit": "Modifier",
+				"enable": "Activer",
+				"disable": "Désactiver",
+				"activate": "Activer"
+			},
+			"form": {
+				"create": "Créer un service",
+				"edit": "Modifier le service",
+				"name": "Nom",
+				"slug": "Slug",
+				"category": "Catégorie",
+				"description": "Description",
+				"requiredDocuments": "Documents requis",
+				"addDocument": "Ajouter un document",
+				"documentName": "Nom du document",
+				"documentDescription": "Description (optionnel)",
+				"isRequired": "Obligatoire",
+				"save": "Enregistrer",
+				"cancel": "Annuler",
+				"icon": "Icône (Nom Lucide / URL)",
+				"schema": "Schéma du formulaire (JSON)",
+				"noDocuments": "Aucun document requis",
+				"success": "Service créé avec succès",
+				"updated": "Service mis à jour"
+			},
+			"dialog": {
+				"title": "Activer un service",
+				"description": "Sélectionnez un service du catalogue à activer pour cette organisation",
+				"allActivated": "Tous les services sont déjà activés",
+				"selectPlaceholder": "Sélectionner un service...",
+				"feeLabel": "Frais",
+				"currencyLabel": "Devise",
+				"appointmentLabel": "Rendez-vous requis",
+				"submit": "Activer",
+				"submitting": "Activation..."
+			},
+			"empty": {
+				"org": "Aucun service activé pour cette organisation"
+			},
+			"formBuilder": {
+				"title": "Formulaire de demande",
+				"addField": "Ajouter un champ",
+				"fieldTypes": {
+					"text": "Texte",
+					"email": "Email",
+					"phone": "Téléphone",
+					"date": "Date",
+					"select": "Sélection",
+					"file": "Fichier",
+					"checkbox": "Case à cocher",
+					"textarea": "Zone de texte",
+					"number": "Nombre"
+				},
+				"aiAssistant": "Assistant IA",
+				"aiPlaceholder": "Décrivez le service pour générer automatiquement les champs du formulaire...",
+				"generating": "Génération...",
+				"generate": "Générer le formulaire",
+				"formFields": "Champs du formulaire",
+				"noFields": "Aucun champ ajouté",
+				"clickToAdd": "Cliquez sur un type de champ pour commencer",
+				"untitled": "Sans titre",
+				"required": "Requis",
+				"editField": "Éditer le champ",
+				"selectField": "Sélectionnez un champ",
+				"selectFieldPrompt": "Sélectionnez un champ pour l'éditer",
+				"label": "Label",
+				"labelPlaceholder": "Ex: Date de naissance",
+				"description": "Description",
+				"descriptionPlaceholder": "Aide contextuelle",
+				"requiredField": "Champ obligatoire",
+				"options": "Options",
+				"addOption": "Ajouter",
+				"value": "Valeur"
+			},
+			"noResults": "Aucun service trouvé"
+		},
+		"auditLogs": {
+			"title": "Journaux d'audit",
+			"description": "Voir toutes les actions administratives",
+			"columns": {
+				"timestamp": "Date et heure",
+				"user": "Utilisateur",
+				"action": "Action",
+				"targetType": "Type de cible",
+				"targetId": "ID de cible",
+				"details": "Détails"
+			},
+			"actions": {
+				"user_created": "Utilisateur créé",
+				"user_updated": "Utilisateur modifié",
+				"user_disabled": "Utilisateur désactivé",
+				"user_role_changed": "Rôle modifié",
+				"org_created": "Organisation créée",
+				"org_updated": "Organisation modifiée",
+				"org_disabled": "Organisation désactivée",
+				"service_created": "Service créé",
+				"service_updated": "Service modifié",
+				"request_status_changed": "Statut de demande modifié"
+			},
+			"filters": {
+				"allActions": "Toutes les actions",
+				"allTargets": "Toutes les cibles",
+				"searchPlaceholder": "Rechercher dans les journaux..."
+			},
+			"noResults": "Aucun journal d'audit trouvé"
+		},
+		"settings": {
+			"title": "Paramètres de la plateforme",
+			"description": "Gérer les paramètres globaux de l'application Consulat.ga",
+			"tabs": {
+				"general": "Général",
+				"notifications": "Notifications",
+				"security": "Sécurité"
+			},
+			"general": {
+				"title": "Informations générales",
+				"description": "Détails de base sur la configuration de la plateforme",
+				"siteName": "Nom du site",
+				"adminEmail": "Email administrateur"
+			},
+			"notifications": {
+				"title": "Paramètres de notification",
+				"description": "Configurer les notifications par email et push pour tout le système"
+			},
+			"security": {
+				"title": "Paramètres de sécurité",
+				"description": "Gérer les politiques de sécurité et les contrôles d'accès"
+			}
+		},
+		"table": {
+			"logo": "Logo",
+			"location": "Lieu",
+			"contact": "Contact",
+			"status": "Statut",
+			"created": "Créé le",
+			"actions": "Actions",
+			"avatar": "Avatar",
+			"phone": "Téléphone",
+			"rowsPerPage": "Lignes par page",
+			"page": "Page",
+			"of": "sur",
+			"selected": "{{count}} sélectionné(s)",
+			"noResults": "Aucun résultat",
+			"columns": "Colonnes",
+			"previousPage": "Page précédente",
+			"nextPage": "Page suivante",
+			"firstPage": "Première page",
+			"lastPage": "Dernière page",
+			"createdAt": "Créé le",
+			"updatedAt": "Mis à jour le"
+		},
+		"types": {
+			"consulate": "Consulat",
+			"general_consulate": "Consulat Général",
+			"embassy": "Ambassade",
+			"ministry": "Ministère",
+			"other": "Autre"
+		},
+		"common": {
+			"loading": "Chargement...",
+			"view": "Voir",
+			"error": "Une erreur s'est produite",
+			"retry": "Réessayer",
+			"save": "Enregistrer",
+			"cancel": "Annuler",
+			"delete": "Supprimer",
+			"edit": "Modifier",
+			"create": "Créer",
+			"search": "Rechercher",
+			"filter": "Filtrer",
+			"reset": "Réinitialiser",
+			"noData": "Aucune donnée disponible",
+			"confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+			"active": "Actif",
+			"inactive": "Inactif",
+			"enabled": "Activé",
+			"disabled": "Désactivé",
+			"back": "Retour",
+			"comingSoon": "Bientôt disponible",
+			"yes": "Oui",
+			"no": "Non"
+		},
+		"countryCodes": {
+			"AD": "Andorre",
+			"AE": "Émirats arabes unis",
+			"AF": "Afghanistan",
+			"AG": "Antigua-et-Barbuda",
+			"AI": "Anguilla",
+			"AL": "Albanie",
+			"AM": "Arménie",
+			"AO": "Angola",
+			"AQ": "Antarctique",
+			"AR": "Argentine",
+			"AS": "Samoa américaines",
+			"AT": "Autriche",
+			"AU": "Australie",
+			"AW": "Aruba",
+			"AX": "Îles Åland",
+			"BE": "Belgique",
+			"BF": "Burkina Faso",
+			"BG": "Bulgarie",
+			"BH": "Bahreïn",
+			"BI": "Burundi",
+			"BJ": "Bénin",
+			"BR": "Brésil",
+			"CA": "Canada",
+			"CD": "République démocratique du Congo",
+			"CF": "République centrafricaine",
+			"CG": "République du Congo",
+			"CH": "Suisse",
+			"CI": "Côte d’Ivoire",
+			"CL": "Chili",
+			"CM": "Cameroun",
+			"CN": "Chine",
+			"CO": "Colombie",
+			"CR": "Costa Rica",
+			"CU": "Cuba",
+			"DE": "Allemagne",
+			"DK": "Danemark",
+			"DZ": "Algérie",
+			"EG": "Égypte",
+			"ES": "Espagne",
+			"ET": "Éthiopie",
+			"FI": "Finlande",
+			"FR": "France",
+			"GA": "Gabon",
+			"GB": "Royaume-Uni",
+			"GH": "Ghana",
+			"GN": "Guinée",
+			"GR": "Grèce",
+			"IE": "Irlande",
+			"IL": "Israël",
+			"IN": "Inde",
+			"IR": "Iran",
+			"IT": "Italie",
+			"JP": "Japon",
+			"KE": "Kenya",
+			"KR": "Corée du Sud",
+			"MA": "Maroc",
+			"ML": "Mali",
+			"MX": "Mexique",
+			"NG": "Nigéria",
+			"NL": "Pays-Bas",
+			"NO": "Norvège",
+			"PL": "Pologne",
+			"PT": "Portugal",
+			"RO": "Roumanie",
+			"RU": "Russie",
+			"SA": "Arabie saoudite",
+			"SE": "Suède",
+			"SN": "Sénégal",
+			"ZA": "Afrique du Sud"
+		},
+		"requests": {
+			"title": "Toutes les demandes",
+			"table": {
+				"reference": "Référence",
+				"org": "Organisme",
+				"service": "Service",
+				"requester": "Demandeur",
+				"date": "Date",
+				"status": "Statut",
+				"actions": "Actions"
+			},
+			"view": "Voir",
+			"loadMore": "Charger plus"
+		},
+		"tutorials": {
+			"title": "Tutoriels",
+			"new": "Nouveau tutoriel",
+			"search": "Rechercher...",
+			"newTitle": "Nouveau tutoriel"
+		}
+	},
+	"dashboard": {
+		"nav": {
+			"dashboard": "Tableau de bord",
+			"services": "Services",
+			"requests": "Demandes",
+			"appointments": "Rendez-vous",
+			"team": "Équipe",
+			"settings": "Paramètres"
+		},
+		"home": {
+			"title": "Tableau de bord",
+			"welcome": "Bienvenue sur le tableau de bord de {{orgName}}",
+			"description": "Ceci est votre espace de gestion centralisé. Utilisez le menu latéral pour gérer vos services, traiter les demandes et configurer votre organisation.",
+			"stats": {
+				"pendingRequests": "Demandes en attente",
+				"pendingRequestsDesc": "+0% depuis le mois dernier",
+				"teamMembers": "Membres de l'équipe",
+				"teamMembersDesc": "Actifs dans cette organisation",
+				"activeServices": "Services Actifs",
+				"activeServicesDesc": "Services configurés",
+				"upcomingAppointments": "Rendez-vous à venir",
+				"upcomingAppointmentsDesc": "Programmés ou confirmés"
+			}
+		},
+		"services": {
+			"title": "Services",
+			"description": "Configurez les services proposés par votre organisation",
+			"listTitle": "Catalogue des services",
+			"listDescription": "Activez et configurez les services que vous souhaitez proposer",
+			"activate": "Activer un service",
+			"activated": "Service activé avec succès",
+			"columns": {
+				"service": "Service",
+				"category": "Catégorie",
+				"fee": "Tarif",
+				"status": "Statut"
+			},
+			"configure": "Configurer",
+			"notConfigured": "Non configuré",
+			"configureFirst": "Veuillez d'abord configurer ce service",
+			"statusUpdated": "Statut mis à jour",
+			"updateError": "Erreur lors de la mise à jour",
+			"empty": {
+				"title": "Aucun service activé",
+				"description": "Commencez par activer un service du catalogue pour votre organisation."
+			},
+			"dialog": {
+				"title": "Activer un service",
+				"description": "Sélectionnez un service du catalogue à activer pour votre organisation",
+				"selectService": "Service à activer",
+				"selectPlaceholder": "Sélectionner un service...",
+				"allActivated": "Tous les services sont déjà activés",
+				"fee": "Frais de dossier",
+				"currency": "Devise",
+				"submit": "Activer le service"
+			},
+			"edit": {
+				"title": "Modifier le service",
+				"serviceInfo": "Informations du service",
+				"activate": "Activer le service",
+				"fee": "Frais de dossier",
+				"estimatedDays": "Délai estimé (jours)",
+				"requiresAppointment": "Nécessite un rendez-vous",
+				"instructions": "Instructions spécifiques",
+				"instructionsPlaceholder": "Instructions détaillées pour le demandeur...",
+				"save": "Enregistrer les modifications",
+				"saved": "Service mis à jour avec succès",
+				"saveError": "Erreur lors de la mise à jour du service",
+				"noOrgError": "Organisation introuvable",
+				"back": "Retour",
+				"tabs": {
+					"general": "Général",
+					"form": "Formulaire"
+				}
+			},
+			"status": {
+				"active": "Activé",
+				"inactive": "Désactivé",
+				"notActivated": "Non activé"
+			}
+		},
+		"team": {
+			"title": "Équipe",
+			"description": "Gérez les membres de votre organisation et leurs permissions",
+			"addMember": "Ajouter un membre",
+			"cardTitle": "Membres de l'organisation",
+			"cardDescription": "Liste des utilisateurs ayant accès à ce tableau de bord.",
+			"columns": {
+				"user": "Utilisateur",
+				"role": "Rôle",
+				"joinedAt": "Date d'ajout",
+				"actions": "Actions"
+			},
+			"actions": {
+				"changeRole": "Changer le rôle",
+				"remove": "Retirer",
+				"permissions": "Permissions",
+				"unassign": "Retirer du poste"
+			},
+			"confirmRemove": "Êtes-vous sûr de vouloir retirer ce membre ?",
+			"memberRemoved": "Membre retiré",
+			"removeError": "Erreur lors de la suppression",
+			"roles": {
+				"admin": "Administrateur",
+				"agent": "Agent Consulaire",
+				"viewer": "Observateur"
+			},
+			"addDialog": {
+				"title": "Ajouter un membre",
+				"description": "Ajoutez un utilisateur existant ou créez un nouveau compte pour votre équipe.",
+				"existingTab": "Utilisateur existant",
+				"newTab": "Nouveau compte",
+				"searchLabel": "Recherche par email",
+				"searchPlaceholder": "exemple@email.com",
+				"noUsersFound": "Aucun utilisateur trouvé",
+				"selectUser": "Veuillez sélectionner un utilisateur",
+				"role": "Rôle",
+				"firstName": "Prénom",
+				"lastName": "Nom",
+				"email": "Email",
+				"emailRequired": "L'email est requis",
+				"cancel": "Annuler",
+				"add": "Ajouter le membre",
+				"adding": "Patientez...",
+				"memberAdded": "Membre ajouté avec succès",
+				"newAccountCreated": "Nouveau compte créé et membre ajouté",
+				"addError": "Erreur lors de l'ajout",
+				"createError": "Erreur lors de la création"
+			},
+			"roleDialog": {
+				"title": "Changer le rôle",
+				"description": "Changer le rôle de {{name}}",
+				"role": "Rôle",
+				"cancel": "Annuler",
+				"save": "Enregistrer",
+				"saved": "Rôle mis à jour",
+				"error": "Erreur"
+			},
+			"positionAssigned": "Poste assigné",
+			"assignError": "Erreur d'assignation",
+			"positionUnassigned": "Poste retiré",
+			"stats": {
+				"positions": "Postes",
+				"filled": "Occupés",
+				"vacant": "Vacants"
+			},
+			"unassigned": {
+				"title": "Membres sans poste"
+			},
+			"assignMember": "Assigner un membre",
+			"assignDialog": {
+				"title": "Assigner à un poste",
+				"assign": "Assigner"
+			}
+		},
+		"requests": {
+			"title": "Demandes",
+			"description": "Gérez les demandes de services de votre organisation",
+			"listTitle": "Toutes les demandes",
+			"listDescription": "Consultez et traitez les demandes reçues.",
+			"filterByStatus": "Filtrer par statut",
+			"columns": {
+				"reference": "Numéro",
+				"service": "Service",
+				"requester": "Demandeur",
+				"date": "Date",
+				"status": "Statut",
+				"action": "Action"
+			},
+			"loading": "Chargement...",
+			"noRequests": "Aucune demande trouvée",
+			"noReference": "SANS-REF",
+			"unknownUser": "Utilisateur inconnu",
+			"manage": "Gérer",
+			"tabs": {
+				"all": "Toutes"
+			},
+			"statuses": {
+				"all": "Tous les statuts",
+				"draft": "Brouillon",
+				"submitted": "Soumis",
+				"pending": "En attente",
+				"under_review": "En examen",
+				"in_production": "En production",
+				"validated": "Validé",
+				"appointment_scheduled": "RDV planifié",
+				"ready_for_pickup": "Prêt à retirer",
+				"processing": "En traitement",
+				"pending_documents": "Documents manquants",
+				"pending_payment": "En attente de paiement",
+				"completed": "Terminé",
+				"rejected": "Rejeté",
+				"cancelled": "Annulé"
+			},
+			"appointmentLabel_scheduled": "À venir",
+			"appointmentLabel_past": "Passé",
+			"appointmentLabel_cancelled": "Annulé",
+			"detail": {
+				"title": "Demande {{ref}}",
+				"createdAt": "Créée le {{date}}",
+				"back": "Retour",
+				"serviceCard": {
+					"title": "Service demandé",
+					"serviceName": "Nom du service",
+					"unknownService": "Service inconnu",
+					"formData": "Données du formulaire"
+				},
+				"notesCard": {
+					"title": "Notes et commentaires",
+					"description": "Historique des échanges sur cette demande",
+					"noNotes": "Aucune note pour le moment",
+					"internal": "Interne",
+					"agent": "Agent",
+					"addPlaceholder": "Ajouter une note...",
+					"internalNote": "Note interne (non visible par le demandeur)",
+					"send": "Envoyer",
+					"noteAdded": "Note ajoutée",
+					"noteError": "Erreur lors de l'ajout de la note"
+				},
+				"requesterCard": {
+					"title": "Demandeur",
+					"unknown": "Utilisateur inconnu"
+				},
+				"statusCard": {
+					"title": "Modifier le statut",
+					"selectPlaceholder": "Sélectionner un statut",
+					"update": "Mettre à jour",
+					"statusUpdated": "Statut mis à jour",
+					"updateError": "Erreur lors de la mise à jour"
+				},
+				"timelineCard": {
+					"title": "Chronologie",
+					"created": "Créée",
+					"submitted": "Soumise",
+					"completed": "Terminée"
+				}
+			},
+			"viewTable": "Liste",
+			"viewKanban": "Kanban",
+			"table": {
+				"reference": "Référence",
+				"service": "Service",
+				"requester": "Demandeur",
+				"date": "Date",
+				"status": "Statut",
+				"actions": "Actions"
+			},
+			"empty": "Aucune demande trouvée",
+			"myRequests": "Mes requêtes",
+			"allServices": "Tous les services",
+			"loadMore": "Charger plus",
+			"kanban": {
+				"empty": "Aucune demande",
+				"columns": {
+					"incoming": "Nouvelles",
+					"review": "En examen",
+					"production": "Production",
+					"done": "Terminées",
+					"closed": "Fermées"
+				}
+			}
+		},
+		"noAccess": {
+			"title": "Accès non autorisé",
+			"description": "Vous n'êtes membre d'aucune organisation.",
+			"contact": "Contactez un administrateur pour être ajouté."
+		},
+		"appointments": {
+			"title": "Rendez-vous",
+			"description": "Gérez les rendez-vous de votre organisation",
+			"listTitle": "Tous les rendez-vous",
+			"listDescription": "Consultez et gérez les rendez-vous planifiés.",
+			"filterByStatus": "Filtrer par statut",
+			"filterByDate": "Date",
+			"columns": {
+				"dateTime": "Date et heure",
+				"user": "Utilisateur",
+				"service": "Service",
+				"status": "Statut",
+				"action": "Action"
+			},
+			"loading": "Chargement...",
+			"noAppointments": "Aucun rendez-vous trouvé",
+			"listView": "Liste",
+			"calendarView": "Calendrier",
+			"manage": "Gérer",
+			"confirm": "Confirmer",
+			"cancel": "Annuler",
+			"complete": "Terminer",
+			"noShow": "Absent",
+			"statuses": {
+				"all": "Tous les statuts",
+				"scheduled": "Planifié",
+				"confirmed": "Confirmé",
+				"cancelled": "Annulé",
+				"completed": "Terminé",
+				"no_show": "Absent"
+			},
+			"success": {
+				"confirmed": "Rendez-vous confirmé",
+				"cancelled": "Rendez-vous annulé",
+				"completed": "Rendez-vous marqué comme terminé",
+				"noShow": "Rendez-vous marqué comme absent"
+			},
+			"error": {
+				"confirm": "Erreur lors de la confirmation",
+				"cancel": "Erreur lors de l'annulation",
+				"complete": "Erreur lors de la finalisation",
+				"noShow": "Erreur lors du marquage comme absent"
+			},
+			"notFound": "Rendez-vous non trouvé",
+			"detail": {
+				"title": "Détails du rendez-vous",
+				"linkedRequest": "Demande liée",
+				"viewRequest": "Voir la demande",
+				"location": "Lieu du rendez-vous",
+				"itinerary": "Itinéraire",
+				"dateTime": "Date et heure",
+				"date": "Date",
+				"time": "Heure",
+				"user": "Client",
+				"service": "Service",
+				"notes": "Notes",
+				"instructionsTitle": "Instructions supplémentaires",
+				"actions": "Actions",
+				"actionsDescription": "Mettez à jour le statut de ce rendez-vous"
+			},
+			"schedules": {
+				"title": "Plannings agents",
+				"description": "Gérez les plannings hebdomadaires de vos agents",
+				"allAgents": "Tous les agents",
+				"allServices": "Tous les services",
+				"create": "Créer un planning",
+				"createTitle": "Nouveau planning",
+				"createDescription": "Configurez le planning hebdomadaire d'un agent",
+				"agent": "Agent",
+				"agentRequired": "Veuillez sélectionner un agent",
+				"selectAgent": "Sélectionner un agent",
+				"service": "Service (optionnel)",
+				"workingDays": "Jours travaillés",
+				"timeRanges": "Plages horaires",
+				"addRange": "Ajouter une plage",
+				"created": "Planning créé avec succès",
+				"createError": "Erreur lors de la création du planning",
+				"activated": "Planning activé",
+				"deactivated": "Planning désactivé",
+				"activate": "Activer",
+				"deactivate": "Désactiver",
+				"deleted": "Planning supprimé",
+				"active": "Actif",
+				"inactive": "Inactif",
+				"generate": "Générer",
+				"generateTitle": "Générer des créneaux",
+				"generateDescription": "Créez des créneaux à partir du planning de l'agent",
+				"startDate": "Date de début",
+				"endDate": "Date de fin",
+				"startDateRequired": "La date de début est requise",
+				"endDateRequired": "La date de fin est requise",
+				"duration": "Durée du créneau",
+				"break": "Pause entre créneaux",
+				"capacity": "Capacité",
+				"generateAction": "Générer les créneaux",
+				"generated": "{{count}} créneaux générés",
+				"exceptions": "Exceptions",
+				"addException": "Ajouter",
+				"addExceptionTitle": "Ajouter une exception",
+				"addExceptionDescription": "Marquez un jour comme indisponible ou avec des horaires modifiés",
+				"noExceptions": "Aucune exception",
+				"exceptionAdded": "Exception ajoutée",
+				"exceptionRemoved": "Exception supprimée",
+				"date": "Date",
+				"dateRequired": "La date est requise",
+				"modifiedHoursCheck": "Horaires modifiés (sinon jour de repos)",
+				"modifiedHours": "Horaires modifiés",
+				"dayOff": "Indisponible",
+				"reason": "Raison (optionnel)",
+				"reasonPlaceholder": "Ex: Jour férié, Congé...",
+				"empty": "Aucun planning configuré",
+				"emptyHint": "Créez un planning pour commencer à gérer les disponibilités de vos agents."
+			},
+			"settings": {
+				"title": "Configuration des créneaux",
+				"description": "Gérez les créneaux de rendez-vous disponibles",
+				"addSlot": "Ajouter un créneau",
+				"createSlot": "Créer un créneau",
+				"createBulk": "Créer des créneaux récurrents",
+				"createDescription": "Définissez les paramètres du créneau",
+				"agent": "Agent (optionnel)",
+				"allAgents": "Tous les agents",
+				"service": "Service (optionnel)",
+				"allServices": "Tous les services",
+				"duration": "Durée du créneau",
+				"bulkMode": "Créer des créneaux récurrents",
+				"date": "Date",
+				"startDate": "Date de début",
+				"endDate": "Date de fin",
+				"dateRequired": "La date est requise",
+				"weekDays": "Jours de la semaine",
+				"startTime": "Heure de début",
+				"endTime": "Heure de fin",
+				"capacity": "Capacité (nombre de RDV)",
+				"bulkPreview": "{{count}} créneaux seront créés",
+				"createSlotAction": "Créer le créneau",
+				"createBulkAction": "Créer les créneaux",
+				"noDatesSelected": "Aucune date sélectionnée",
+				"bulkCreated": "{{count}} créneaux créés",
+				"slotCreated": "Créneau créé",
+				"createError": "Erreur lors de la création",
+				"manualBlock": "Bloqué manuellement",
+				"slotBlocked": "Créneau bloqué",
+				"blockError": "Erreur lors du blocage",
+				"slotUnblocked": "Créneau débloqué",
+				"unblockError": "Erreur lors du déblocage",
+				"slotDeleted": "Créneau supprimé",
+				"cannotDeleteBooked": "Impossible de supprimer un créneau avec des réservations",
+				"deleteError": "Erreur lors de la suppression",
+				"block": "Bloquer",
+				"unblock": "Débloquer",
+				"delete": "Supprimer",
+				"slotsConfigured": "{{count}} créneaux configurés ce mois",
+				"available": "Disponible",
+				"full": "Complet",
+				"blocked": "Bloqué",
+				"availableSlots": "Créneaux disponibles",
+				"bookingsThisMonth": "Réservations ce mois",
+				"blockedSlots": "Créneaux bloqués"
+			},
+			"agentSchedules": "Plannings agents",
+			"stats": {
+				"total": "Total"
+			},
+			"today": "Aujourd'hui",
+			"view": "Voir",
+			"absent": "Absent",
+			"markNoShow": "Marquer absent"
+		},
+		"dialogs": {
+			"addMember": {
+				"title": "Ajouter un membre",
+				"description": "Ajoutez un utilisateur existant ou créez un nouveau compte pour votre équipe.",
+				"existingUser": "Utilisateur existant",
+				"newAccount": "Nouveau compte",
+				"searchByEmail": "Recherche par email",
+				"emailPlaceholder": "exemple@email.com",
+				"noUserFound": "Aucun utilisateur trouvé",
+				"selectUser": "Veuillez sélectionner un utilisateur",
+				"firstName": "Prénom",
+				"lastName": "Nom",
+				"email": "Email",
+				"emailLabel": "Adresse email",
+				"emailRequired": "L'email est requis",
+				"role": "Rôle",
+				"roleLabel": "Rôle dans l'organisation",
+				"roles": {
+					"admin": "Administrateur",
+					"agent": "Agent Consulaire",
+					"viewer": "Observateur"
+				},
+				"cancel": "Annuler",
+				"add": "Ajouter le membre",
+				"loading": "Patientez...",
+				"successExisting": "Membre ajouté avec succès",
+				"successNew": "Nouveau compte créé et membre ajouté"
+			},
+			"memberRole": {
+				"title": "Changer le rôle",
+				"descriptionPrefix": "Changer le rôle de",
+				"role": "Rôle",
+				"cancel": "Annuler",
+				"save": "Enregistrer",
+				"success": "Rôle mis à jour",
+				"error": "Erreur"
+			}
+		},
+		"consularRegistry": {
+			"title": "Dossiers Consulaires",
+			"description": "Gestion des inscriptions consulaires et cartes",
+			"printQueue": "File d'impression",
+			"tabs": {
+				"all": "Toutes",
+				"registrations": "Inscriptions",
+				"notifications": "Signalements"
+			},
+			"notificationsTable": {
+				"title": "Registre des signalements",
+				"description": "Déclarations de séjour court au consulat",
+				"searchPlaceholder": "Rechercher...",
+				"statusPlaceholder": "Statut",
+				"columns": {
+					"citizen": "Citoyen",
+					"type": "Type",
+					"status": "Statut",
+					"stayPeriod": "Période de séjour",
+					"signaledDate": "Date de signalement",
+					"actions": "Actions"
+				},
+				"loading": "Chargement...",
+				"noResults": "Aucun signalement trouvé",
+				"loadMore": "Charger plus",
+				"noStayDates": "Non précisé"
+			},
+			"stats": {
+				"total": "Total inscrits",
+				"requested": "En attente",
+				"active": "Actifs",
+				"expired": "Expirés",
+				"withCard": "Cartes générées"
+			},
+			"table": {
+				"title": "Registre des inscriptions",
+				"description": "Liste des citoyens inscrits au consulat",
+				"searchPlaceholder": "Rechercher...",
+				"statusPlaceholder": "Statut",
+				"columns": {
+					"citizen": "Citoyen",
+					"type": "Type",
+					"duration": "Durée",
+					"status": "Statut",
+					"cardNumber": "N° Carte",
+					"registrationDate": "Date inscription",
+					"actions": "Actions"
+				},
+				"loading": "Chargement...",
+				"noResults": "Aucune inscription trouvée",
+				"loadMore": "Charger plus"
+			},
+			"statuses": {
+				"all": "Tous",
+				"requested": "En attente",
+				"active": "Actifs",
+				"expired": "Expirés"
+			},
+			"badges": {
+				"cardGenerated": "Carte générée",
+				"requested": "En attente",
+				"activeNoCard": "Actif (sans carte)",
+				"expired": "Expiré",
+				"printed": "Imprimé"
+			},
+			"duration": {
+				"shortStay": "Passage (< 6 mois)",
+				"longStay": "Résident (> 6 mois)"
+			},
+			"actions": {
+				"viewRequest": "Voir la demande",
+				"viewProfile": "Voir le profil",
+				"generate": "Générer",
+				"print": "Imprimer"
+			},
+			"cardDialog": {
+				"title": "Générer la carte consulaire",
+				"description": "Vous allez générer une carte consulaire pour <strong>{{name}}</strong>. Cette action est irréversible.",
+				"cancel": "Annuler",
+				"confirm": "Générer la carte",
+				"success": "Carte consulaire générée",
+				"successDescription": "Numéro: {{cardNumber}}",
+				"error": "Erreur",
+				"errorGeneric": "Erreur lors de la génération"
+			},
+			"printDialog": {
+				"title": "Envoyer à l'impression",
+				"description": "Marquer la carte <code>{{cardNumber}}</code> comme envoyée à l'impression (EasyCard).",
+				"cancel": "Annuler",
+				"confirm": "Confirmer l'impression",
+				"success": "Marqué comme imprimé",
+				"error": "Erreur"
+			},
+			"profileDialog": {
+				"title": "Profil citoyen",
+				"description": "Informations détaillées de <strong>{{name}}</strong>"
+			}
+		},
+		"settings": {
+			"title": "Paramètres",
+			"description": "Informations de votre organisation",
+			"notFound": "Organisation non trouvée",
+			"edit": "Éditer",
+			"orgProfile": "Profil de l'organisation",
+			"orgProfileDescription": "Informations générales",
+			"name": "Nom",
+			"type": "Type",
+			"descriptionLabel": "Description",
+			"address": "Adresse",
+			"street": "Rue",
+			"city": "Ville",
+			"postalCode": "Code postal",
+			"country": "Pays",
+			"noAddress": "Aucune adresse configurée",
+			"contact": "Contact",
+			"phone": "Téléphone",
+			"email": "Email",
+			"website": "Site web",
+			"noContact": "Aucune information de contact",
+			"jurisdiction": "Juridiction",
+			"noJurisdiction": "Aucune juridiction définie",
+			"updateSuccess": "Paramètres mis à jour",
+			"updateError": "Erreur lors de la mise à jour",
+			"orgTypes": {
+				"consulate": "Consulat",
+				"consulateGeneral": "Consulat Général",
+				"embassy": "Ambassade",
+				"honoraryConsulate": "Consulat Honoraire",
+				"ministry": "Ministère",
+				"other": "Autre"
+			},
+			"workingHours": "Horaires d'ouverture",
+			"appointmentBuffer": "Délai entre rendez-vous",
+			"addSlot": "Ajouter un créneau",
+			"closed": "Fermé",
+			"days": {
+				"monday": "Lundi",
+				"tuesday": "Mardi",
+				"wednesday": "Mercredi",
+				"thursday": "Jeudi",
+				"friday": "Vendredi",
+				"saturday": "Samedi",
+				"sunday": "Dimanche"
+			},
+			"requestProcessing": {
+				"title": "Traitement des demandes",
+				"description": "Configurez le comportement de traitement des demandes",
+				"assignmentMode": "Mode d'assignation",
+				"manual": "Manuel",
+				"manualDesc": "Les agents s'attribuent manuellement les demandes",
+				"auto": "Automatique",
+				"autoDesc": "Les demandes sont attribuées automatiquement à l'agent le moins chargé",
+				"processingDays": "Délai de traitement",
+				"days": "jours",
+				"aiAnalysis": "Analyse IA",
+				"aiAnalysisDesc": "Analyser automatiquement les demandes soumises avec l'IA"
+			}
+		},
+		"posts": {
+			"imageUploaded": "Image téléchargée",
+			"uploadError": "Erreur lors du téléchargement",
+			"documentUploaded": "Document téléchargé",
+			"updatedSuccess": "Article mis à jour",
+			"edit": {
+				"title": "Modifier la publication"
+			},
+			"form": {
+				"content": "Contenu",
+				"title": "Titre",
+				"slug": "Slug (URL)",
+				"excerpt": "Résumé",
+				"body": "Corps de l'article",
+				"eventStart": "Date de début",
+				"eventEnd": "Date de fin",
+				"eventLocation": "Lieu",
+				"settings": "Paramètres",
+				"category": "Catégorie",
+				"coverImage": "Image de couverture",
+				"uploadImage": "Télécharger",
+				"status": "Statut",
+				"save": "Enregistrer les modifications",
+				"publishNow": "Publier maintenant",
+				"publish": "Publier"
+			},
+			"category": {
+				"news": "Actualité",
+				"event": "Événement"
+			},
+			"statusPublished": "Publié",
+			"statusDraft": "Brouillon",
+			"published": "Article publié",
+			"unpublished": "Article dépublié",
+			"deleted": "Article supprimé",
+			"title": "Actualités",
+			"create": "Nouvelle publication",
+			"listTitle": "Publications",
+			"columns": {
+				"title": "Titre",
+				"category": "Catégorie",
+				"status": "Statut",
+				"date": "Date",
+				"actions": "Actions"
+			},
+			"unpublish": "Dépublier",
+			"publish": "Publier",
+			"publishedSuccess": "Article publié avec succès",
+			"savedSuccess": "Brouillon enregistré",
+			"new": {
+				"title": "Nouvelle publication"
+			}
+		}
+	},
+	"profileDetail": {
+		"title": "Dossier Citoyen",
+		"description": "Vue complète des informations et antécédents du citoyen.",
+		"superadminTitle": "Détails du profil"
+	},
+	"profile": {
+		"completion": "Complétion du profil",
+		"edit": {
+			"heading": "Modifier mon profil",
+			"subtitle": "Mettez à jour vos informations personnelles"
+		},
+		"completionBadge": "Profil complété à {{score}}%",
+		"notFound": {
+			"title": "Profil introuvable",
+			"description": "Le profil demandé n'existe pas ou vous n'y avez pas accès."
+		},
+		"tabs": {
+			"personal": "Identité",
+			"contacts": "Contact",
+			"family": "Famille",
+			"passport": "Passeport",
+			"profession": "Profession",
+			"documents": "Mes Documents",
+			"identity": "Identité",
+			"requests": "Demandes",
+			"children": "Enfants",
+			"registrations": "Inscriptions"
+		},
+		"empty": {
+			"passport": "Aucune information de passeport.",
+			"addressResidence": "Adresse de résidence non renseignée.",
+			"documents": "Aucun document attaché à ce profil",
+			"requests": "Aucune demande associée",
+			"name": "Nom non renseigné"
+		},
+		"requests": {
+			"reference": "Référence",
+			"service": "Service",
+			"date": "Date",
+			"status": "Statut"
+		},
+		"children": {
+			"bornOn": "Né(e) le {{date}}",
+			"gender": "Genre: "
+		},
+		"registrations": {
+			"cardNumber": "Carte N° {{number}}",
+			"pendingIssuance": "En attente d'émission",
+			"expiresAt": "Expire le"
+		},
+		"sections": {
+			"identity": "Identité",
+			"contact": "Coordonnées",
+			"addresses": "Adresses",
+			"emergencyContacts": "Contacts d'urgence",
+			"family": "Situation familiale",
+			"passport": "Passeport",
+			"profession": "Situation professionnelle",
+			"documents": "Mes Documents",
+			"residenceCountry": "Pays de résidence",
+			"addressHome": "Adresse au pays d'origine",
+			"addressAbroad": "Adresse de Résidence Actuelle",
+			"emergencyResidence": "Contact d'urgence (Pays de résidence)",
+			"emergencyHomeland": "Contact d'urgence (Gabon)",
+			"emergencyContactsDesc": "Personnes à contacter en cas d'urgence"
+		},
+		"documents": {
+			"empty": "Aucun document ajouté",
+			"passport": "Passeport (Pages principales)",
+			"passportDesc": "Copie des pages d'identité de votre passeport",
+			"nationalId": "Carte Nationale d'Identité",
+			"birthCertificate": "Acte de Naissance",
+			"birthCertificateDesc": "Copie intégrale ou extrait avec filiation",
+			"residencePermit": "Titre de Séjour / Visa",
+			"proofOfAddress": "Justificatif de Domicile",
+			"proofOfAddressDesc": "Facture récente (moins de 3 mois)",
+			"proofOfResidency": "Titre de séjour",
+			"proofOfResidencyDesc": "Titre de séjour en cours de validité",
+			"identityPhoto": "Photo d'identité",
+			"identityPhotoDesc": "Photo récente format passeport",
+			"photo": "Photo d'identité",
+			"title": "Documents officiels",
+			"description": "Téléversez vos documents officiels. Ils seront automatiquement rattachés à vos futures demandes."
+		},
+		"step": {
+			"invalid": "Veuillez corriger les erreurs avant de continuer"
+		},
+		"errors": {
+			"title": "Champs à corriger"
+		},
+		"fields": {
+			"firstName": "Prénom",
+			"lastName": "Nom",
+			"birthDate": "Date de naissance",
+			"birthPlace": "Lieu de naissance",
+			"birthCountry": "Pays de naissance",
+			"gender": "Genre",
+			"nationality": "Nationalité",
+			"email": "Email",
+			"phone": "Téléphone",
+			"countryOfResidence": "Pays de résidence",
+			"countryOfResidenceDesc": "Utilisé pour déterminer les services consulaires disponibles",
+			"relationship": "Lien de parenté",
+			"maritalStatus": "État civil",
+			"nipCode": "NIP",
+			"phoneHome": "Téléphone (Pays d'origine)",
+			"phoneAbroad": "Téléphone (Résidence)",
+			"country": "Pays",
+			"city": "Ville",
+			"street": "Adresse",
+			"nip": "NIP (Numéro d'Identification Personnel)",
+			"nationalityAcquisition": "Mode d'acquisition de la nationalité"
+		},
+		"placeholders": {
+			"selectCountry": "Sélectionner un pays",
+			"select": "Sélectionner"
+		},
+		"relationship": {
+			"father": "Père",
+			"mother": "Mère",
+			"spouse": "Conjoint(e)",
+			"brotherSister": "Frère/Sœur",
+			"child": "Enfant",
+			"legalGuardian": "Tuteur légal",
+			"other": "Autre"
+		},
+		"gender": {
+			"male": "Homme",
+			"female": "Femme"
+		},
+		"maritalStatus": {
+			"single": "Célibataire",
+			"married": "Marié(e)",
+			"divorced": "Divorcé(e)",
+			"widowed": "Veuf/Veuve",
+			"civil_union": "PACS",
+			"cohabiting": "Concubinage"
+		},
+		"emergency": {
+			"title": "Contact d'Urgence",
+			"residence": "Contact en pays de résidence",
+			"homeland": "Contact au Gabon"
+		},
+		"identity": {
+			"firstName": {
+				"min": "Le prénom doit contenir au moins 2 caractères"
+			},
+			"lastName": {
+				"min": "Le nom doit contenir au moins 2 caractères"
+			},
+			"birthDate": {
+				"past": "La date de naissance doit être dans le passé",
+				"adult": "Vous devez être majeur (18 ans minimum)"
+			},
+			"birthPlace": {
+				"min": "Le lieu de naissance doit contenir au moins 2 caractères"
+			},
+			"birthCountry": {
+				"invalid": "Pays de naissance invalide"
+			},
+			"gender": {
+				"invalid": "Genre invalide"
+			},
+			"nationality": {
+				"invalid": "Nationalité invalide"
+			},
+			"nationalityAcquisition": {
+				"invalid": "Mode d'acquisition de la nationalité invalide"
+			}
+		},
+		"passportInfo": {
+			"number": {
+				"min": "Le numéro de passeport doit contenir au moins 6 caractères"
+			},
+			"issueDate": {
+				"past": "La date de délivrance doit être dans le passé"
+			},
+			"expiryDate": {
+				"future": "La date d'expiration doit être dans le futur",
+				"afterIssue": "La date d'expiration doit être après la date de délivrance"
+			},
+			"issuingAuthority": {
+				"min": "L'autorité de délivrance doit contenir au moins 2 caractères"
+			}
+		},
+		"addresses": {
+			"residence": "Adresse de résidence",
+			"homeland": "Adresse au Gabon",
+			"street": {
+				"required": "L'adresse est requise"
+			},
+			"city": {
+				"required": "La ville est requise"
+			},
+			"postalCode": {
+				"required": "Le code postal est requis"
+			},
+			"country": {
+				"invalid": "Pays invalide"
+			}
+		},
+		"contacts": {
+			"email": {
+				"invalid": "Email invalide"
+			},
+			"emergency": {
+				"residence": "Contact d'urgence (Pays de résidence)",
+				"homeland": "Contact d'urgence (Pays d'origine)",
+				"firstName": {
+					"min": "Le prénom doit contenir au moins 2 caractères"
+				},
+				"lastName": {
+					"min": "Le nom doit contenir au moins 2 caractères"
+				},
+				"phone": {
+					"required": "Le numéro de téléphone est requis"
+				},
+				"email": {
+					"invalid": "Email invalide"
+				},
+				"relationship": {
+					"invalid": "Lien de parenté invalide"
+				}
+			},
+			"phone": "Téléphone"
+		},
+		"family": {
+			"maritalStatus": {
+				"invalid": "Statut matrimonial invalide"
+			},
+			"parent": {
+				"firstName": {
+					"min": "Le prénom doit contenir au moins 2 caractères"
+				},
+				"lastName": {
+					"min": "Le nom doit contenir au moins 2 caractères"
+				}
+			},
+			"spouse": {
+				"firstName": {
+					"min": "Le prénom doit contenir au moins 2 caractères",
+					"required": "Le prénom du conjoint est requis"
+				},
+				"lastName": {
+					"min": "Le nom doit contenir au moins 2 caractères",
+					"required": "Le nom du conjoint est requis"
+				}
+			},
+			"filiation": "Filiation",
+			"father": "Père",
+			"mother": "Mère"
+		},
+		"countryOfResidence": {
+			"invalid": "Pays de résidence invalide"
+		},
+		"nationalityAcquisition": {
+			"birth": "Naissance",
+			"marriage": "Mariage",
+			"naturalization": "Naturalisation",
+			"adoption": "Adoption",
+			"other": "Autre"
+		},
+		"address": {
+			"street": "Adresse Complète",
+			"city": "Ville",
+			"country": "Pays",
+			"postalCode": "Code postal"
+		},
+		"passport": {
+			"title": "Informations Passeport",
+			"desc": "Informations sur votre passeport actuel",
+			"number": "Numéro",
+			"issueDate": "Délivré le",
+			"expiryDate": "Expire le",
+			"issuingAuthority": "Autorité de délivrance"
+		},
+		"profession": {
+			"description": "Informations sur votre activité professionnelle",
+			"status": "Statut Professionnel",
+			"title": "Profession / Poste",
+			"titlePlaceholder": "Ex: Ingénieur, Médecin, Enseignant...",
+			"employee": "Salarié(e)",
+			"selfEmployed": "Travailleur indépendant",
+			"entrepreneur": "Chef d'entreprise",
+			"student": "Étudiant(e)",
+			"retired": "Retraité(e)",
+			"unemployed": "Sans emploi",
+			"other": "Autre",
+			"jobTitle": "Profession / Métier",
+			"jobTitlePlaceholder": "Ex: Ingénieur, Médecin, Enseignant...",
+			"employer": "Employeur / Entreprise",
+			"employerPlaceholder": "Nom de l'entreprise ou de l'organisme"
+		},
+		"workStatus": {
+			"other": "Autre",
+			"employee": "Salarié",
+			"student": "Étudiant",
+			"retired": "Retraité",
+			"unemployed": "Sans emploi",
+			"self_employed": "Indépendant",
+			"entrepreneur": "Chef d'entreprise"
+		},
+		"profileDetails": "Profil du demandeur"
+	},
+	"registration": {
+		"steps": {
+			"identity": {
+				"title": "Identité",
+				"description": "Infos personnelles"
+			},
+			"contacts": {
+				"title": "Contacts",
+				"description": "Coordonnées"
+			},
+			"family": {
+				"title": "Famille",
+				"description": "Situation familiale"
+			},
+			"documents": {
+				"title": "Documents",
+				"description": "Pièces justificatives"
+			}
+		},
+		"errors": {
+			"firstNameRequired": "Le prénom est requis",
+			"lastNameRequired": "Le nom est requis",
+			"birthDateRequired": "La date de naissance est requise",
+			"dateInvalid": "Date invalide",
+			"birthDateInPast": "La date de naissance doit être dans le passé",
+			"mustBeAdult": "Vous devez être majeur",
+			"birthPlaceRequired": "Le lieu de naissance est requis",
+			"birthCountryRequired": "Le pays de naissance est requis",
+			"genderRequired": "Le genre est requis",
+			"nationalityRequired": "La nationalité est requise",
+			"nationalityAcquisitionRequired": "Le mode d'acquisition est requis",
+			"passportNumberInvalid": "Numéro de passeport invalide (min 6 caractères)",
+			"issueDateRequired": "Date de délivrance requise",
+			"issueDateInPast": "La date de délivrance doit être dans le passé",
+			"expiryDateRequired": "Date d'expiration requise",
+			"expiryDateInFuture": "Le passeport doit être valide",
+			"expiryAfterIssue": "La date d'expiration doit être postérieure à la délivrance",
+			"issuingAuthorityRequired": "Autorité de délivrance requise",
+			"emailInvalid": "Email invalide",
+			"phoneInvalid": "Numéro de téléphone invalide",
+			"streetRequired": "Adresse requise (min 5 caractères)",
+			"cityRequired": "Ville requise",
+			"postalCodeRequired": "Code postal requis",
+			"countryRequired": "Pays requis",
+			"maritalStatusRequired": "Statut matrimonial requis",
+			"spouseFirstNameRequired": "Prénom du conjoint requis",
+			"spouseLastNameRequired": "Nom du conjoint requis",
+			"passportDocRequired": "Le passeport est requis",
+			"nationalIdDocRequired": "La CNI est requise",
+			"photoDocRequired": "La photo d'identité est requise"
+		},
+		"backToDashboard": "Retour au tableau de bord",
+		"labels": {
+			"consulateOrEmbassy": "Consulat / Ambassade",
+			"selectPlaceholder": "Sélectionner..."
+		},
+		"jurisdiction": {
+			"title": "Juridiction",
+			"description": "Assurez-vous de résider dans la juridiction de cet organisme. Une preuve de résidence vous sera demandée."
+		},
+		"status": {
+			"dateRequested": "Date de demande:",
+			"number": "Numéro:",
+			"fallbackOrg": "Consulat"
+		},
+		"step": {
+			"profile": "Vérification du profil",
+			"documents": "Documents requis",
+			"confirmation": "Confirmation"
+		},
+		"documents_summary": "Documents fournis"
+	},
+	"zod": {
+		"required": "Requis",
+		"invalid_type": "Attendu: {{expected}}, Reçu: {{received}}",
+		"invalid_literal": "Valeur invalide, attendu: {{expected}}",
+		"unrecognized_keys": "Clés non reconnues: {{keys}}",
+		"invalid_union": "Entrée invalide",
+		"invalid_union_discriminator": "Discriminateur invalide. Options: {{options}}",
+		"invalid_enum_value": "Valeur invalide. Options: {{options}}, Reçu: {{received}}",
+		"invalid_arguments": "Arguments invalides",
+		"invalid_return_type": "Type de retour invalide",
+		"invalid_date": "Date invalide",
+		"invalid_string": {
+			"email": "Email invalide",
+			"url": "URL invalide",
+			"uuid": "UUID invalide",
+			"startsWith": "Doit commencer par \"{{startsWith}}\"",
+			"endsWith": "Doit se terminer par \"{{endsWith}}\""
+		},
+		"too_small": {
+			"string": {
+				"inclusive": "Doit contenir au moins {{minimum}} caractère(s)",
+				"not_inclusive": "Doit contenir plus de {{minimum}} caractère(s)"
+			},
+			"number": {
+				"inclusive": "Doit être supérieur ou égal à {{minimum}}",
+				"not_inclusive": "Doit être supérieur à {{minimum}}"
+			},
+			"array": {
+				"inclusive": "Doit contenir au moins {{minimum}} élément(s)",
+				"not_inclusive": "Doit contenir plus de {{minimum}} élément(s)"
+			},
+			"date": {
+				"inclusive": "Doit être après ou égal à {{minimum}}",
+				"not_inclusive": "Doit être après {{minimum}}"
+			}
+		},
+		"too_big": {
+			"string": {
+				"inclusive": "Doit contenir au plus {{maximum}} caractère(s)",
+				"not_inclusive": "Doit contenir moins de {{maximum}} caractère(s)"
+			},
+			"number": {
+				"inclusive": "Doit être inférieur ou égal à {{maximum}}",
+				"not_inclusive": "Doit être inférieur à {{maximum}}"
+			},
+			"array": {
+				"inclusive": "Doit contenir au plus {{maximum}} élément(s)",
+				"not_inclusive": "Doit contenir moins de {{maximum}} élément(s)"
+			},
+			"date": {
+				"inclusive": "Doit être avant ou égal à {{maximum}}",
+				"not_inclusive": "Doit être avant {{maximum}}"
+			}
+		},
+		"not_multiple_of": "Doit être un multiple de {{multipleOf}}",
+		"not_finite": "Doit être fini",
+		"custom": "Invalide"
+	},
+	"fields": {
+		"requestStatus": {
+			"label": "Statut de la demande",
+			"placeholder": "Sélectionner un statut",
+			"options": {
+				"draft": "Brouillon",
+				"pending": "En attente",
+				"pending_completion": "Compléments requis",
+				"edited": "Modifié",
+				"submitted": "Soumise",
+				"under_review": "En examen",
+				"in_production": "En production",
+				"validated": "Validée",
+				"rejected": "Rejetée",
+				"appointment_scheduled": "RDV planifié",
+				"ready_for_pickup": "Prête à retirer",
+				"completed": "Terminée",
+				"cancelled": "Annulée",
+				"processing": "En traitement"
+			}
+		}
+	},
+	"documents": {
+		"search": "Rechercher...",
+		"birthCertificate": "Acte de naissance",
+		"identityPhoto": "Photo d'identité",
+		"passport": "Passeport",
+		"proofOfAddress": "Justificatif de domicile",
+		"proofOfResidency": "Carte de séjour / Visa",
+		"consularCard": "Carte consulaire",
+		"preview": {
+			"document": "Document",
+			"open": "Ouvrir",
+			"download": "Télécharger",
+			"loadError": "Impossible de charger le document",
+			"retry": "Réessayer"
+		},
+		"selectTemplate": "Veuillez sélectionner un modèle",
+		"generated": "Document généré avec succès",
+		"generateError": "Erreur lors de la génération",
+		"generate": "Générer un document",
+		"generateTitle": "Générer un document officiel",
+		"templateLabel": "Modèle de document",
+		"noTemplates": "Aucun modèle disponible",
+		"generating": "Génération...",
+		"downloaded": "Téléchargé !",
+		"downloadPdf": "Télécharger PDF",
+		"uploadSuccess": "Document téléversé avec succès",
+		"uploadError": "Erreur lors du téléversement",
+		"deleteSuccess": "Document supprimé",
+		"deleteError": "Erreur lors de la suppression",
+		"uploading": "Téléversement en cours...",
+		"clickToUpload": "Cliquer pour téléverser",
+		"uploaded": "Téléversé",
+		"replace": "Remplacer",
+		"delete": "Supprimer",
+		"checklist": {
+			"title": "Pièces justificatives",
+			"required": "documents requis validés",
+			"pending": "en attente"
+		},
+		"status": {
+			"validated": "Validé",
+			"rejected": "Rejeté",
+			"pending": "En attente",
+			"missing": "Manquant"
+		},
+		"rejectionReason": "Motif :",
+		"view": "Voir",
+		"validate": "Valider",
+		"reject": "Rejeter"
+	},
+	"documentTypes": {
+		"picker": {
+			"placeholder": "Sélectionner un type de document...",
+			"search": "Rechercher un document...",
+			"empty": "Aucun type de document trouvé."
+		},
+		"categories": {
+			"forms": "Formulaires et demandes",
+			"identity": "Pièces d'identité",
+			"civil_status": "État civil et famille",
+			"nationality": "Nationalité",
+			"residence": "Justificatif de domicile",
+			"employment": "Situation professionnelle",
+			"income": "Ressources et situation financière",
+			"certificates": "Attestations diverses",
+			"official_certificates": "Certificats officiels",
+			"justice": "Justice et casier judiciaire",
+			"administrative_decisions": "Décisions administratives",
+			"housing": "Logement et location",
+			"vehicle": "Véhicule et conduite",
+			"education": "Études et formation",
+			"language_integration": "Langue et intégration",
+			"health": "Santé et handicap",
+			"taxation": "Fiscalité",
+			"other": "Autres documents"
+		},
+		"types": {
+			"cerfa_form": "Formulaire CERFA",
+			"online_form_printed": "Formulaire en ligne imprimé",
+			"handwritten_request": "Lettre de demande manuscrite",
+			"motivation_letter": "Lettre de motivation",
+			"administrative_letter_template": "Modèle de lettre administrative",
+			"national_id_card": "Carte nationale d'identité",
+			"passport": "Passeport",
+			"residence_permit": "Titre de séjour",
+			"driver_license": "Permis de conduire",
+			"resident_card": "Carte de résident",
+			"residence_permit_receipt": "Récépissé de demande de titre de séjour",
+			"vitale_card_certificate": "Attestation de carte Vitale",
+			"birth_certificate": "Acte de naissance",
+			"marriage_certificate": "Acte de mariage",
+			"death_certificate": "Acte de décès",
+			"family_book": "Livret de famille",
+			"divorce_judgment": "Jugement de divorce",
+			"adoption_judgment": "Jugement d'adoption",
+			"single_status_certificate": "Certificat de célibat / non-remariage",
+			"nationality_certificate": "Certificat de nationalité française",
+			"nationality_acquisition_declaration": "Mode d'acquisition de la nationalité",
+			"naturalization_file": "Dossier de naturalisation",
+			"water_bill": "Facture d'eau",
+			"electricity_bill": "Facture d'électricité",
+			"gas_bill": "Facture de gaz",
+			"landline_phone_bill": "Facture de téléphone fixe",
+			"mobile_phone_bill": "Facture de téléphone mobile",
+			"internet_bill": "Facture d'accès à internet",
+			"rent_receipt": "Quittance de loyer",
+			"lease_agreement": "Bail de location",
+			"property_title": "Titre de propriété",
+			"housing_tax": "Avis de taxe d'habitation",
+			"property_tax": "Avis de taxe foncière",
+			"tax_notice_with_address": "Avis d'imposition mentionnant l'adresse",
+			"home_insurance_certificate": "Attestation d'assurance habitation",
+			"domiciliation_certificate": "Attestation de domiciliation",
+			"hosting_certificate": "Attestation d'hébergement",
+			"nursing_home_residence_certificate": "Attestation de résidence en maison de retraite",
+			"camping_hotel_residence_certificate": "Attestation de résidence en camping / hôtel",
+			"employment_contract": "Contrat de travail",
+			"employer_certificate": "Attestation de l'employeur",
+			"work_certificate": "Certificat de travail",
+			"pole_emploi_certificate": "Attestation Pôle emploi",
+			"internship_certificate": "Convention / attestation de stage",
+			"kbis_extract": "Extrait Kbis",
+			"company_statutes": "Statuts de société",
+			"rcs_rm_registration": "Inscription au RCS / Répertoire des métiers",
+			"school_certificate": "Certificat de scolarité",
+			"apprenticeship_contract": "Contrat d'apprentissage",
+			"pay_slip": "Bulletin de salaire",
+			"tax_notice": "Avis d'imposition",
+			"non_taxation_certificate": "Certificat de non-imposition",
+			"bank_statement": "Relevé de compte bancaire",
+			"caf_statement": "Relevé de prestations CAF",
+			"retirement_pension_certificate": "Attestation de pension de retraite",
+			"disability_pension_certificate": "Attestation de pension d'invalidité",
+			"aah_certificate": "Attestation AAH / prestations handicap",
+			"other_social_benefit_certificate": "Attestation d'autre prestation sociale",
+			"savings_proof": "Justificatif d'épargne ou de capital",
+			"honor_declaration": "Attestation sur l'honneur",
+			"detailed_hosting_certificate": "Attestation d'hébergement détaillée",
+			"simple_home_insurance_certificate": "Attestation d'assurance habitation",
+			"liability_insurance_certificate": "Attestation d'assurance responsabilité civile",
+			"vehicle_insurance_certificate": "Attestation d'assurance véhicule",
+			"simple_employer_certificate": "Attestation simple de l'employeur",
+			"volunteer_certificate": "Attestation de bénévolat / activité associative",
+			"attendance_certificate": "Attestation de présence / participation",
+			"medical_certificate": "Certificat médical",
+			"school_enrollment_certificate": "Certificat de scolarité",
+			"nationality_certificate_official": "Certificat de nationalité française",
+			"hosting_certificate_official": "Certificat d'hébergement",
+			"good_conduct_certificate": "Certificat de bonne conduite",
+			"criminal_record_b3": "Extrait de casier judiciaire (bulletin n°3)",
+			"criminal_record_b2": "Extrait de casier judiciaire (bulletin n°2)",
+			"court_decision": "Décision / jugement de justice",
+			"court_order": "Ordonnance de tribunal",
+			"administrative_decision": "Décision administrative",
+			"municipal_prefectoral_order": "Arrêté municipal ou préfectoral",
+			"rights_notification": "Notification de droits",
+			"complete_tenant_file": "Dossier locataire complet",
+			"housing_lease_agreement": "Bail de location (logement)",
+			"rent_receipt_history": "Historique de quittances de loyer",
+			"guarantor_commitment": "Engagement de caution / garant",
+			"guarantor_documents": "Pièces justificatives du garant",
+			"housing_hosting_certificate": "Attestation d'hébergement pour logement",
+			"vehicle_registration": "Certificat d'immatriculation (carte grise)",
+			"vehicle_transfer_certificate": "Certificat de cession du véhicule",
+			"technical_inspection_report": "Procès-verbal de contrôle technique",
+			"driver_license_doc": "Permis de conduire",
+			"vehicle_insurance_doc": "Attestation d'assurance du véhicule",
+			"diploma": "Diplôme",
+			"transcript": "Relevé de notes",
+			"school_certificate_education": "Certificat de scolarité",
+			"training_certificate": "Convention / attestation de formation",
+			"language_test_certificate": "Certificat de test de langue",
+			"integration_certificate": "Attestation de participation à des actions d'intégration",
+			"detailed_medical_certificate": "Certificat médical détaillé",
+			"social_coverage_certificate": "Attestation de droits CPAM / couverture sociale",
+			"disability_card": "Carte d'invalidité / carte mobilité inclusion",
+			"mdph_decision": "Décision MDPH",
+			"detailed_tax_notice": "Avis d'imposition (détail)",
+			"non_taxation_certificate_fiscal": "Certificat de non-imposition",
+			"tax_payment_proof": "Justificatif de paiement de taxes / impôts",
+			"fiscal_stamp": "Timbre fiscal",
+			"identity_photo": "Photos d'identité aux normes",
+			"foreign_civil_status_document": "Acte d'état civil étranger avec traduction",
+			"sworn_translation": "Traduction assermentée",
+			"power_of_attorney": "Procuration",
+			"other_official_document": "Autre document officiel"
+		}
+	},
+	"icv": {
+		"title": "iCV",
+		"subtitle": "Créez, personnalisez et téléchargez votre CV professionnel",
+		"saved": "CV sauvegardé avec succès",
+		"saveError": "Erreur lors de la sauvegarde",
+		"imported": "Données importées avec succès",
+		"downloadPDF": "Télécharger PDF",
+		"themes": {
+			"title": "Modèles",
+			"modern": "Modern",
+			"modernDesc": "Sidebar sombre, design épuré",
+			"classic": "Classique",
+			"classicDesc": "Traditionnel et élégant",
+			"minimalist": "Minimaliste",
+			"minimalistDesc": "Espace et clarté",
+			"professional": "Professionnel",
+			"professionalDesc": "Corporate et structuré",
+			"creative": "Créatif",
+			"creativeDesc": "Coloré et audacieux",
+			"elegant": "Élégant",
+			"elegantDesc": "Raffiné et sophistiqué"
+		},
+		"import": {
+			"btn": "Importer",
+			"title": "Importer des données",
+			"description": "Importez vos données depuis un fichier JSON ou collez-les directement.",
+			"uploadFile": "Charger un fichier JSON",
+			"placeholder": "{\"firstName\": \"Jean\", \"lastName\": \"Dupont\", ...}",
+			"invalidJSON": "Format JSON invalide. Veuillez vérifier votre fichier.",
+			"import": "Importer"
+		},
+		"ai": {
+			"title": "IA Assistant",
+			"improveProfile": "Améliorer le Profil",
+			"suggestSkills": "Suggérer Compétences",
+			"optimizeJob": "Optimiser pour Poste",
+			"coverLetter": "Lettre de Motivation",
+			"atsScore": "Score ATS",
+			"translateCV": "Traduire le CV",
+			"importCV": "Importer un CV",
+			"noSummary": "Ajoutez d'abord un résumé professionnel",
+			"error": "Erreur IA",
+			"summaryImproved": "Résumé amélioré avec succès !",
+			"optimized": "Analyse terminée",
+			"translated": "CV traduit avec succès !",
+			"copied": "Copié dans le presse-papier !",
+			"copy": "Copier",
+			"jobDescLabel": "Description du poste",
+			"jobDescPlaceholder": "Collez la description du poste ou l'URL de l'offre...",
+			"analyzeBtn": "Analyser",
+			"clJobPlaceholder": "Poste visé",
+			"clCompanyPlaceholder": "Nom de l'entreprise",
+			"clExtraPlaceholder": "Informations supplémentaires (optionnel)",
+			"generateBtn": "Générer",
+			"styleFormal": "Formel",
+			"styleModern": "Moderne",
+			"styleCreative": "Créatif",
+			"suggestedSkillsTitle": "Compétences suggérées",
+			"skillAdded": "{{name}} ajouté",
+			"drawer": {
+				"analyzing": "Analyse en cours...",
+				"before": "Avant",
+				"proposed": "Proposition IA",
+				"accept": "Accepter",
+				"reject": "Refuser",
+				"done": "Terminé",
+				"generate": "Générer la proposition",
+				"improveSummaryDesc": "L'IA va analyser votre CV et proposer un résumé professionnel amélioré.",
+				"findingSkills": "Recherche de compétences...",
+				"suggestedSkillsDesc": "Compétences suggérées basées sur votre expérience",
+				"addSkill": "Ajouter",
+				"suggestSkillsDesc2": "L'IA va analyser vos expériences et suggérer des compétences pertinentes à ajouter.",
+				"findSkills": "Trouver des compétences",
+				"optimizing": "Analyse de compatibilité...",
+				"compatibilityScore": "Score de compatibilité",
+				"matchingKeywords": "Mots-clés trouvés",
+				"missingKeywords": "Mots-clés manquants",
+				"suggestions": "Suggestions",
+				"optimizedSummary": "Résumé optimisé",
+				"optimizeDesc": "Collez la description du poste ciblé pour analyser la compatibilité de votre CV.",
+				"coverLetterDesc": "Renseignez les informations pour générer une lettre de motivation personnalisée.",
+				"writing": "Rédaction en cours...",
+				"scoring": "Calcul du score ATS...",
+				"translating": "Traduction en cours...",
+				"translateDesc": "Traduisez votre CV dans une autre langue.",
+				"selectLanguage": "Choisir la langue",
+				"translate": "Traduire",
+				"translationReady": "Traduction prête — cliquez pour appliquer.",
+				"applyTranslation": "Appliquer la traduction",
+				"import": {
+					"scanning": "Analyse du CV en cours...",
+					"dataExtracted": "Données extraites",
+					"desc": "Collez le contenu de votre CV ou chargez un fichier (PDF, image). L'IA extraira automatiquement toutes les données.",
+					"pastePlaceholder": "Collez le texte de votre CV ici...",
+					"or": "ou",
+					"dropzone": "Cliquez pour charger un PDF ou une image",
+					"scanBtn": "Scanner avec l'IA"
+				},
+				"atsCompatibility": "Compatibilité ATS",
+				"strengths": "Points forts",
+				"weaknesses": "Points faibles",
+				"recommendations": "Recommandations",
+				"runAnalysis": "Lancer l'analyse",
+				"startTranslation": "Traduire"
+			}
+		},
+		"form": {
+			"personalInfo": "Informations Personnelles",
+			"title": "Titre Professionnel",
+			"email": "Email",
+			"phone": "Téléphone",
+			"address": "Adresse",
+			"summary": "Résumé Professionnel",
+			"summaryPlaceholder": "Décrivez votre profil en quelques phrases...",
+			"experiences": "Expériences",
+			"education": "Formation",
+			"skills": "Compétences",
+			"languages": "Langues",
+			"additional": "Liens & Centres d'intérêt",
+			"hobbies": "Centres d'intérêt (séparés par des virgules)",
+			"add": "Ajouter",
+			"jobTitle": "Titre du poste",
+			"company": "Entreprise",
+			"location": "Lieu",
+			"currentPosition": "Poste actuel",
+			"description": "Description des missions...",
+			"degree": "Diplôme",
+			"school": "Établissement",
+			"titlePlaceholder": "Ex : Développeur Full Stack",
+			"skillPlaceholder": "Compétence",
+			"langPlaceholder": "Langue",
+			"portfolioUrl": "Portfolio URL",
+			"linkedinUrl": "LinkedIn URL",
+			"hobbiesPlaceholder": "Lecture, Voyage, Musique..."
+		},
+		"levels": {
+			"skill": {
+				"beginner": "Débutant",
+				"intermediate": "Intermédiaire",
+				"advanced": "Avancé",
+				"expert": "Expert"
+			},
+			"language": {
+				"A1": "A1 — Découverte",
+				"A2": "A2 — Intermédiaire",
+				"B1": "B1 — Seuil",
+				"B2": "B2 — Avancé",
+				"C1": "C1 — Autonome",
+				"C2": "C2 — Maîtrise",
+				"native": "Langue maternelle"
+			}
+		}
+	},
+	"information": {
+		"badge": "Informations",
+		"title": "Centre d'Information",
+		"subtitle": "Retrouvez toutes les informations essentielles pour vos démarches consulaires, la vie pratique et l'éducation.",
+		"seeMore": "En savoir plus",
+		"categories": {
+			"administrative": {
+				"title": "Services Administratifs",
+				"description": "Passeports, état civil, inscriptions consulaires et démarches officielles.",
+				"items": {
+					"1": "Demande et renouvellement de passeport",
+					"2": "Inscription au registre consulaire",
+					"3": "Actes d'état civil et légalisations"
+				}
+			},
+			"practical": {
+				"title": "Vie Pratique",
+				"description": "Assistance aux ressortissants, aide sociale et conseils pratiques.",
+				"items": {
+					"1": "Assistance en cas de difficulté",
+					"2": "Rapatriement et aide d'urgence",
+					"3": "Conseils juridiques et administratifs"
+				}
+			},
+			"education": {
+				"title": "Scolarité & Bourses",
+				"description": "Bourses d'études, équivalences de diplômes et inscription scolaire.",
+				"items": {
+					"1": "Bourses d'études à l'étranger",
+					"2": "Équivalence de diplômes",
+					"3": "Inscription dans les écoles françaises"
+				}
+			}
+		},
+		"quickLinks": {
+			"title": "Accès rapide",
+			"passport": "Passeport",
+			"registration": "Inscription consulaire",
+			"civil_status": "État civil",
+			"visa": "Visa"
+		}
+	},
+	"academy": {
+		"badge": "Académie",
+		"title": "Académie Numérique",
+		"subtitle": "Guides pratiques, tutoriels vidéo et articles pour simplifier vos démarches.",
+		"searchPlaceholder": "Rechercher un guide...",
+		"categories": {
+			"all": "Tous",
+			"administratif": "Administratif",
+			"entrepreneuriat": "Entrepreneuriat",
+			"voyage": "Voyage",
+			"vie_pratique": "Vie pratique"
+		},
+		"types": {
+			"video": "Vidéo",
+			"article": "Article",
+			"guide": "Guide"
+		},
+		"empty": {
+			"title": "Aucun tutoriel disponible",
+			"description": "De nouveaux guides seront bientôt publiés."
+		}
+	},
+	"community": {
+		"badge": "Communauté",
+		"title": "Notre Communauté",
+		"subtitle": "Découvrez le réseau économique, les associations et les événements de la diaspora gabonaise.",
+		"seeAll": "Voir tout",
+		"network": {
+			"title": "Réseau Économique",
+			"description": "Entreprises et professionnels de la diaspora.",
+			"empty": "Aucune entreprise enregistrée pour le moment."
+		},
+		"associations": {
+			"title": "Vie Associative",
+			"description": "Associations culturelles, sportives et solidaires.",
+			"empty": "Aucune association enregistrée pour le moment."
+		},
+		"events": {
+			"pastTitle": "Événements Passés",
+			"upcomingTitle": "Agenda",
+			"seeAll": "Tous les événements",
+			"emptyPast": "Aucun événement passé à afficher.",
+			"emptyUpcoming": "Aucun événement à venir pour le moment."
+		},
+		"map": {
+			"title": "Découvrez la carte interactive",
+			"description": "Trouvez les représentations diplomatiques, entreprises et associations gabonaises dans le monde entier.",
+			"cta": "Ouvrir la carte"
+		}
+	},
+	"iboite": {
+		"folders": {
+			"inbox": "Boîte de réception",
+			"starred": "Favoris",
+			"sent": "Envoyés",
+			"archive": "Archives",
+			"trash": "Corbeille"
+		},
+		"tabs": {
+			"mail": "Courrier",
+			"packages": "Colis",
+			"calls": "Appels"
+		},
+		"actions": {
+			"compose": "Nouveau message",
+			"reply": "Répondre",
+			"archive": "Archiver",
+			"delete": "Supprimer",
+			"markRead": "Marquer comme lu",
+			"star": "Favori",
+			"unstar": "Retirer des favoris",
+			"moveTo": "Déplacer vers",
+			"back": "Retour",
+			"loadMore": "Charger plus"
+		},
+		"mail": {
+			"from": "De",
+			"to": "À",
+			"subject": "Objet",
+			"date": "Date",
+			"attachments": "Pièces jointes",
+			"unread": "non lu(s)",
+			"noSubject": "(Sans objet)",
+			"selectToRead": "Sélectionnez un courrier pour le lire",
+			"selectToReadDesc": "Cliquez sur un message dans la liste pour afficher son contenu."
+		},
+		"packages": {
+			"title": "Mes Colis",
+			"tracking": "N° de suivi",
+			"sender": "Expéditeur",
+			"description": "Description",
+			"status": "Statut",
+			"estimatedDelivery": "Livraison estimée",
+			"events": "Historique",
+			"inTransit": "En transit",
+			"available": "Disponible",
+			"delivered": "Livré",
+			"pending": "En attente",
+			"returned": "Retourné"
+		},
+		"compose": {
+			"title": "Nouveau message",
+			"to": "Destinataire",
+			"subject": "Objet",
+			"subjectPlaceholder": "Objet du message...",
+			"content": "Message",
+			"contentPlaceholder": "Rédigez votre message...",
+			"send": "Envoyer",
+			"sending": "Envoi en cours...",
+			"cancel": "Annuler",
+			"sendSuccess": "Message envoyé avec succès",
+			"sendError": "Erreur lors de l'envoi du message",
+			"sent": "Message envoyé",
+			"from": "De",
+			"filterAll": "Tous",
+			"filterProfiles": "Profils",
+			"filterOrgs": "Organisations",
+			"filterAssocs": "Associations",
+			"filterCompanies": "Entreprises",
+			"noResults": "Aucun résultat.",
+			"message": "Message"
+		},
+		"empty": {
+			"inbox": "Aucun courrier",
+			"inboxDesc": "Votre boîte de réception est vide. Les messages reçus apparaîtront ici.",
+			"sent": "Aucun message envoyé",
+			"sentDesc": "Vous n'avez envoyé aucun message.",
+			"starred": "Aucun favori",
+			"starredDesc": "Les messages marqués comme favoris apparaîtront ici.",
+			"archive": "Aucune archive",
+			"archiveDesc": "Les messages archivés apparaîtront ici.",
+			"trash": "Corbeille vide",
+			"trashDesc": "La corbeille est vide.",
+			"packages": "Aucun colis",
+			"packagesDesc": "Vous n'avez aucun colis en cours. Les colis envoyés à votre attention apparaîtront ici."
+		},
+		"moved": "Courrier déplacé",
+		"deleted": "Courrier supprimé",
+		"markedRead": "Marqué comme lu",
+		"starred": "Ajouté aux favoris",
+		"unstarred": "Retiré des favoris",
+		"error": "Une erreur est survenue",
+		"ownerType": {
+			"profile": "Profil personnel",
+			"organization": "Organisation",
+			"association": "Association",
+			"company": "Entreprise"
+		},
+		"reply": {
+			"originalMessage": "Message original"
+		},
+		"accounts": {
+			"title": "Comptes",
+			"official": "Officiel"
+		},
+		"calls": {
+			"title": "Mes appels",
+			"subtitle": "Historique de vos appels audio et vidéo",
+			"empty": "Aucun appel",
+			"emptyDesc": "Vos appels audio et vidéo apparaîtront ici.",
+			"status": {
+				"active": "En cours",
+				"ended": "Terminé",
+				"scheduled": "Planifié",
+				"cancelled": "Annulé"
+			},
+			"typeCall": "Appel",
+			"typeMeeting": "Réunion",
+			"participants": "participant(s)",
+			"join": "Rejoindre",
+			"scheduledFor": "Prévu le",
+			"duration": "Durée"
+		},
+		"call": {
+			"newCall": "Nouvel appel",
+			"newCallTitle": "Appeler un contact",
+			"emailPlaceholder": "Adresse email du contact",
+			"emailHelp": "Saisissez l'adresse email exacte de la personne que vous souhaitez appeler. Elle recevra une notification pour rejoindre l'appel.",
+			"startCall": "Appeler",
+			"startSuccess": "Appel lancé",
+			"error": "Erreur lors de l'appel"
+		}
+	},
+	"meetings": {
+		"call": "Appeler",
+		"activeCall": "Appel en cours",
+		"connecting": "Connexion...",
+		"hangUp": "Raccrocher",
+		"join": "Rejoindre",
+		"agentCalling": "Un agent vous appelle",
+		"startCall": "Appeler",
+		"startVideoCall": "Démarrer l'appel vidéo",
+		"callsTitle": "Appels",
+		"callsDescOrg": "Gestion des appels pour {{orgName}}.",
+		"callsDesc": "Gérez vos appels entrants, sortants et votre historique.",
+		"incomingCalls": "Appels entrants en cours",
+		"answer": "Décrocher",
+		"allTab": "Tous",
+		"totalCalls": "Total",
+		"incomingTab": "Entrants",
+		"outgoingTab": "Sortants",
+		"missedTab": "Manqués",
+		"noHistory": "Aucun appel dans l'historique.",
+		"noIncoming": "Aucun appel entrant.",
+		"noOutgoing": "Aucun appel sortant.",
+		"noMissed": "Aucun appel manqué.",
+		"statusActive": "En cours",
+		"statusEnded": "Terminé",
+		"statusMissed": "Manqué",
+		"statusCancelled": "Annulé",
+		"statusScheduled": "Planifié",
+		"participants": "participant(s)",
+		"agentOnly": "Cette page est réservée aux agents.",
+		"microphone": "Micro",
+		"camera": "Caméra",
+		"muted": "Micro coupé",
+		"cameraOff": "Caméra off",
+		"connected": "Connecté",
+		"reconnecting": "Reconnexion…",
+		"disconnected": "Déconnecté",
+		"callDuration": "Durée",
+		"participant": "Participant",
+		"you": "Vous",
+		"waitingForParticipant": "En attente du participant…",
+		"waitingForAgent": "En attente d'un agent…",
+		"participantMuted": "{{name}} a coupé son micro",
+		"linesTab": "Lignes",
+		"orgLines": "Lignes d'organisme",
+		"personalLines": "Lignes personnelles",
+		"personalLinesDesc": "Chaque agent dispose d'une ligne directe créée automatiquement.",
+		"createLine": "Nouvelle ligne",
+		"lineLabelPlaceholder": "Nom de la ligne (ex: Urgences)",
+		"lineDescPlaceholder": "Description (optionnel)",
+		"noLines": "Aucune ligne configurée. Créez-en une pour commencer.",
+		"assignedAgents": "Agents assignés",
+		"noAgents": "Aucun agent assigné",
+		"selectAgent": "Ajouter un agent...",
+		"directLine": "Ligne directe",
+		"defaultLine": "Par défaut",
+		"deactivate": "Désactiver",
+		"activate": "Activer",
+		"incoming": "Entrant",
+		"outgoing": "Sortant",
+		"missed": "Manqué",
+		"recall": "Rappeler",
+		"error": {
+			"start": "Erreur lors de l'appel"
+		}
+	},
+	"admin": {
+		"nav": {
+			"dashboard": "Tableau de bord",
+			"requests": "Demandes",
+			"consularRegistry": "Registre Consulaire",
+			"appointments": "Rendez-vous",
+			"statistics": "Statistiques",
+			"payments": "Paiements",
+			"posts": "Actualités",
+			"team": "Équipe",
+			"roles": "Rôles & Postes",
+			"settings": "Paramètres",
+			"calls": "Appels"
+		},
+		"roles": {
+			"noOrg": "Aucun organisme sélectionné",
+			"title": "Rôles & Postes",
+			"subtitle": "Gérez les postes, grades et permissions au sein de votre organisme",
+			"noConfig": {
+				"title": "Aucune configuration de rôles",
+				"description": "Initialisez les rôles en choisissant un modèle correspondant à votre type d'organisme."
+			},
+			"recommended": "Recommandé",
+			"positionsCount": "{{count}} poste(s)",
+			"initialize": "Initialiser",
+			"initSuccess": "{{count}} poste(s) créé(s) avec succès",
+			"initError": "Erreur lors de l'initialisation",
+			"template": "Template",
+			"customized": "Personnalisé",
+			"standard": "Standard",
+			"reset": "Réinitialiser",
+			"resetSuccess": "{{count}} poste(s) recréé(s)",
+			"resetError": "Erreur lors de la réinitialisation",
+			"resetConfirm": {
+				"title": "Réinitialiser les rôles ?",
+				"description": "Cette action supprimera tous les postes existants et les recréera à partir du template. Cette opération est irréversible."
+			},
+			"positions": {
+				"title": "Postes",
+				"byGradeDesc": "Postes organisés par grade hiérarchique",
+				"byMinistryDesc": "Postes organisés par direction/service"
+			},
+			"view": {
+				"byGrade": "Par grade",
+				"byMinistry": "Par direction"
+			},
+			"addPosition": "Ajouter un poste",
+			"addMinistry": "Ajouter une direction",
+			"noPositions": "Aucun poste",
+			"noPositionsConfigured": "Aucun poste configuré",
+			"unassigned": "Non attribués",
+			"required": "Obligatoire",
+			"assignedModules": "Modules attribués",
+			"taskCount": "tâche(s)",
+			"noModulesAssigned": "Aucun module attribué",
+			"systemModules": {
+				"title": "Modules de rôles système",
+				"description": "Modules disponibles avec leurs permissions associées"
+			},
+			"positionDeleted": "Poste supprimé",
+			"positionDeleteError": "Erreur lors de la suppression du poste",
+			"positionMoved": "Poste déplacé au niveau {{level}}",
+			"positionMoveError": "Erreur lors du déplacement du poste",
+			"gradeUpdated": "Grade mis à jour",
+			"ministryUpdated": "Direction mise à jour",
+			"positionCreated": "Poste créé avec succès",
+			"positionCreateError": "Erreur lors de la création du poste",
+			"ministryCreated": "Direction créée",
+			"ministryCreateError": "Erreur lors de la création de la direction",
+			"ministryDeleted": "Direction supprimée",
+			"ministryDeleteError": "Erreur lors de la suppression de la direction",
+			"position": {
+				"moveUp": "Monter d'un niveau",
+				"moveDown": "Descendre d'un niveau",
+				"addTitle": "Ajouter un poste",
+				"addDescription": "Créez un nouveau poste dans la hiérarchie de cet organisme.",
+				"titleLabel": "Titre du poste",
+				"titlePlaceholder": "ex. Agent consulaire",
+				"codeLabel": "Code technique",
+				"codePlaceholder": "ex. agent_consulaire",
+				"codeHint": "Identifiant unique au sein de l'organisme",
+				"descriptionLabel": "Description",
+				"descriptionPlaceholder": "Description du poste (optionnel)",
+				"levelLabel": "Niveau hiérarchique",
+				"levelOption": "Niveau {{level}}",
+				"isRequired": "Poste obligatoire",
+				"assignModules": "Modules de rôle attribués",
+				"create": "Créer le poste",
+				"titleCodeRequired": "Le titre et le code sont obligatoires",
+				"editTitle": "Modifier le poste",
+				"editDescription": "Modifiez les informations et les permissions de ce poste."
+			},
+			"ministry": {
+				"addTitle": "Ajouter une direction",
+				"addDescription": "Créez une nouvelle direction ou service pour organiser les postes.",
+				"name": "Nom de la direction",
+				"namePlaceholder": "ex. Direction des affaires consulaires",
+				"code": "Code",
+				"codePlaceholder": "ex. dac",
+				"icon": "Icône",
+				"description": "Description",
+				"descriptionPlaceholder": "Description (optionnel)",
+				"create": "Créer",
+				"deleteConfirm": {
+					"title": "Supprimer « {{name}} » ?",
+					"description": "Les {{count}} poste(s) de cette direction seront déplacés vers « Non attribués »."
+				},
+				"editTitle": "Modifier la direction",
+				"editDescription": "Modifiez les informations de cette direction."
+			},
+			"positionUpdated": "Poste mis à jour",
+			"modules": {
+				"title": "Modules actifs",
+				"description": "Activez ou désactivez les fonctionnalités disponibles pour cet organisme. Les modules de base ne peuvent pas être désactivés.",
+				"enabled": "Module activé",
+				"disabled": "Module désactivé",
+				"core": "Requis"
+			}
+		},
+		"export": {
+			"success": "Export réussi",
+			"error": "Erreur lors de l'export"
+		},
+		"stats": {
+			"totalRequests": "Total Demandes",
+			"pending": "En Attente",
+			"processing": "En Traitement",
+			"completed": "Complétées",
+			"avgProcessing": "Délai Moyen",
+			"upcomingAppointments": "RDV à Venir",
+			"activeRegistrations": "Inscriptions Actives",
+			"cardsGenerated": "Cartes Générées",
+			"totalRevenue": "Revenus"
+		},
+		"quickActions": {
+			"requests": "Gérer les demandes",
+			"appointments": "Rendez-vous",
+			"team": "Gérer l'équipe",
+			"settings": "Paramètres",
+			"title": "Actions rapides"
+		},
+		"dashboard": {
+			"subtitle": "Tableau de bord d'administration"
+		},
+		"period": {
+			"week": "7 jours",
+			"month": "30 jours",
+			"year": "1 an"
+		},
+		"charts": {
+			"trend": "Tendance des demandes",
+			"requests": "Demandes",
+			"noData": "Aucune donnée pour cette période",
+			"byStatus": "Par statut",
+			"byService": "Demandes par service"
+		},
+		"agents": {
+			"title": "Performance Agents",
+			"members": "membres",
+			"noData": "Aucune donnée agent disponible"
+		},
+		"statistics": {
+			"title": "Statistiques",
+			"tabs": {
+				"requests": "Demandes",
+				"registrations": "Inscriptions",
+				"agents": "Agents"
+			},
+			"agentName": "Agent",
+			"agentRole": "Rôle",
+			"agentAssigned": "Assignées",
+			"agentCompleted": "Complétées",
+			"agentCompletionRate": "Taux",
+			"agentProgress": "Progression"
+		},
+		"claims": {
+			"title": "Demandes de propriété",
+			"empty": "Aucune demande en attente",
+			"rejected": "Demande refusée",
+			"addNote": "Ajouter une note"
+		},
+		"events": {
+			"title": "Événements communautaires",
+			"create": "Nouvel événement"
+		},
+		"posts": {
+			"title": "Actualités",
+			"create": "Nouvelle publication"
+		}
+	},
+	"nearbyOrgs": {
+		"title": "Représentations près de chez vous",
+		"viewAll": "Voir tout"
+	},
+	"templates": {
+		"type": {
+			"certificate": "Certificat",
+			"attestation": "Attestation",
+			"receipt": "Récépissé",
+			"letter": "Lettre",
+			"custom": "Personnalisé"
+		}
+	},
+	"home": {
+		"news": {
+			"title": "Actualités",
+			"subtitle": "Dernières nouvelles et événements",
+			"viewAll": "Voir tout"
+		}
+	},
+	"associations": {
+		"notFound": "Association introuvable",
+		"type": {
+			"cultural": "Culturelle",
+			"sports": "Sportive",
+			"religious": "Religieuse",
+			"education": "Éducation",
+			"youth": "Jeunesse",
+			"women": "Femmes",
+			"student": "Étudiante",
+			"other": "Autre",
+			"professional": "Professionnelle",
+			"solidarity": "Solidarité"
+		},
+		"noPresident": "Sans président",
+		"joinRequests": "Demandes",
+		"info": {
+			"about": "À propos",
+			"noDescription": "Aucune description",
+			"contact": "Contact",
+			"noContact": "Aucun contact renseigné"
+		},
+		"role": {
+			"member": "Membre",
+			"select": "Rôle...",
+			"president": "Président",
+			"secretary": "Secrétaire",
+			"treasurer": "Trésorier"
+		},
+		"memberRemoved": "Membre retiré",
+		"roleUpdated": "Rôle mis à jour",
+		"noMembers": "Aucun membre",
+		"updated": "Association mise à jour",
+		"deleted": "Association supprimée",
+		"left": "Vous avez quitté l'association",
+		"settings": {
+			"edit": "Modifier l'association"
+		},
+		"form": {
+			"name": "Nom",
+			"email": "Email",
+			"phone": "Téléphone",
+			"website": "Site web",
+			"description": "Description",
+			"type": "Type d'association"
+		},
+		"leave": {
+			"title": "Quitter l'association",
+			"confirm": "Quitter"
+		},
+		"delete": {
+			"title": "Supprimer l'association"
+		},
+		"claim": {
+			"button": "Réclamer",
+			"title": "Réclamer cette association",
+			"message": "Message (optionnel)",
+			"submit": "Soumettre la demande"
+		},
+		"joinRequestSent": "Demande envoyée avec succès",
+		"join": "Demander à rejoindre",
+		"joinRequest": {
+			"accepted": "Demande acceptée",
+			"declined": "Demande refusée",
+			"empty": "Aucune demande en attente",
+			"title": "Demandes d'adhésion"
+		},
+		"title": "Associations",
+		"subtitle": "Rejoignez et gérez vos associations",
+		"create": {
+			"title": "Créer une association"
+		},
+		"tabs": {
+			"discover": "Réseau d'associations",
+			"mine": "Mes associations"
+		},
+		"empty": {
+			"mine": {
+				"title": "Aucune association"
+			},
+			"search": "Aucun résultat"
+		},
+		"filter": {
+			"all": "Toutes"
+		},
+		"created": "Association créée"
+	},
+	"companies": {
+		"notFound": "Entreprise introuvable",
+		"sector": {
+			"commerce": "Commerce",
+			"services": "Services",
+			"industry": "Industrie",
+			"health": "Santé",
+			"education": "Éducation",
+			"culture": "Culture",
+			"tourism": "Tourisme",
+			"transport": "Transport",
+			"other": "Autre",
+			"technology": "Technologie",
+			"agriculture": "Agriculture",
+			"construction": "Construction"
+		},
+		"info": {
+			"about": "À propos",
+			"legalName": "Raison sociale",
+			"noDescription": "Aucune description",
+			"contact": "Contact",
+			"noContact": "Aucun contact renseigné"
+		},
+		"role": {
+			"owner": "Propriétaire",
+			"president": "Président",
+			"director": "Directeur",
+			"manager": "Manager",
+			"select": "Rôle...",
+			"ceo": "PDG",
+			"member": "Membre"
+		},
+		"memberRemoved": "Membre retiré",
+		"roleUpdated": "Rôle mis à jour",
+		"noMembers": "Aucun membre",
+		"updated": "Entreprise mise à jour",
+		"deleted": "Entreprise supprimée",
+		"left": "Vous avez quitté l'entreprise",
+		"settings": {
+			"edit": "Modifier l'entreprise"
+		},
+		"form": {
+			"name": "Nom",
+			"email": "Email",
+			"phone": "Téléphone",
+			"website": "Site web",
+			"street": "Rue",
+			"city": "Ville",
+			"postalCode": "Code postal",
+			"country": "Pays",
+			"description": "Description",
+			"type": "Forme juridique",
+			"sector": "Secteur d'activité"
+		},
+		"leave": {
+			"title": "Quitter l'entreprise",
+			"confirm": "Quitter"
+		},
+		"delete": {
+			"title": "Supprimer l'entreprise"
+		},
+		"title": "Entreprises",
+		"create": {
+			"button": "Créer une entreprise",
+			"title": "Créer une entreprise"
+		},
+		"tabs": {
+			"mine": "Mes entreprises",
+			"discover": "Annuaire"
+		},
+		"empty": {
+			"title": "Aucune entreprise"
+		},
+		"discover": {
+			"empty": "Aucune entreprise trouvée"
+		},
+		"type": {
+			"ei": "Entreprise Individuelle",
+			"other": "Autre"
+		},
+		"website": "Site web",
+		"created": "Entreprise créée"
+	},
+	"notifications": {
+		"title": "Notifications",
+		"markAllRead": "Tout lire",
+		"empty": {
+			"title": "Aucune notification"
+		},
+		"viewAll": "Voir toutes les notifications",
+		"new": "Nouveau",
+		"loadMore": "Charger plus"
+	},
+	"permissions": {
+		"toast": {
+			"added": "Permission ajoutée",
+			"addError": "Erreur lors de l'ajout",
+			"removed": "Permission retirée",
+			"removeError": "Erreur lors de la suppression",
+			"resetError": "Erreur lors de la réinitialisation"
+		},
+		"dialog": {
+			"title": "Permissions",
+			"active": "Permissions actives",
+			"add": "Ajouter une permission",
+			"custom": "Personnalisé",
+			"resetAll": "Tout réinitialiser"
+		}
+	},
+	"previous": "Précédent",
+	"submitting": "Envoi en cours...",
+	"submit": "Soumettre la demande",
+	"next": "Suivant",
+	"gender": {
+		"male": "Homme",
+		"female": "Femme"
+	},
+	"service": {
+		"profileVerification": {
+			"title": "Vérification du profil"
+		}
+	},
+	"required": "Requis",
+	"optional": "Optionnel",
+	"optional_documents": "Documents optionnels",
+	"name": "Nom",
+	"email": "Email",
+	"nationality": "Nationalité",
+	"back": "Retour",
+	"inputs": {
+		"address": {
+			"street": {
+				"label": "Adresse Complète"
+			},
+			"city": {
+				"label": "Ville",
+				"placeholder": "Ville"
+			},
+			"postalCode": {
+				"label": "Code postal",
+				"placeholder": "00000"
+			},
+			"country": {
+				"label": "Pays"
+			}
+		}
+	},
+	"payments": {
+		"title": "Tableau de bord Paiements",
+		"subtitle": "Suivi des transactions et revenus",
+		"last7days": "7 derniers jours",
+		"last30days": "30 derniers jours",
+		"last90days": "3 derniers mois",
+		"totalRevenue": "Revenus totaux",
+		"transactions": "Transactions",
+		"successRate": "Taux de succès",
+		"avgTransaction": "Moy. transaction",
+		"revenueEvolution": "Évolution des revenus",
+		"statusDistribution": "Répartition par statut",
+		"recentTransactions": "Transactions récentes",
+		"date": "Date",
+		"reference": "Référence",
+		"amount": "Montant",
+		"status": "Statut",
+		"noTransactions": "Aucune transaction"
+	},
+	"appointments": {
+		"cancelled": "Rendez-vous annulé",
+		"cancelError": "Erreur lors de l'annulation",
+		"status": {
+			"confirmed": "Confirmé",
+			"completed": "Terminé",
+			"cancelled": "Annulé",
+			"noShow": "Absent",
+			"rescheduled": "Reporté"
+		},
+		"newButton": "Prendre rendez-vous",
+		"upcoming": "Rendez-vous à venir",
+		"empty": "Aucun rendez-vous planifié.",
+		"cancel": "Annuler",
+		"past": "Historique",
+		"consularAppointment": "Rendez-vous consulaire",
+		"cancelConfirmTitle": "Annuler ce rendez-vous ?",
+		"cancelConfirmDesc": "Cette action est irréversible. Vous devrez reprendre un nouveau rendez-vous.",
+		"confirmCancel": "Confirmer l'annulation",
+		"new": {
+			"title": "Nouveau rendez-vous",
+			"subtitle": "Planifiez un rendez-vous pour votre démarche consulaire",
+			"selectRequest": "Sélectionner une demande",
+			"selectRequestDesc": "Choisissez la demande pour laquelle vous souhaitez prendre rendez-vous.",
+			"noEligibleRequests": "Aucune demande éligible pour un rendez-vous.",
+			"makeRequest": "Faire une demande",
+			"request": "Demande",
+			"selectSlot": "Choisir un créneau",
+			"confirm": "Confirmer le rendez-vous"
+		},
+		"book": {
+			"title": "Réserver un créneau",
+			"success": "Rendez-vous réservé avec succès !",
+			"error": "Erreur lors de la réservation du rendez-vous.",
+			"noOrg": "Veuillez sélectionner un organisme et un service pour réserver un rendez-vous.",
+			"selectOrg": "Choisir un organisme",
+			"confirm": "Confirmer la réservation",
+			"confirmDesc": "Vérifiez les détails de votre rendez-vous avant de confirmer.",
+			"notes": "Notes (optionnel)",
+			"notesPlaceholder": "Ajoutez des informations complémentaires...",
+			"bookNow": "Réserver maintenant"
+		},
+		"selectSlot": "Choisir un créneau",
+		"slotRequired": "Veuillez sélectionner une date et un créneau pour votre rendez-vous.",
+		"slotSelected": "Créneau sélectionné",
+		"availableSlots": "Créneaux disponibles le",
+		"noSlotsForDate": "Aucun créneau disponible pour cette date.",
+		"noSlotsAvailable": "Aucun créneau disponible ce mois-ci.",
+		"available": "Disponible"
+	},
+	"children": {
+		"title": "Mes enfants",
+		"subtitle": "Gérez les profils de vos enfants mineurs",
+		"add": {
+			"title": "Ajouter un enfant"
+		},
+		"empty": {
+			"title": "Aucun enfant enregistré"
+		},
+		"status": {
+			"draft": "Brouillon",
+			"pending": "En attente",
+			"active": "Actif",
+			"inactive": "Inactif"
+		},
+		"age": {
+			"unknown": "Âge inconnu"
+		},
+		"deleted": "Profil supprimé",
+		"delete": {
+			"title": "Supprimer ce profil ?"
+		},
+		"created": "Profil créé",
+		"form": {
+			"firstName": "Prénom",
+			"lastName": "Nom",
+			"birthDate": "Date de naissance",
+			"gender": "Genre",
+			"birthPlace": "Lieu de naissance"
+		}
+	},
+	"vault": {
+		"title": "Coffre-fort",
+		"subtitle": "Vos documents importants sécurisés",
+		"searchPlaceholder": "Rechercher...",
+		"upload": {
+			"success": "Document ajouté avec succès",
+			"title": "Ajouter un document",
+			"category": "Dossier",
+			"documentType": "Type de document",
+			"label": "Libellé",
+			"file": "Fichier(s)"
+		},
+		"uploadShort": "Ajouter",
+		"folders": "Dossiers",
+		"searchResults": "Résultats de recherche",
+		"documents": "Documents",
+		"uncategorized": "Fichiers non classés",
+		"noResults": "Aucun résultat",
+		"emptyFolder": "Ce dossier est vide",
+		"uploadPrompt": "Ajouter un document",
+		"deleted": "Document supprimé"
+	},
+	"verify": {
+		"loading": "Vérification en cours...",
+		"title": "Vérification de document",
+		"valid": "Document valide",
+		"invalid": "Document invalide",
+		"documentType": "Type de document",
+		"holder": "Titulaire",
+		"issuedOn": "Délivré le",
+		"expiresOn": "Expire le",
+		"issuedBy": "Émis par",
+		"revokedOn": "Révoqué le",
+		"reason": "Raison"
+	},
+	"countryList": {
+		"GA": "Gabon",
+		"FR": "France",
+		"CM": "Cameroun",
+		"CG": "Congo",
+		"CD": "RD Congo",
+		"SN": "Sénégal",
+		"CI": "Côte d'Ivoire",
+		"MA": "Maroc",
+		"TN": "Tunisie",
+		"DZ": "Algérie",
+		"BE": "Belgique",
+		"CH": "Suisse",
+		"CA": "Canada",
+		"US": "États-Unis"
+	},
+	"enums": {
+		"gender": {
+			"male": "Masculin",
+			"female": "Féminin",
+			"other": "Autre"
+		},
+		"maritalStatus": {
+			"single": "Célibataire",
+			"married": "Marié(e)",
+			"divorced": "Divorcé(e)",
+			"widowed": "Veuf/Veuve",
+			"civil_union": "Pacsé(e)",
+			"cohabiting": "En concubinage",
+			"pacs": "Pacsé(e)"
+		},
+		"workStatus": {
+			"self_employed": "Indépendant(e)",
+			"employee": "Employé(e) / Salarié(e)",
+			"independent": "Indépendant(e)",
+			"entrepreneur": "Entrepreneur",
+			"unemployed": "Sans emploi",
+			"retired": "Retraité(e)",
+			"student": "Étudiant(e)",
+			"other": "Autre"
+		},
+		"nationalityAcquisition": {
+			"birth": "Naissance",
+			"naturalization": "Naturalisation",
+			"marriage": "Mariage",
+			"adoption": "Adoption",
+			"other": "Autre",
+			"declaration": "Déclaration"
+		},
+		"ticketStatus": {
+			"open": "Ouvert",
+			"in_progress": "En cours",
+			"waiting_for_user": "En attente de votre réponse",
+			"resolved": "Résolu",
+			"closed": "Fermé"
+		},
+		"ticketPriority": {
+			"low": "Basse",
+			"medium": "Moyenne",
+			"high": "Haute",
+			"critical": "Critique"
+		},
+		"ticketCategory": {
+			"technical": "Problème technique",
+			"service": "Service consulaire",
+			"information": "Demande d'information",
+			"feedback": "Remarque / Suggestion",
+			"other": "Autre"
+		}
+	},
+	"support": {
+		"heading": "Support & Requêtes",
+		"subtitle": "Gérez vos tickets de support et vos retours",
+		"new": "Nouveau ticket",
+		"ticketStatus": {
+			"open": "Ouvert",
+			"in_progress": "En cours",
+			"waiting_for_user": "En attente de votre réponse",
+			"resolved": "Résolu",
+			"closed": "Fermé"
+		},
+		"ticketPriority": {
+			"low": "Basse",
+			"medium": "Moyenne",
+			"high": "Haute",
+			"critical": "Critique"
+		},
+		"ticketCategory": {
+			"technical": "Problème technique",
+			"service": "Service consulaire",
+			"information": "Demande d'information",
+			"feedback": "Remarque / Suggestion",
+			"other": "Autre"
+		},
+		"tickets": {
+			"empty": {
+				"title": "Aucun ticket",
+				"desc": "Vous n'avez pas encore créé de ticket de support.",
+				"action": "Créer un ticket"
+			},
+			"list": {
+				"title": "Vos tickets"
+			},
+			"form": {
+				"title": "Nouveau ticket",
+				"description": "Décrivez votre problème ou votre question.",
+				"subject": "Sujet",
+				"subjectPlaceholder": "Ex: Problème de connexion",
+				"category": "Catégorie",
+				"message": "Message",
+				"messagePlaceholder": "Décrivez votre demande en détail...",
+				"submit": "Envoyer",
+				"cancel": "Annuler"
+			},
+			"detail": {
+				"reply": "Répondre",
+				"replyPlaceholder": "Votre message...",
+				"sendReply": "Envoyer la réponse",
+				"status": "Statut",
+				"priority": "Priorité",
+				"assignedTo": "Assigné à",
+				"createdAt": "Créé le",
+				"updatedAt": "Mis à jour le",
+				"adminStatusUpdate": "Mettre à jour le statut"
+			}
+		}
+	},
+	"monitoring": {
+		"title": "Monitoring",
+		"description": "Santé de l'infrastructure, signaux en temps réel et métriques de performance",
+		"healthy": "SAIN",
+		"tabs": {
+			"neocortex": "NEOCORTEX",
+			"infrastructure": "Infrastructure GCP"
+		},
+		"lastUpdate": "Dernière mise à jour : ",
+		"refresh": "Rafraîchir",
+		"retry": "Réessayer",
+		"loadingError": "Erreur lors du chargement des données",
+		"timeAgo": {
+			"seconds": "il y a {{count}}s",
+			"minutes": "il y a {{count}}min",
+			"hours": "il y a {{count}}h"
+		},
+		"cloudRun": {
+			"title": "Cloud Run",
+			"ready": "PRÊT",
+			"notReady": "NON PRÊT",
+			"revision": "Révision",
+			"instances": "Instances",
+			"cpu": "CPU",
+			"memory": "Mémoire",
+			"requests": "req",
+			"latency": "latence"
+		},
+		"livekit": {
+			"title": "LiveKit Server",
+			"externalIp": "IP externe",
+			"cpu": "CPU",
+			"uptime": "Uptime",
+			"disks": "Disques",
+			"disk": "disque"
+		},
+		"logs": {
+			"title": "Logs",
+			"description": "Dernières entrées de logs des services GCP",
+			"entries": "entrées",
+			"loading": "Chargement des logs...",
+			"loadingError": "Erreur lors du chargement des logs",
+			"noResults": "Aucun log trouvé pour ces filtres",
+			"service": {
+				"all": "Tous les services",
+				"cloudRun": "Cloud Run",
+				"livekitVm": "LiveKit VM"
+			},
+			"severity": {
+				"all": "Toutes",
+				"error": "ERROR",
+				"warning": "WARNING",
+				"info": "INFO",
+				"debug": "DEBUG"
+			}
+		}
+	}
+}

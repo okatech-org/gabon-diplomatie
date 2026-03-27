@@ -1,0 +1,19 @@
+{
+  "name": "@workspace/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./utils/country": "./src/utils/country.ts",
+    "./utils/i18n": "./src/utils/i18n.ts",
+    "./schemas/profile": "./src/schemas/profile.ts",
+    "./schemas/registration": "./src/schemas/registration.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "dependencies": {
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
