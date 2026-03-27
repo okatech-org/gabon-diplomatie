@@ -1,0 +1,29 @@
+// convex/convex.config.ts
+import { defineApp } from "convex/server";
+import betterAuth from "@convex-dev/better-auth/convex.config";
+import rateLimiter from "@convex-dev/rate-limiter/convex.config.js";
+import resend from "@convex-dev/resend/convex.config.js";
+import aggregate from "@convex-dev/aggregate/convex.config.js";
+
+const app = defineApp();
+app.use(betterAuth);
+app.use(rateLimiter);
+app.use(resend);
+
+// Aggregate instances for denormalized counts/stats
+app.use(aggregate, { name: "requestsByOrg" });
+app.use(aggregate, { name: "membershipsByOrg" });
+app.use(aggregate, { name: "orgServicesByOrg" });
+app.use(aggregate, { name: "globalCounts" });
+
+// New aggregates
+app.use(aggregate, { name: "registrationsByOrg" });
+app.use(aggregate, { name: "requestsGlobal" });
+app.use(aggregate, { name: "associationsGlobal" });
+app.use(aggregate, { name: "companiesGlobal" });
+app.use(aggregate, { name: "orgsGlobal" });
+app.use(aggregate, { name: "servicesGlobal" });
+app.use(aggregate, { name: "appointmentsByOrg" });
+app.use(aggregate, { name: "childProfilesGlobal" });
+
+export default app;

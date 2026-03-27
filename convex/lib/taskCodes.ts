@@ -1,0 +1,364 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * TASK CODES — Single source of truth
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * Every permission in the system is represented by a task code.
+ * This file is the authoritative definition:
+ *   - Nested object for IDE autocompletion (TaskCode.requests.view)
+ *   - Union type for compile-time safety
+ *   - Flat array for iteration and validation
+ *   - Convex validator for DB storage
+ *   - Metadata (category, risk level)
+ *
+ * i18n keys follow the pattern: tasks.<code>.label / tasks.<code>.description
+ * e.g. tasks.requests.view.label, tasks.requests.view.description
+ */
+
+import { v } from "convex/values";
+
+// ═══════════════════════════════════════════════════════════════
+// TASK CODE OBJECT — Nested for autocompletion
+// ═══════════════════════════════════════════════════════════════
+
+export const TaskCode = {
+  requests: {
+    view: "requests.view",
+    create: "requests.create",
+    process: "requests.process",
+    validate: "requests.validate",
+    assign: "requests.assign",
+    delete: "requests.delete",
+    complete: "requests.complete",
+  },
+  documents: {
+    view: "documents.view",
+    validate: "documents.validate",
+    generate: "documents.generate",
+    delete: "documents.delete",
+  },
+  appointments: {
+    view: "appointments.view",
+    manage: "appointments.manage",
+    configure: "appointments.configure",
+  },
+  profiles: {
+    view: "profiles.view",
+    manage: "profiles.manage",
+  },
+  civil_status: {
+    transcribe: "civil_status.transcribe",
+    register: "civil_status.register",
+    certify: "civil_status.certify",
+  },
+  passports: {
+    process: "passports.process",
+    biometric: "passports.biometric",
+    deliver: "passports.deliver",
+  },
+  visas: {
+    process: "visas.process",
+    approve: "visas.approve",
+    stamp: "visas.stamp",
+  },
+  finance: {
+    view: "finance.view",
+    collect: "finance.collect",
+    manage: "finance.manage",
+  },
+  communication: {
+    publish: "communication.publish",
+    notify: "communication.notify",
+  },
+  team: {
+    view: "team.view",
+    manage: "team.manage",
+    assign_roles: "team.assign_roles",
+  },
+  settings: {
+    view: "settings.view",
+    manage: "settings.manage",
+  },
+  org: {
+    view: "org.view",
+  },
+  schedules: {
+    view: "schedules.view",
+    manage: "schedules.manage",
+  },
+  analytics: {
+    view: "analytics.view",
+    export: "analytics.export",
+  },
+  statistics: {
+    view: "statistics.view",
+  },
+  intelligence: {
+    view: "intelligence.view",
+    manage: "intelligence.manage",
+  },
+  // Consular services
+  consular_registrations: {
+    view: "consular_registrations.view",
+    manage: "consular_registrations.manage",
+  },
+  consular_notifications: {
+    view: "consular_notifications.view",
+  },
+  consular_cards: {
+    manage: "consular_cards.manage",
+  },
+  // Community
+  community_events: {
+    view: "community_events.view",
+    manage: "community_events.manage",
+  },
+  // Payments
+  payments: {
+    view: "payments.view",
+  },
+  // Digital Mail
+  digital_mail: {
+    view: "digital_mail.view",
+    manage: "digital_mail.manage",
+  },
+  // Meetings & Calls
+  meetings: {
+    create: "meetings.create",
+    join: "meetings.join",
+    manage: "meetings.manage",
+    view_history: "meetings.view_history",
+  },
+} as const;
+
+// ═══════════════════════════════════════════════════════════════
+// TYPE — Union of all task code strings
+// ═══════════════════════════════════════════════════════════════
+
+/** Recursively extract all string leaf values from a nested object */
+type ExtractLeafValues<T> = T extends string
+  ? T
+  : { [K in keyof T]: ExtractLeafValues<T[K]> }[keyof T];
+
+/** Union type of every valid task code: "requests.view" | "requests.create" | ... */
+export type TaskCodeValue = ExtractLeafValues<typeof TaskCode>;
+
+// ═══════════════════════════════════════════════════════════════
+// FLAT ARRAY — For iteration and validation
+// ═══════════════════════════════════════════════════════════════
+
+/** Extract all leaf string values from the nested TaskCode object */
+function extractCodes(obj: Record<string, unknown>): string[] {
+  const codes: string[] = [];
+  for (const value of Object.values(obj)) {
+    if (typeof value === "string") {
+      codes.push(value);
+    } else if (typeof value === "object" && value !== null) {
+      codes.push(...extractCodes(value as Record<string, unknown>));
+    }
+  }
+  return codes;
+}
+
+/** Flat array of every task code in the system */
+export const ALL_TASK_CODES = extractCodes(TaskCode) as TaskCodeValue[];
+
+/** Get all task codes for a specific category */
+export function getTaskCodesForCategory(
+  category: keyof typeof TaskCode,
+): TaskCodeValue[] {
+  const group = TaskCode[category];
+  return Object.values(group) as TaskCodeValue[];
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CONVEX VALIDATOR
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * Convex validator for task codes.
+ * Use in schema definitions: `tasks: v.array(taskCodeValidator)`
+ */
+export const taskCodeValidator = v.union(
+  // Requests
+  v.literal(TaskCode.requests.view),
+  v.literal(TaskCode.requests.create),
+  v.literal(TaskCode.requests.process),
+  v.literal(TaskCode.requests.validate),
+  v.literal(TaskCode.requests.assign),
+  v.literal(TaskCode.requests.delete),
+  v.literal(TaskCode.requests.complete),
+  // Documents
+  v.literal(TaskCode.documents.view),
+  v.literal(TaskCode.documents.validate),
+  v.literal(TaskCode.documents.generate),
+  v.literal(TaskCode.documents.delete),
+  // Appointments
+  v.literal(TaskCode.appointments.view),
+  v.literal(TaskCode.appointments.manage),
+  v.literal(TaskCode.appointments.configure),
+  // Profiles
+  v.literal(TaskCode.profiles.view),
+  v.literal(TaskCode.profiles.manage),
+  // Civil Status
+  v.literal(TaskCode.civil_status.transcribe),
+  v.literal(TaskCode.civil_status.register),
+  v.literal(TaskCode.civil_status.certify),
+  // Passports
+  v.literal(TaskCode.passports.process),
+  v.literal(TaskCode.passports.biometric),
+  v.literal(TaskCode.passports.deliver),
+  // Visas
+  v.literal(TaskCode.visas.process),
+  v.literal(TaskCode.visas.approve),
+  v.literal(TaskCode.visas.stamp),
+  // Finance
+  v.literal(TaskCode.finance.view),
+  v.literal(TaskCode.finance.collect),
+  v.literal(TaskCode.finance.manage),
+  // Communication
+  v.literal(TaskCode.communication.publish),
+  v.literal(TaskCode.communication.notify),
+  // Team
+  v.literal(TaskCode.team.view),
+  v.literal(TaskCode.team.manage),
+  v.literal(TaskCode.team.assign_roles),
+  // Settings
+  v.literal(TaskCode.settings.view),
+  v.literal(TaskCode.settings.manage),
+  // Org
+  v.literal(TaskCode.org.view),
+  // Schedules
+  v.literal(TaskCode.schedules.view),
+  v.literal(TaskCode.schedules.manage),
+  // Analytics
+  v.literal(TaskCode.analytics.view),
+  v.literal(TaskCode.analytics.export),
+  // Statistics
+  v.literal(TaskCode.statistics.view),
+  // Intelligence
+  v.literal(TaskCode.intelligence.view),
+  v.literal(TaskCode.intelligence.manage),
+  // Consular Registrations
+  v.literal(TaskCode.consular_registrations.view),
+  v.literal(TaskCode.consular_registrations.manage),
+  // Consular Notifications
+  v.literal(TaskCode.consular_notifications.view),
+  // Consular Cards
+  v.literal(TaskCode.consular_cards.manage),
+  // Community Events
+  v.literal(TaskCode.community_events.view),
+  v.literal(TaskCode.community_events.manage),
+  // Payments
+  v.literal(TaskCode.payments.view),
+  // Digital Mail
+  v.literal(TaskCode.digital_mail.view),
+  v.literal(TaskCode.digital_mail.manage),
+  // Meetings & Calls
+  v.literal(TaskCode.meetings.create),
+  v.literal(TaskCode.meetings.join),
+  v.literal(TaskCode.meetings.manage),
+  v.literal(TaskCode.meetings.view_history),
+);
+
+// ═══════════════════════════════════════════════════════════════
+// TASK CATEGORIES
+// ═══════════════════════════════════════════════════════════════
+
+/** All task category keys */
+export type TaskCategory = keyof typeof TaskCode;
+
+/** All task category keys as array */
+export const ALL_TASK_CATEGORIES = Object.keys(TaskCode) as TaskCategory[];
+
+// ═══════════════════════════════════════════════════════════════
+// RISK LEVELS
+// ═══════════════════════════════════════════════════════════════
+
+export type TaskRisk = "low" | "medium" | "high" | "critical";
+
+/**
+ * Risk level for each task code.
+ * Determines UI treatment (warnings, confirmation dialogs, audit logging).
+ */
+export const TASK_RISK: Record<TaskCodeValue, TaskRisk> = {
+  // Requests
+  [TaskCode.requests.view]: "low",
+  [TaskCode.requests.create]: "low",
+  [TaskCode.requests.process]: "medium",
+  [TaskCode.requests.validate]: "high",
+  [TaskCode.requests.assign]: "medium",
+  [TaskCode.requests.delete]: "critical",
+  [TaskCode.requests.complete]: "medium",
+  // Documents
+  [TaskCode.documents.view]: "low",
+  [TaskCode.documents.validate]: "high",
+  [TaskCode.documents.generate]: "high",
+  [TaskCode.documents.delete]: "critical",
+  // Appointments
+  [TaskCode.appointments.view]: "low",
+  [TaskCode.appointments.manage]: "medium",
+  [TaskCode.appointments.configure]: "medium",
+  // Profiles
+  [TaskCode.profiles.view]: "low",
+  [TaskCode.profiles.manage]: "high",
+  // Civil Status
+  [TaskCode.civil_status.transcribe]: "high",
+  [TaskCode.civil_status.register]: "high",
+  [TaskCode.civil_status.certify]: "high",
+  // Passports
+  [TaskCode.passports.process]: "high",
+  [TaskCode.passports.biometric]: "medium",
+  [TaskCode.passports.deliver]: "high",
+  // Visas
+  [TaskCode.visas.process]: "high",
+  [TaskCode.visas.approve]: "critical",
+  [TaskCode.visas.stamp]: "high",
+  // Finance
+  [TaskCode.finance.view]: "medium",
+  [TaskCode.finance.collect]: "high",
+  [TaskCode.finance.manage]: "critical",
+  // Communication
+  [TaskCode.communication.publish]: "medium",
+  [TaskCode.communication.notify]: "medium",
+  // Team
+  [TaskCode.team.view]: "low",
+  [TaskCode.team.manage]: "high",
+  [TaskCode.team.assign_roles]: "critical",
+  // Settings
+  [TaskCode.settings.view]: "low",
+  [TaskCode.settings.manage]: "high",
+  // Org
+  [TaskCode.org.view]: "low",
+  // Schedules
+  [TaskCode.schedules.view]: "low",
+  [TaskCode.schedules.manage]: "medium",
+  // Analytics
+  [TaskCode.analytics.view]: "low",
+  [TaskCode.analytics.export]: "medium",
+  // Statistics
+  [TaskCode.statistics.view]: "low",
+  // Intelligence
+  [TaskCode.intelligence.view]: "critical",
+  [TaskCode.intelligence.manage]: "critical",
+  // Consular Registrations
+  [TaskCode.consular_registrations.view]: "low",
+  [TaskCode.consular_registrations.manage]: "high",
+  // Consular Notifications
+  [TaskCode.consular_notifications.view]: "low",
+  // Consular Cards
+  [TaskCode.consular_cards.manage]: "high",
+  // Community Events
+  [TaskCode.community_events.view]: "low",
+  [TaskCode.community_events.manage]: "medium",
+  // Payments
+  [TaskCode.payments.view]: "medium",
+  // Digital Mail
+  [TaskCode.digital_mail.view]: "low",
+  [TaskCode.digital_mail.manage]: "medium",
+  // Meetings & Calls
+  [TaskCode.meetings.create]: "low",
+  [TaskCode.meetings.join]: "low",
+  [TaskCode.meetings.manage]: "medium",
+  [TaskCode.meetings.view_history]: "low",
+};
