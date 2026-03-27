@@ -13,7 +13,7 @@ RUN bun install
 RUN cd apps/backoffice-web && bun run build
 
 # ── Stage 2: Production image ─────────────────────────
-FROM node:22-alpine AS runner
+FROM oven/bun:1.2.17-alpine AS runner
 
 WORKDIR /app
 
@@ -25,4 +25,4 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-CMD ["node", ".output/server/index.mjs"]
+CMD ["bun", ".output/server/index.mjs"]
