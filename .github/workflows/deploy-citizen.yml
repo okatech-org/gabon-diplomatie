@@ -1,0 +1,73 @@
+name: Deploy Citizen Web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/citizen-web/**"
+      - "packages/**"
+      - ".github/workflows/deploy-citizen.yml"
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: gabon-diplomatie
+  REGION: europe-west1
+  SERVICE_NAME: citizen-web
+  REGISTRY: europe-west1-docker.pkg.dev/gabon-diplomatie/docker-registry
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: github-actions@gabon-diplomatie.iam.gserviceaccount.com
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev --quiet
+
+      - name: Build and push Docker image
+        run: |
+          IMAGE="${{ env.REGISTRY }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          docker build \
+            -f apps/citizen-web/Dockerfile \
+            --build-arg VITE_CONVEX_URL=${{ secrets.VITE_CONVEX_URL }} \
+            --build-arg VITE_CONVEX_SITE_URL=${{ secrets.VITE_CONVEX_SITE_URL }} \
+            --build-arg VITE_SITE_URL=https://consulat.ga \
+            --build-arg VITE_POSTHOG_KEY=${{ secrets.VITE_POSTHOG_KEY }} \
+            --build-arg VITE_POSTHOG_HOST=${{ secrets.VITE_POSTHOG_HOST }} \
+            --build-arg VITE_LIVEKIT_WS_URL=${{ secrets.VITE_LIVEKIT_WS_URL }} \
+            --build-arg VITE_STRIPE_PUBLISHABLE_KEY=${{ secrets.VITE_STRIPE_PUBLISHABLE_KEY }} \
+            --build-arg VITE_MAPBOX_TOKEN=${{ secrets.VITE_MAPBOX_TOKEN }} \
+            -t "$IMAGE" \
+            -t "${{ env.REGISTRY }}/${{ env.SERVICE_NAME }}:latest" \
+            .
+          docker push "$IMAGE"
+          docker push "${{ env.REGISTRY }}/${{ env.SERVICE_NAME }}:latest"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE_NAME }} \
+            --image="${{ env.REGISTRY }}/${{ env.SERVICE_NAME }}:${{ github.sha }}" \
+            --region=${{ env.REGION }} \
+            --project=${{ env.PROJECT_ID }} \
+            --platform=managed \
+            --allow-unauthenticated \
+            --port=8080 \
+            --memory=512Mi \
+            --cpu=1 \
+            --min-instances=0 \
+            --max-instances=10 \
+            --set-env-vars="NODE_ENV=production"
