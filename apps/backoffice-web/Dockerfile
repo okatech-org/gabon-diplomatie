@@ -3,6 +3,12 @@ FROM oven/bun:1.2.17 AS builder
 
 WORKDIR /app
 
+# Build-time env vars (VITE_* are inlined at build time by Vite)
+ARG VITE_CONVEX_URL
+ARG VITE_SITE_URL
+ARG VITE_POSTHOG_KEY
+ARG VITE_POSTHOG_HOST
+
 # Copy everything (filtered by .dockerignore at repo root)
 COPY . .
 
