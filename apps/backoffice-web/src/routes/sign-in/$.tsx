@@ -327,8 +327,6 @@ function SignInPage() {
 							</>
 						)}
 
-						<IDNSignInButton />
-
 						<div className="text-center text-sm text-muted-foreground pt-4">
 							{t("errors.auth.noAccount")}{" "}
 							<a
