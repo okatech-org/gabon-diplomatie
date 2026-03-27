@@ -1,0 +1,94 @@
+import type { ConvexQueryClient } from "@convex-dev/react-query";
+import type { QueryClient } from "@tanstack/react-query";
+import {
+	createRootRouteWithContext,
+	HeadContent,
+	Outlet,
+	Scripts,
+	useRouteContext,
+} from "@tanstack/react-router";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@workspace/ui/components/sonner";
+import AppConvexProvider from "@workspace/api/provider";
+import I18nProvider from "@workspace/i18n/provider";
+import { api } from "@convex/_generated/api";
+import appCss from "../styles.css?url";
+
+interface MyRouterContext {
+	queryClient: QueryClient;
+	convexQueryClient: ConvexQueryClient;
+}
+
+export const Route = createRootRouteWithContext<MyRouterContext>()({
+	head: () => ({
+		meta: [
+			{
+				charSet: "utf-8",
+			},
+			{
+				name: "viewport",
+				content: "width=device-width, initial-scale=1",
+			},
+			{
+				title:
+					"Diplomate.ga | Portail Agent Consulaire",
+			},
+			{
+				name: "description",
+				content:
+					"Portail agent de gestion consulaire de la République Gabonaise.",
+			},
+			{
+				name: "theme-color",
+				content: "#3b82f6",
+			},
+		],
+		links: [
+			{
+				rel: "stylesheet",
+				href: appCss,
+			},
+		],
+	}),
+
+	beforeLoad: async () => {
+		return {
+			isAuthenticated: false,
+			token: null as string | null,
+		};
+	},
+
+	shellComponent: RootDocument,
+	component: RootLayout,
+});
+
+function RootLayout() {
+	return <Outlet />;
+}
+
+function RootDocument({ children }: { children: React.ReactNode }) {
+	const context = useRouteContext({ from: Route.id });
+
+	return (
+		<html lang="fr" suppressHydrationWarning>
+			<head>
+				<HeadContent />
+			</head>
+			<body>
+				<I18nProvider>
+					<AppConvexProvider
+						initialToken={context?.token}
+						ensureUserMutation={api.functions.users.ensureUser}
+					>
+						<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+							{children}
+							<Toaster richColors />
+						</ThemeProvider>
+					</AppConvexProvider>
+				</I18nProvider>
+
+				<Scripts />
+			</body>
+		</html>
+	);
+}
