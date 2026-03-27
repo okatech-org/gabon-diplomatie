@@ -1,0 +1,8 @@
+node_modules
+.git
+.output
+.vinxi
+.env.local
+.env*.local
+*.md
+.turbo
