@@ -121,7 +121,7 @@ function SignInPage() {
 					setError(translateAuthError(result.error.message, "errors.auth.otp.invalidCode"));
 				} else {
 					captureEvent("user_logged_in", { method: "sms_otp" });
-					navigate({ to: "/post-login-redirect" });
+					navigate({ to: "/" });
 				}
 			} else {
 				const result = await authClient.signIn.emailOtp({
@@ -132,7 +132,7 @@ function SignInPage() {
 					setError(translateAuthError(result.error.message, "errors.auth.otp.invalidCode"));
 				} else {
 					captureEvent("user_logged_in", { method: "email_otp" });
-					navigate({ to: "/post-login-redirect" });
+					navigate({ to: "/" });
 				}
 			}
 		} catch {
@@ -157,7 +157,7 @@ function SignInPage() {
 				setError(translateAuthError(result.error.message, "errors.auth.signInFailed"));
 			} else {
 				captureEvent("user_logged_in", { method: "password" });
-				navigate({ to: "/post-login-redirect" });
+				navigate({ to: "/" });
 			}
 		} catch {
 			setError(t("errors.auth.signInFailed"));

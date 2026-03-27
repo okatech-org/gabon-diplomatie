@@ -1,11 +1,11 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header"
 import { OrgActionsCell } from "@/components/admin/org-actions-cell"
-import { Doc } from "@convex/_generated/dataModel"
+import type { Doc } from "@convex/_generated/dataModel"
 import { Building2 } from "lucide-react"
 import { getCountryFlag, getCountryName } from "@/lib/country-utils"
 import { OrganizationType } from "@convex/lib/constants"

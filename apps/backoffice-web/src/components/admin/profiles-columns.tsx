@@ -1,6 +1,6 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header"
@@ -252,7 +252,7 @@ const actionsCol: ColumnDef<ProfileRow> = {
   cell: ({ row }) => {
     return (
       <Link
-        to="/dashboard/profiles/$profileId"
+        to="/profiles/$profileId"
         params={{ profileId: row.original._id }}
         className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
       >

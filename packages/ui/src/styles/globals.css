@@ -2,129 +2,702 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 @custom-variant dark (&:is(.dark *));
+
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
-@theme inline {
-    --font-heading: var(--font-sans);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
-    --font-sans: 'Inter Variable', sans-serif;
-}
-
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+  /* ========================================
+       GABONESE CONSULAR DESIGN SYSTEM
+       Inspiré du dashboard moderne
+       ======================================== */
+
+  /* Couleurs Nationales Gabon - Officielles */
+  --gabon-green: oklch(0.5 0.18 145.5); /* #009639 - Vert officiel */
+  --gabon-yellow: oklch(0.89 0.19 95.5); /* #FCD116 - Jaune/Or officiel */
+  --gabon-blue: oklch(0.52 0.16 248); /* #3A75C4 - Bleu officiel */
+
+  /* ========================================
+       MODE CLAIR (Light Theme)
+       ======================================== */
+
+  /* Backgrounds */
+  --background: oklch(0.98 0.005 250); /* #F8F9FB - Main bg */
+  --background-dashboard: oklch(0.9331 0.0081 98.88); /* #EAE9E3 */
+  --foreground: oklch(0.15 0.02 250); /* #1A1D26 - Text primary */
+
+  /* Cards & Surfaces */
+  --card: oklch(1 0 0); /* #FFFFFF - Card bg */
+  --card-foreground: oklch(0.15 0.02 250); /* #1A1D26 */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 250);
+
+  /* Primary - Gabon Green */
+  --primary: oklch(0.5 0.18 145.5); /* #009639 - Vert Gabon officiel */
+  --primary-foreground: oklch(0.99 0 0); /* White */
+  --primary-light: oklch(0.85 0.08 145.5); /* Version claire du vert */
+
+  /* Secondary - Neutral Gray */
+  --secondary: oklch(0.96 0.005 250); /* #F3F4F6 - Hover bg */
+  --secondary-foreground: oklch(0.25 0.02 250); /* #6B7280 */
+
+  /* Muted */
+  --muted: oklch(0.96 0.005 250); /* #F3F4F6 */
+  --muted-foreground: oklch(0.5 0.02 250); /* Darker for better contrast */
+
+  /* Accent - Gabon Green (for active states) */
+  --accent: oklch(0.5 0.18 145.5); /* Vert Gabon */
+  --accent-foreground: oklch(0.99 0 0);
+
+  /* Accent Colors for Stats/Icons */
+  --accent-orange: oklch(0.65 0.2 35); /* #FF6B35 */
+  --accent-blue: oklch(0.55 0.15 250); /* #3A75C4 */
+  --accent-purple: oklch(0.55 0.2 290); /* #8B5CF6 */
+  --accent-yellow: oklch(0.88 0.18 95); /* #FCD116 */
+
+  /* Status Colors */
+  --success: oklch(0.65 0.17 160); /* #10B981 */
+  --success-light: oklch(0.92 0.05 160); /* #D1FAE5 */
+  --warning: oklch(0.75 0.16 70); /* #F59E0B */
+  --warning-light: oklch(0.95 0.05 85); /* #FEF3C7 */
+  --destructive: oklch(0.6 0.22 25); /* #EF4444 */
+  --destructive-light: oklch(0.95 0.05 25); /* #FEE2E2 */
+
+  /* Borders */
+  --border: oklch(0.9 0.005 250); /* #E5E7EB */
+  --border-light: oklch(0.96 0.005 250); /* #F3F4F6 */
+  --input: oklch(0.9 0.005 250);
+  --ring: oklch(0.5 0.18 145.5); /* Primary green */
+
+  /* Chart Colors */
+  --chart-1: oklch(0.53 0.18 255); /* Blue */
+  --chart-2: oklch(0.55 0.15 250); /* Blue */
+  --chart-3: oklch(0.88 0.18 95); /* Yellow */
+  --chart-4: oklch(0.65 0.2 35); /* Orange */
+  --chart-5: oklch(0.55 0.2 290); /* Purple */
+
+  /* Radius - Rounded for soft look */
+  --radius: 1rem; /* 16px base */
+
+  /* Sidebar */
+  --sidebar: oklch(1 0 0); /* White */
+  --sidebar-foreground: oklch(0.15 0.02 250);
+  --sidebar-primary: oklch(0.5 0.18 145.5); /* Vert Gabon */
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.04 255); /* Light blue tint */
+  --sidebar-accent-foreground: oklch(0.53 0.18 255);
+  --sidebar-border: oklch(0.9 0.005 250);
+  --sidebar-ring: oklch(0.53 0.18 255);
+  --sidebar-muted: oklch(0.62 0.02 250);
+
+  /* Shadows (CSS custom properties for box-shadow) */
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.04);
+  --shadow-md:
+    0 4px 6px -1px oklch(0 0 0 / 0.05), 0 2px 4px -1px oklch(0 0 0 / 0.03);
+  --shadow-lg:
+    0 10px 15px -3px oklch(0 0 0 / 0.06), 0 4px 6px -2px oklch(0 0 0 / 0.03);
+  --shadow-xl:
+    0 20px 25px -5px oklch(0 0 0 / 0.08), 0 10px 10px -5px oklch(0 0 0 / 0.02);
+
+  /* Card gradient for ID card */
+  --card-gradient: linear-gradient(
+    135deg,
+    oklch(0.52 0.17 145) 0%,
+    oklch(0.42 0.14 145) 50%,
+    oklch(0.55 0.15 250) 100%
+  );
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+  /* ========================================
+       MODE SOMBRE (Dark Theme)
+       Style GitHub Dark / Modern Dashboard
+       ======================================== */
+
+  /* Backgrounds - Dark Charcoal */
+  --background: oklch(0.16 0.005 270); /* #1B1C20 - Dark charcoal */
+  --background-dashboard: oklch(0.16 0.005 270);
+  --foreground: oklch(0.98 0 0); /* Blanc pur */
+
+  /* Cards & Surfaces - Slightly lighter than bg */
+  --card: oklch(0.2 0.005 270); /* #232429 */
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.2 0.005 270);
+  --popover-foreground: oklch(0.98 0 0);
+
+  /* Primary - Gabon Green (lighter for dark mode) */
+  --primary: oklch(0.55 0.16 145.5); /* Vert Gabon plus clair */
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-light: oklch(0.4 0.12 145.5);
+
+  /* Secondary */
+  --secondary: oklch(0.22 0.01 250); /* #1C2128 */
+  --secondary-foreground: oklch(0.7 0.02 250); /* #8B949E */
+
+  /* Muted */
+  --muted: oklch(0.22 0.01 250); /* #1C2128 */
+  --muted-foreground: oklch(0.6 0.02 250); /* Lighter for better contrast */
+
+  /* Accent - Vert Gabon */
+  --accent: oklch(0.55 0.16 145.5);
+  --accent-foreground: oklch(0.99 0 0);
+
+  /* Accent Colors (slightly adjusted for dark mode) */
+  --accent-orange: oklch(0.7 0.18 35);
+  --accent-blue: oklch(0.6 0.14 250);
+  --accent-purple: oklch(0.6 0.18 290);
+  --accent-yellow: oklch(0.85 0.16 95);
+
+  /* Status Colors - Semi-transparent backgrounds */
+  --success: oklch(0.65 0.17 160);
+  --success-light: oklch(0.65 0.17 160 / 0.15);
+  --warning: oklch(0.75 0.16 70);
+  --warning-light: oklch(0.75 0.16 70 / 0.15);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-light: oklch(0.65 0.2 25 / 0.15);
+
+  /* Borders */
+  --border: oklch(1 0 0 / 0.08); /* White 8% */
+  --border-light: oklch(1 0 0 / 0.05); /* White 5% */
+  --input: oklch(1 0 0 / 0.1);
+  --ring: oklch(0.55 0.16 145.5); /* Vert Gabon */
+
+  /* Chart Colors */
+  --chart-1: oklch(0.56 0.17 255);
+  --chart-2: oklch(0.6 0.14 250);
+  --chart-3: oklch(0.85 0.16 95);
+  --chart-4: oklch(0.7 0.18 35);
+  --chart-5: oklch(0.6 0.18 290);
+
+  /* Sidebar - Slightly darker than bg */
+  --sidebar: oklch(0.14 0.005 270); /* #17181C */
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.55 0.16 145.5); /* Vert Gabon */
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.55 0.16 145.5 / 0.15);
+  --sidebar-accent-foreground: oklch(0.55 0.16 145.5);
+  --sidebar-border: oklch(1 0 0 / 0.08);
+  --sidebar-ring: oklch(0.55 0.16 145.5);
+  --sidebar-muted: oklch(0.55 0.02 250);
+
+  /* Shadows (more pronounced for dark mode) */
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md:
+    0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -1px oklch(0 0 0 / 0.3);
+  --shadow-lg:
+    0 10px 15px -3px oklch(0 0 0 / 0.5), 0 4px 6px -2px oklch(0 0 0 / 0.3);
+  --shadow-xl:
+    0 20px 25px -5px oklch(0 0 0 / 0.6), 0 10px 10px -5px oklch(0 0 0 / 0.3);
+
+  /* Card gradient (darker version) */
+  --card-gradient: linear-gradient(
+    135deg,
+    oklch(0.42 0.14 145) 0%,
+    oklch(0.32 0.12 145) 50%,
+    oklch(0.45 0.12 250) 100%
+  );
+}
+
+@theme inline {
+  /* Fonts */
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-display:
+    "Plus Jakarta Sans Variable", "Inter Variable", system-ui, sans-serif;
+
+  /* Colors mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-background-dashboard: var(--background-dashboard);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Accent colors */
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-yellow: var(--accent-yellow);
+
+  /* Status colors */
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+  --color-warning: var(--warning);
+  --color-warning-light: var(--warning-light);
+  --color-destructive-light: var(--destructive-light);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-muted: var(--sidebar-muted);
+
+  /* Border radius - Soft rounded (base: 16px) */
+  --radius-sm: calc(var(--radius) - 4px); /* 12px */
+  --radius-md: calc(var(--radius) - 2px); /* 14px */
+  --radius-lg: var(--radius); /* 16px */
+  --radius-xl: calc(var(--radius) + 4px); /* 20px */
+  --radius-2xl: calc(var(--radius) + 8px); /* 24px */
+  --radius-3xl: calc(var(--radius) + 12px); /* 28px */
+  --radius-4xl: calc(var(--radius) + 16px); /* 32px */
+
+  /* Container padding responsive */
+  --container-padding: 1rem;
+  --container-padding-sm: 2rem;
+  --container-padding-lg: 4rem;
+  --container-padding-xl: 5rem;
+  --container-padding-2xl: 6rem;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply font-sans bg-background text-foreground antialiased;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  /* Theme transition - smooth fade between dark/light */
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    transition:
+      background-color 300ms ease-in-out,
+      border-color 300ms ease-in-out,
+      color 150ms ease-in-out;
+  }
+
+  /* Headings use display font */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+
+  button, a {
+    cursor: pointer;
+  }
+
+  /* Custom Scrollbar - Subtle, blends with UI */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.5 0 0 / 0.15);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.5 0 0 / 0.3);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.5 0 0 / 0.15) transparent;
+  }
+}
+
+@layer components {
+  /* ========================================
+       CUSTOM COMPONENT CLASSES
+       ======================================== */
+
+  /* Stat Card Icon Backgrounds */
+  .stat-icon-green {
+    @apply bg-[oklch(0.52_0.17_145/0.12)] text-[oklch(0.52_0.17_145)];
+  }
+  .dark .stat-icon-green {
+    @apply bg-[oklch(0.55_0.16_145/0.15)] text-[oklch(0.55_0.16_145)];
+  }
+
+  .stat-icon-orange {
+    @apply bg-[oklch(0.65_0.20_35/0.12)] text-[oklch(0.65_0.20_35)];
+  }
+  .dark .stat-icon-orange {
+    @apply bg-[oklch(0.70_0.18_35/0.15)] text-[oklch(0.70_0.18_35)];
+  }
+
+  .stat-icon-blue {
+    @apply bg-[oklch(0.55_0.15_250/0.12)] text-[oklch(0.55_0.15_250)];
+  }
+  .dark .stat-icon-blue {
+    @apply bg-[oklch(0.60_0.14_250/0.15)] text-[oklch(0.60_0.14_250)];
+  }
+
+  .stat-icon-purple {
+    @apply bg-[oklch(0.55_0.20_290/0.12)] text-[oklch(0.55_0.20_290)];
+  }
+  .dark .stat-icon-purple {
+    @apply bg-[oklch(0.60_0.18_290/0.15)] text-[oklch(0.60_0.18_290)];
+  }
+
+  /* Status Badges */
+  .badge-success {
+    @apply bg-success-light text-success;
+  }
+
+  .badge-warning {
+    @apply bg-warning-light text-warning;
+  }
+
+  .badge-destructive {
+    @apply bg-destructive-light text-destructive;
+  }
+
+  .badge-info {
+    @apply bg-[oklch(0.55_0.15_250/0.12)] text-[oklch(0.55_0.15_250)];
+  }
+  .dark .badge-info {
+    @apply bg-[oklch(0.60_0.14_250/0.15)] text-[oklch(0.60_0.14_250)];
+  }
+
+  /* Card with hover effect */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    @apply shadow-lg -translate-y-0.5;
+  }
+
+  /* Gabon Flag Gradient (for ID card, logo, etc.) */
+  .gabon-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--gabon-green) 0%,
+      var(--gabon-green) 33.33%,
+      var(--gabon-yellow) 33.33%,
+      var(--gabon-yellow) 66.66%,
+      var(--gabon-blue) 66.66%,
+      var(--gabon-blue) 100%
+    );
+  }
+
+  /* Card gradient for consular card */
+  .consular-card-gradient {
+    background: var(--card-gradient);
+  }
+
+  /* Glass effect for elevated elements */
+  .glass {
+    @apply backdrop-blur-xl bg-card/80;
+  }
+  .dark .glass {
+    @apply backdrop-blur-xl bg-card/60;
+  }
+
+  /* Progress ring animation */
+  .progress-ring-animate {
+    animation: progress-fill 1s ease-out forwards;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+  }
+
+  @keyframes progress-fill {
+    to {
+      stroke-dashoffset: var(--progress-offset, 57.78);
     }
+  }
+
+  /* Fade in up animation */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered animation delays */
+  .delay-1 {
+    animation-delay: 0.05s;
+  }
+  .delay-2 {
+    animation-delay: 0.1s;
+  }
+  .delay-3 {
+    animation-delay: 0.15s;
+  }
+  .delay-4 {
+    animation-delay: 0.2s;
+  }
+  .delay-5 {
+    animation-delay: 0.25s;
+  }
+  .delay-6 {
+    animation-delay: 0.3s;
+  }
+}
+
+/* ========================================
+   HOMEOMORPHISM THEME (Neumorphism)
+   Soft UI with embossed/debossed surfaces
+   ======================================== */
+
+/* --- Light mode homeomorphism --- */
+.theme-homeomorphism {
+  --background: oklch(0.92 0.005 250); /* #E0E5EC soft gray surface */
+  --background-dashboard: oklch(0.92 0.005 250);
+  --card: oklch(
+    0.92 0.005 250
+  ); /* Same as bg — elements "rise" via shadows, not color */
+  --card-foreground: oklch(0.2 0.02 250);
+  --popover: oklch(0.92 0.005 250);
+  --popover-foreground: oklch(0.2 0.02 250);
+
+  --secondary: oklch(0.92 0.005 250);
+  --secondary-foreground: oklch(0.35 0.02 250);
+  --muted: oklch(0.88 0.005 250);
+  --muted-foreground: oklch(0.45 0.02 250);
+
+  --border: transparent;
+  --border-light: transparent;
+  --input: oklch(0.92 0.005 250);
+
+  --radius: 1.25rem; /* 20px — softer, rounder edges */
+
+  /* Neumorphic shadow tokens */
+  --neu-distance: 6px;
+  --neu-blur: 12px;
+  --neu-light: oklch(1 0 0 / 0.7); /* White highlight */
+  --neu-dark: oklch(0.7 0.01 250 / 0.35); /* Gray shadow */
+
+  /* Replace standard shadows with neumorphic pairs */
+  --shadow-sm:
+    var(--neu-distance) var(--neu-distance) var(--neu-blur) var(--neu-dark),
+    calc(-1 * var(--neu-distance)) calc(-1 * var(--neu-distance))
+      var(--neu-blur) var(--neu-light);
+  --shadow-md: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --shadow-lg:
+    10px 10px 20px var(--neu-dark), -10px -10px 20px var(--neu-light);
+  --shadow-xl:
+    14px 14px 28px var(--neu-dark), -14px -14px 28px var(--neu-light);
+
+  /* Inset shadow for pressed/active states */
+  --neu-inset:
+    inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+}
+
+/* --- Dark mode homeomorphism --- */
+.theme-homeomorphism:is(.dark *),
+.dark .theme-homeomorphism {
+  --background: oklch(0.2 0.01 250); /* #2D3436 dark surface */
+  --background-dashboard: oklch(0.2 0.01 250);
+  --card: oklch(0.2 0.01 250);
+  --card-foreground: oklch(0.92 0 0);
+  --popover: oklch(0.2 0.01 250);
+  --popover-foreground: oklch(0.92 0 0);
+
+  --secondary: oklch(0.22 0.01 250);
+  --secondary-foreground: oklch(0.65 0.02 250);
+  --muted: oklch(0.18 0.01 250);
+  --muted-foreground: oklch(0.55 0.02 250);
+
+  --border: transparent;
+  --border-light: transparent;
+  --input: oklch(0.2 0.01 250);
+
+  /* Dark neumorphic tokens */
+  --neu-light: oklch(0.28 0.01 250 / 0.5); /* Subtle lighter shadow */
+  --neu-dark: oklch(0.05 0 0 / 0.6); /* Deep dark shadow */
+
+  --shadow-sm:
+    var(--neu-distance) var(--neu-distance) var(--neu-blur) var(--neu-dark),
+    calc(-1 * var(--neu-distance)) calc(-1 * var(--neu-distance))
+      var(--neu-blur) var(--neu-light);
+  --shadow-md: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --shadow-lg:
+    10px 10px 20px var(--neu-dark), -10px -10px 20px var(--neu-light);
+  --shadow-xl:
+    14px 14px 28px var(--neu-dark), -14px -14px 28px var(--neu-light);
+
+  --neu-inset:
+    inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+}
+
+/* Neumorphic card override — remove border, add shadow */
+.theme-homeomorphism [data-slot="card"] {
+  border: none !important;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 300ms ease-in-out,
+    background-color 300ms ease-in-out;
+}
+
+.theme-homeomorphism [data-slot="card"]:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Neumorphic buttons (outline variant) */
+.theme-homeomorphism button[data-variant="outline"] {
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-homeomorphism button[data-variant="outline"]:active {
+  box-shadow: var(--neu-inset);
+}
+
+/* Neumorphic input fields */
+.theme-homeomorphism input,
+.theme-homeomorphism textarea,
+.theme-homeomorphism select {
+  border: none !important;
+  box-shadow: var(--neu-inset);
+}
+
+/* Neumorphic sidebar */
+.theme-homeomorphism aside[data-slot="sidebar"] {
+  border: none !important;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 300ms ease-in-out,
+    background-color 300ms ease-in-out;
+}
+
+@layer components {
+  /* Explicit neumorphic utility classes */
+  .neu-card {
+    border: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .neu-pressed {
+    box-shadow: var(--neu-inset);
+  }
+
+  .neu-button {
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 150ms ease;
+  }
+  .neu-button:active {
+    box-shadow: var(--neu-inset);
+  }
+}
+
+/* Neumorphic theme preview element (settings page) */
+.neu-preview-element {
+  background: oklch(0.92 0.005 250);
+  box-shadow:
+    2px 2px 4px oklch(0.7 0.01 250 / 0.35),
+    -2px -2px 4px oklch(1 0 0 / 0.7);
+}
+
+@layer utilities {
+  /* Text colors */
+  .text-muted {
+    @apply text-muted-foreground;
+  }
+
+  /* Shadows using CSS variables */
+  .shadow-theme-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  .shadow-theme-md {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-theme-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  .shadow-theme-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Border utilities */
+  .border-light {
+    border-color: var(--border-light);
+  }
+
+  /* Gabon colors utilities */
+  .text-gabon-green {
+    color: var(--gabon-green);
+  }
+  .text-gabon-yellow {
+    color: var(--gabon-yellow);
+  }
+  .text-gabon-blue {
+    color: var(--gabon-blue);
+  }
+  .bg-gabon-green {
+    background-color: var(--gabon-green);
+  }
+  .bg-gabon-yellow {
+    background-color: var(--gabon-yellow);
+  }
+  .bg-gabon-blue {
+    background-color: var(--gabon-blue);
+  }
+
+  /* Mapbox Popup Overrides - Remove default styling */
+  .mapboxgl-popup-content {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .mapboxgl-popup-tip {
+    display: none !important;
+  }
+
+  .custom-mapbox-popup .mapboxgl-popup-content {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
 }

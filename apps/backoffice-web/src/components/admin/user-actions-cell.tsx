@@ -22,7 +22,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
-import { Doc } from "@convex/_generated/dataModel"
+import type { Doc } from "@convex/_generated/dataModel"
 import { UserRoleDialog } from "./user-role-dialog"
 import { UserModulesDialog } from "./user-modules-dialog"
 import { useConvexMutationQuery } from "@/integrations/convex/hooks"
@@ -114,7 +114,7 @@ export function UserActionsCell({ user }: UserActionsCellProps) {
   }
 
   const handleView = () => {
-    navigate({ to: `/dashboard/users/${user._id}` as any })
+    navigate({ to: `/users/${user._id}` as any })
   }
 
   return (

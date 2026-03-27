@@ -105,31 +105,31 @@ export function SuperadminSidebar({
 			items: [
 				{
 					title: t("superadmin.nav.dashboard"),
-					url: "/dashboard",
+					url: "/",
 					icon: LayoutDashboard,
 					// Dashboard always visible — no moduleCode
 				},
 				{
 					title: t("superadmin.nav.organizations"),
-					url: "/dashboard/orgs",
+					url: "/orgs",
 					icon: Building2,
 					moduleCode: "team",
 				},
 				{
 					title: t("superadmin.nav.services"),
-					url: "/dashboard/services",
+					url: "/services",
 					icon: Wrench,
 					moduleCode: "settings",
 				},
 				{
 					title: t("superadmin.nav.requests"),
-					url: "/dashboard/requests",
+					url: "/requests",
 					icon: ClipboardList,
 					moduleCode: "requests",
 				},
 				{
 					title: t("superadmin.nav.associations", "Associations"),
-					url: "/dashboard/associations",
+					url: "/associations",
 					icon: Building2,
 					moduleCode: "associations",
 				},
@@ -144,19 +144,19 @@ export function SuperadminSidebar({
 			items: [
 				{
 					title: t("superadmin.nav.users"),
-					url: "/dashboard/users",
+					url: "/users",
 					icon: Users,
 					moduleCode: "profiles",
 				},
 				{
 					title: t("superadmin.nav.profiles", "Profils"),
-					url: "/dashboard/profiles",
+					url: "/profiles",
 					icon: Crown,
 					moduleCode: "citizen_profiles",
 				},
 				{
 					title: t("superadmin.nav.support"),
-					url: "/dashboard/support",
+					url: "/support",
 					icon: LifeBuoy,
 					moduleCode: "appointments",
 				},
@@ -171,19 +171,19 @@ export function SuperadminSidebar({
 			items: [
 				{
 					title: t("superadmin.nav.auditLogs"),
-					url: "/dashboard/audit-logs",
+					url: "/audit-logs",
 					icon: ScrollText,
 					moduleCode: "analytics",
 				},
 				{
 					title: t("superadmin.nav.monitoring", "Monitoring"),
-					url: "/dashboard/monitoring",
+					url: "/monitoring",
 					icon: Activity,
 					moduleCode: "monitoring",
 				},
 				{
 					title: t("superadmin.nav.settings"),
-					url: "/dashboard/settings",
+					url: "/settings",
 					icon: Settings,
 					moduleCode: "platform_settings",
 				},
@@ -198,44 +198,44 @@ export function SuperadminSidebar({
 			items: [
 				{
 					title: t("superadmin.nav.positionsRoles", "Postes & Rôles"),
-					url: "/dashboard/config/positions",
+					url: "/config/positions",
 					icon: Shield,
 					moduleCode: "roles",
 				},
 				{
 					title: t("superadmin.nav.modulesPermissions", "Modules & Permissions"),
-					url: "/dashboard/config/modules",
+					url: "/config/modules",
 					icon: Layers,
 					moduleCode: "permissions",
 				},
 				{
 					title: t("superadmin.nav.representations", "Config représentations"),
-					url: "/dashboard/config/representations",
+					url: "/config/representations",
 					icon: Globe,
 					moduleCode: "org_config",
 				},
 				{
 					title: t("superadmin.nav.servicesConfig", "Config services"),
-					url: "/dashboard/config/services",
+					url: "/config/services",
 					icon: Cog,
 					moduleCode: "services_config",
 				},
 				// Content items
 				{
 					title: t("superadmin.nav.posts"),
-					url: "/dashboard/posts",
+					url: "/posts",
 					icon: Newspaper,
 					moduleCode: "communication",
 				},
 				{
 					title: t("superadmin.nav.tutorials"),
-					url: "/dashboard/tutorials",
+					url: "/tutorials",
 					icon: BookOpen,
 					moduleCode: "tutorials",
 				},
 				{
 					title: t("superadmin.nav.events"),
-					url: "/dashboard/events",
+					url: "/events",
 					icon: Calendar,
 					moduleCode: "community_events",
 				},
@@ -261,8 +261,8 @@ export function SuperadminSidebar({
 		: allNavSections;
 
 	const isActive = (url: string) => {
-		if (url === "/dashboard") {
-			return location.pathname === "/dashboard";
+		if (url === "/") {
+			return location.pathname === "/";
 		}
 		return location.pathname.startsWith(url);
 	};
@@ -285,7 +285,7 @@ export function SuperadminSidebar({
 				{/* ─── Logo ─────────────────────────────────── */}
 				<div className={cn("mb-3", isExpanded ? "px-2" : "")}>
 					<Link
-						to="/dashboard"
+						to="/"
 						className={`flex items-center${isExpanded ? " gap-2" : ""}`}
 					>
 						<div className="size-10 shrink-0 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-sm">
@@ -462,33 +462,6 @@ export function SuperadminSidebar({
 							</TooltipContent>
 						</Tooltip>
 					</div>
-
-					{/* Switch to Citizen Space */}
-					<Tooltip>
-						<TooltipTrigger asChild>
-							<Button
-								variant="outline"
-								size={isExpanded ? "sm" : "icon"}
-								asChild
-								className={cn(
-									"border-blue-500/30 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10 hover:text-blue-700 dark:hover:text-blue-300",
-									isExpanded ? "w-full justify-start gap-2" : "h-9 w-9",
-								)}
-							>
-								<Link to="/my-space">
-									<User className="size-4 shrink-0" />
-									<SidebarText isExpanded={isExpanded}>
-										{t("sidebar.switchToCitizen", "Espace Citoyen")}
-									</SidebarText>
-								</Link>
-							</Button>
-						</TooltipTrigger>
-						{!isExpanded && (
-							<TooltipContent side="right">
-								{t("sidebar.switchToCitizen", "Espace Citoyen")}
-							</TooltipContent>
-						)}
-					</Tooltip>
 
 					{/* User info + Logout */}
 					<div

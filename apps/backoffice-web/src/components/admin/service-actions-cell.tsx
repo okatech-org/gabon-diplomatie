@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Doc } from "@convex/_generated/dataModel"
+import type { Doc } from "@convex/_generated/dataModel"
 import { useConvexMutationQuery } from "@/integrations/convex/hooks"
 import { api } from "@convex/_generated/api"
 import { toast } from "sonner"
@@ -42,7 +42,7 @@ export function ServiceActionsCell({ service }: ServiceActionsCellProps) {
   }
 
   const handleEdit = () => {
-    navigate({ to: `/dashboard/services/${service._id}/edit` as any })
+    navigate({ to: `/services/${service._id}/edit` as any })
   }
 
   return (

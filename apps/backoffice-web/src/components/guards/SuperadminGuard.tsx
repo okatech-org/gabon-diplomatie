@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { useConvexAuth } from "convex/react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { ArrowLeft, Loader2, ShieldX } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
@@ -8,17 +10,21 @@ interface SuperadminGuardProps {
 	children: React.ReactNode;
 }
 
-/**
- * Route guard that protects back-office routes.
- * Allows SuperAdmin, AdminSystem, and Admin users.
- * Shows an error message with a back button for unauthorized users.
- */
 export function SuperadminGuard({ children }: SuperadminGuardProps) {
 	const { t } = useTranslation();
+	const { isAuthenticated, isLoading: isAuthLoading } = useConvexAuth();
 	const { userData, isBackOffice, isPending } = useSuperAdminData();
+	const navigate = useNavigate();
 
-	// Show loading state while checking permissions
-	if (isPending) {
+	// Redirect to sign-in when not authenticated (after auth finishes loading)
+	useEffect(() => {
+		if (!isAuthLoading && !isAuthenticated) {
+			navigate({ to: "/sign-in" });
+		}
+	}, [isAuthLoading, isAuthenticated, navigate]);
+
+	// Show loading state while checking auth or permissions
+	if (isAuthLoading || (!isAuthenticated) || isPending) {
 		return (
 			<div className="flex items-center justify-center min-h-screen">
 				<div className="text-center space-y-4">
@@ -54,6 +60,5 @@ export function SuperadminGuard({ children }: SuperadminGuardProps) {
 		);
 	}
 
-	// User is authorized - render children
 	return <>{children}</>;
 }

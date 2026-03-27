@@ -134,7 +134,7 @@ export const tutorialsColumns: ColumnDef<Tutorial>[] = [
         <DropdownMenuContent align="end">
           <DropdownMenuItem asChild>
             <Link
-              to="/dashboard/tutorials/$tutorialId/edit"
+              to="/tutorials/$tutorialId/edit"
               params={{ tutorialId: row.original._id }}
             >
               <Pencil className="mr-2 h-4 w-4" />

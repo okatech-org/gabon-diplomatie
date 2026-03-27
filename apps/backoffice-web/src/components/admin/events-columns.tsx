@@ -119,7 +119,7 @@ export const eventsColumns: ColumnDef<CommunityEvent>[] = [
         <DropdownMenuContent align="end">
           <DropdownMenuItem asChild>
             <Link
-              to="/dashboard/events/$eventId/edit"
+              to="/events/$eventId/edit"
               params={{ eventId: row.original._id }}
             >
               <Pencil className="mr-2 h-4 w-4" />

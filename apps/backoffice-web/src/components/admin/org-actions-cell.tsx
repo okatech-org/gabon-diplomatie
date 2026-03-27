@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Doc } from "@convex/_generated/dataModel"
+import type { Doc } from "@convex/_generated/dataModel"
 import { useConvexMutationQuery } from "@/integrations/convex/hooks"
 import { api } from "@convex/_generated/api"
 import { toast } from "sonner"
@@ -58,26 +58,26 @@ export function OrgActionsCell({ org }: OrgActionsCellProps) {
         <DropdownMenuLabel>{org.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link to="/dashboard/orgs/$orgId" params={{ orgId: org._id }}>
+          <Link to="/orgs/$orgId" params={{ orgId: org._id }}>
             <Eye className="mr-2 h-4 w-4" />
             {t("superadmin.organizations.actions.view")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link to="/dashboard/orgs/$orgId/edit" params={{ orgId: org._id }}>
+          <Link to="/orgs/$orgId/edit" params={{ orgId: org._id }}>
             <Edit className="mr-2 h-4 w-4" />
             {t("superadmin.organizations.actions.edit")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link to="/dashboard/orgs/$orgId" params={{ orgId: org._id }}>
+          <Link to="/orgs/$orgId" params={{ orgId: org._id }}>
             <Users className="mr-2 h-4 w-4" />
             {t("superadmin.organizations.actions.manageMembers")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link to="/dashboard/orgs/$orgId" params={{ orgId: org._id }}>
+          <Link to="/orgs/$orgId" params={{ orgId: org._id }}>
             <FileText className="mr-2 h-4 w-4" />
             {t("superadmin.organizations.actions.manageServices")}
           </Link>

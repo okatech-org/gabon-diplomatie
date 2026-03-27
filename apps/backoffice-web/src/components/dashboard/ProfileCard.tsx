@@ -158,7 +158,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
 						asChild
 					>
 						<Link
-							to="/dashboard/profiles/$profileId"
+							to="/profiles/$profileId"
 							params={{ profileId: profile._id }}
 						>
 							Dossier complet

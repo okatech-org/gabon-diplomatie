@@ -14,7 +14,7 @@ interface IDNSignInButtonProps {
 }
 
 export function IDNSignInButton({
-	callbackURL = "/post-login-redirect",
+	callbackURL = "/",
 }: IDNSignInButtonProps) {
 	const { t } = useTranslation();
 	const [loading, setLoading] = useState(false);

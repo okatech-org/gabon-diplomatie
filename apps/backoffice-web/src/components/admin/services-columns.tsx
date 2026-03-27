@@ -1,9 +1,9 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
+import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header";
-import { Doc } from "@convex/_generated/dataModel";
+import type { Doc } from "@convex/_generated/dataModel";
 import { ServiceActionsCell } from "./service-actions-cell";
 
 type CommonService = Doc<"services">;

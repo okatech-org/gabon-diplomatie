@@ -5,7 +5,7 @@ import { api } from "@convex/_generated/api";
 import { UploadCloud, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { Id } from "@convex/_generated/dataModel";
+import type { Id } from "@convex/_generated/dataModel";
 import {
   DetailedDocumentType,
   DocumentTypeCategory,
