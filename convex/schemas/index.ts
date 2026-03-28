@@ -53,3 +53,4 @@ export {
 } from "./neocortex";
 
 export { gcpMetricsCacheTable } from "./gcpMetricsCache";
+export { cardDesignsTable } from "./cardDesigns";

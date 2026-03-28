@@ -48,6 +48,7 @@ import {
   metriquesTable,
   poidsAdaptatifsTable,
   gcpMetricsCacheTable,
+  cardDesignsTable,
 } from "./schemas";
 
 export default defineSchema({
@@ -99,4 +100,5 @@ export default defineSchema({
   metriques: metriquesTable,
   poidsAdaptatifs: poidsAdaptatifsTable,
   gcpMetricsCache: gcpMetricsCacheTable,
+  cardDesigns: cardDesignsTable,
 });

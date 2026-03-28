@@ -28,7 +28,7 @@ import { Route as AppAppointmentsIndexRouteImport } from './routes/_app/appointm
 import { Route as AppRequestsReferenceRouteImport } from './routes/_app/requests/$reference'
 import { Route as AppProfilesProfileIdRouteImport } from './routes/_app/profiles/$profileId'
 import { Route as AppPostsNewRouteImport } from './routes/_app/posts/new'
-import { Route as AppDesignerTemplateIdRouteImport } from './routes/_app/designer/$templateId'
+import { Route as AppDesignerDesignIdRouteImport } from './routes/_app/designer/$designId'
 import { Route as AppConsularRegistryPrintQueueRouteImport } from './routes/_app/consular-registry/print-queue'
 import { Route as AppAppointmentsAppointmentIdRouteImport } from './routes/_app/appointments/$appointmentId'
 import { Route as AppServicesServiceIdEditRouteImport } from './routes/_app/services/$serviceId.edit'
@@ -129,9 +129,9 @@ const AppPostsNewRoute = AppPostsNewRouteImport.update({
   path: '/posts/new',
   getParentRoute: () => AppRoute,
 } as any)
-const AppDesignerTemplateIdRoute = AppDesignerTemplateIdRouteImport.update({
-  id: '/designer/$templateId',
-  path: '/designer/$templateId',
+const AppDesignerDesignIdRoute = AppDesignerDesignIdRouteImport.update({
+  id: '/designer/$designId',
+  path: '/designer/$designId',
   getParentRoute: () => AppRoute,
 } as any)
 const AppConsularRegistryPrintQueueRoute =
@@ -167,7 +167,7 @@ export interface FileRoutesByFullPath {
   '/statistics': typeof AppStatisticsRoute
   '/appointments/$appointmentId': typeof AppAppointmentsAppointmentIdRoute
   '/consular-registry/print-queue': typeof AppConsularRegistryPrintQueueRoute
-  '/designer/$templateId': typeof AppDesignerTemplateIdRoute
+  '/designer/$designId': typeof AppDesignerDesignIdRoute
   '/posts/new': typeof AppPostsNewRoute
   '/profiles/$profileId': typeof AppProfilesProfileIdRoute
   '/requests/$reference': typeof AppRequestsReferenceRoute
@@ -192,7 +192,7 @@ export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
   '/appointments/$appointmentId': typeof AppAppointmentsAppointmentIdRoute
   '/consular-registry/print-queue': typeof AppConsularRegistryPrintQueueRoute
-  '/designer/$templateId': typeof AppDesignerTemplateIdRoute
+  '/designer/$designId': typeof AppDesignerDesignIdRoute
   '/posts/new': typeof AppPostsNewRoute
   '/profiles/$profileId': typeof AppProfilesProfileIdRoute
   '/requests/$reference': typeof AppRequestsReferenceRoute
@@ -219,7 +219,7 @@ export interface FileRoutesById {
   '/_app/': typeof AppIndexRoute
   '/_app/appointments/$appointmentId': typeof AppAppointmentsAppointmentIdRoute
   '/_app/consular-registry/print-queue': typeof AppConsularRegistryPrintQueueRoute
-  '/_app/designer/$templateId': typeof AppDesignerTemplateIdRoute
+  '/_app/designer/$designId': typeof AppDesignerDesignIdRoute
   '/_app/posts/new': typeof AppPostsNewRoute
   '/_app/profiles/$profileId': typeof AppProfilesProfileIdRoute
   '/_app/requests/$reference': typeof AppRequestsReferenceRoute
@@ -246,7 +246,7 @@ export interface FileRouteTypes {
     | '/statistics'
     | '/appointments/$appointmentId'
     | '/consular-registry/print-queue'
-    | '/designer/$templateId'
+    | '/designer/$designId'
     | '/posts/new'
     | '/profiles/$profileId'
     | '/requests/$reference'
@@ -271,7 +271,7 @@ export interface FileRouteTypes {
     | '/'
     | '/appointments/$appointmentId'
     | '/consular-registry/print-queue'
-    | '/designer/$templateId'
+    | '/designer/$designId'
     | '/posts/new'
     | '/profiles/$profileId'
     | '/requests/$reference'
@@ -297,7 +297,7 @@ export interface FileRouteTypes {
     | '/_app/'
     | '/_app/appointments/$appointmentId'
     | '/_app/consular-registry/print-queue'
-    | '/_app/designer/$templateId'
+    | '/_app/designer/$designId'
     | '/_app/posts/new'
     | '/_app/profiles/$profileId'
     | '/_app/requests/$reference'
@@ -454,11 +454,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPostsNewRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/designer/$templateId': {
-      id: '/_app/designer/$templateId'
-      path: '/designer/$templateId'
-      fullPath: '/designer/$templateId'
-      preLoaderRoute: typeof AppDesignerTemplateIdRouteImport
+    '/_app/designer/$designId': {
+      id: '/_app/designer/$designId'
+      path: '/designer/$designId'
+      fullPath: '/designer/$designId'
+      preLoaderRoute: typeof AppDesignerDesignIdRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/consular-registry/print-queue': {
@@ -500,7 +500,7 @@ interface AppRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
   AppAppointmentsAppointmentIdRoute: typeof AppAppointmentsAppointmentIdRoute
   AppConsularRegistryPrintQueueRoute: typeof AppConsularRegistryPrintQueueRoute
-  AppDesignerTemplateIdRoute: typeof AppDesignerTemplateIdRoute
+  AppDesignerDesignIdRoute: typeof AppDesignerDesignIdRoute
   AppPostsNewRoute: typeof AppPostsNewRoute
   AppProfilesProfileIdRoute: typeof AppProfilesProfileIdRoute
   AppRequestsReferenceRoute: typeof AppRequestsReferenceRoute
@@ -525,7 +525,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppIndexRoute: AppIndexRoute,
   AppAppointmentsAppointmentIdRoute: AppAppointmentsAppointmentIdRoute,
   AppConsularRegistryPrintQueueRoute: AppConsularRegistryPrintQueueRoute,
-  AppDesignerTemplateIdRoute: AppDesignerTemplateIdRoute,
+  AppDesignerDesignIdRoute: AppDesignerDesignIdRoute,
   AppPostsNewRoute: AppPostsNewRoute,
   AppProfilesProfileIdRoute: AppProfilesProfileIdRoute,
   AppRequestsReferenceRoute: AppRequestsReferenceRoute,
