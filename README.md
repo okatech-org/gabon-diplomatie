@@ -62,11 +62,11 @@ Chaque app a son propre `.env.local`. Variables requises :
 | `VITE_CONVEX_URL` | URL du déploiement Convex | `https://xxx.eu-west-1.convex.cloud` |
 | `VITE_CONVEX_SITE_URL` | URL HTTP du site Convex | `https://xxx.eu-west-1.convex.site` |
 | `VITE_SITE_URL` | URL de l'app (pour l'auth) | `http://consulat.local:3000` |
-| `VITE_POSTHOG_KEY` | Clé PostHog | `phc_xxx` |
-| `VITE_POSTHOG_HOST` | Host PostHog | `https://eu.i.posthog.com` |
-| `VITE_STRIPE_PUBLISHABLE_KEY` | Clé publique Stripe | `pk_test_xxx` |
-| `VITE_LIVEKIT_WS_URL` | URL WebSocket LiveKit | `wss://livekit.consulat.ga` |
-| `VITE_MAPBOX_TOKEN` | Token Mapbox (citizen-web uniquement) | `pk.xxx` |
+| `VITE_POSTHOG_KEY` | Clé PostHog | |
+| `VITE_POSTHOG_HOST` | Host PostHog | |
+| `VITE_STRIPE_PUBLISHABLE_KEY` | Clé publique Stripe | |
+| `VITE_LIVEKIT_WS_URL` | URL WebSocket LiveKit | |
+| `VITE_MAPBOX_TOKEN` | Token Mapbox (citizen-web uniquement) | |
 
 ### Variables Convex (backend)
 
@@ -163,8 +163,8 @@ convex/
 
 | Environnement | Déploiement |
 |---------------|-------------|
-| Dev | `acrobatic-mole-132` |
-| Production | `usable-mole-795` |
+| Dev | Voir `.env.local` → `CONVEX_DEPLOYMENT` |
+| Production | Voir dashboard Convex |
 
 ```bash
 # Lancer en dev (hot-reload)
@@ -192,9 +192,9 @@ Les workflows se lancent aussi manuellement via `workflow_dispatch`.
 
 | App | Domaine | URL Cloud Run (fallback) |
 |-----|---------|--------------------------|
-| citizen-web | `consulat.ga` | `citizen-web-6m2aof6x4q-ew.a.run.app` |
-| agent-web | `diplomate.ga` | `agent-web-6m2aof6x4q-ew.a.run.app` |
-| backoffice-web | `admin.consulat.ga` | `backoffice-web-6m2aof6x4q-ew.a.run.app` |
+| citizen-web | `consulat.ga` | `citizen-web-xxx.europe-west1.run.app` |
+| agent-web | `diplomate.ga` | `agent-web-xxx.europe-west1.run.app` |
+| backoffice-web | `admin.consulat.ga` | `backoffice-web-xxx.europe-west1.run.app` |
 
 Les redirections `www.` vers apex sont gérées par un middleware Nitro (`server/middleware/www-redirect.ts`).
 
@@ -203,7 +203,7 @@ Les redirections `www.` vers apex sont gérées par un middleware Nitro (`server
 | Secret | Description |
 |--------|-------------|
 | `WIF_PROVIDER` | Workload Identity Federation provider GCP |
-| `VITE_CONVEX_URL` | URL Convex **production** (`usable-mole-795`) |
+| `VITE_CONVEX_URL` | URL Convex **production** |
 | `VITE_CONVEX_SITE_URL` | URL site Convex **production** |
 | `VITE_POSTHOG_KEY` | Clé PostHog |
 | `VITE_POSTHOG_HOST` | Host PostHog |
@@ -232,10 +232,10 @@ Pour ajouter un nouveau domaine, mettre à jour `TRUSTED_ORIGINS` sur Convex (de
 
 ```bash
 # Dev
-CONVEX_DEPLOYMENT=dev:acrobatic-mole-132 bunx convex env set TRUSTED_ORIGINS "https://domaine1.com,https://domaine2.com,..."
+CONVEX_DEPLOYMENT=dev:<deployment-name> bunx convex env set TRUSTED_ORIGINS "https://domaine1.com,https://domaine2.com,..."
 
 # Prod
-CONVEX_DEPLOYMENT=prod:usable-mole-795 bunx convex env set TRUSTED_ORIGINS "https://domaine1.com,https://domaine2.com,..."
+CONVEX_DEPLOYMENT=prod:<deployment-name> bunx convex env set TRUSTED_ORIGINS "https://domaine1.com,https://domaine2.com,..."
 ```
 
 ## Licence

@@ -66,15 +66,15 @@ bun run typecheck
 ### Variables d'environnement (`apps/citizen-web/.env.local`)
 
 ```env
-VITE_CONVEX_URL=https://acrobatic-mole-132.eu-west-1.convex.cloud
-VITE_CONVEX_SITE_URL=https://acrobatic-mole-132.eu-west-1.convex.site
-VITE_SITE_URL=http://consulat.local:3000
-VITE_POSTHOG_KEY=phc_xxx
-VITE_POSTHOG_HOST=https://eu.i.posthog.com
-VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
-VITE_LIVEKIT_WS_URL=wss://livekit.consulat.ga
-VITE_MAPBOX_TOKEN=pk.xxx
-VITE_DEV_ACCOUNTS='[...]'   # Comptes de test (dev uniquement)
+VITE_CONVEX_URL=              # URL Convex (voir dashboard Convex)
+VITE_CONVEX_SITE_URL=         # URL site HTTP Convex
+VITE_SITE_URL=                # URL de l'app (ex: http://localhost:3000)
+VITE_POSTHOG_KEY=             # Clé PostHog
+VITE_POSTHOG_HOST=            # Host PostHog
+VITE_STRIPE_PUBLISHABLE_KEY=  # Clé publique Stripe
+VITE_LIVEKIT_WS_URL=          # URL WebSocket LiveKit
+VITE_MAPBOX_TOKEN=            # Token Mapbox
+VITE_DEV_ACCOUNTS='[...]'    # Comptes de test (dev uniquement, optionnel)
 ```
 
 ## Structure
