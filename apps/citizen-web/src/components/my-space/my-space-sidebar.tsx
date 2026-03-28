@@ -14,7 +14,6 @@ import {
 	Moon,
 	ScrollText,
 	Settings,
-	Shield,
 	Sun,
 	User,
 	Users,
@@ -350,9 +349,6 @@ export function MySpaceSidebar({
 						</Tooltip>
 					</div>
 
-					{/* Switch to Admin Space (superadmin only) */}
-					<AdminSwitchLink isExpanded={isExpanded} />
-
 					{/* User info + Logout */}
 					<div
 						className={cn(
@@ -386,37 +382,3 @@ export function MySpaceSidebar({
 	);
 }
 
-/** Renders a switch-to-admin link for back-office users */
-function AdminSwitchLink({ isExpanded }: { isExpanded: boolean }) {
-	const { t } = useTranslation();
-	const { isBackOffice } = useUserData();
-	if (!isBackOffice) return null;
-
-	return (
-		<Tooltip>
-			<TooltipTrigger asChild>
-				<Button
-					variant="outline"
-					size={isExpanded ? "sm" : "icon"}
-					asChild
-					className={cn(
-						"border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10 hover:text-amber-700 dark:hover:text-amber-300",
-						isExpanded ? "w-full justify-start gap-2" : "h-9 w-9",
-					)}
-				>
-					<Link to="/dashboard">
-						<Shield className="size-4 shrink-0" />
-						<SidebarText isExpanded={isExpanded}>
-							{t("sidebar.switchToAdmin", "Administration")}
-						</SidebarText>
-					</Link>
-				</Button>
-			</TooltipTrigger>
-			{!isExpanded && (
-				<TooltipContent side="right">
-					{t("sidebar.switchToAdmin", "Administration")}
-				</TooltipContent>
-			)}
-		</Tooltip>
-	);
-}
