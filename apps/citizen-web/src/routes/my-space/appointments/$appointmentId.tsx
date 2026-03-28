@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuthenticatedConvexQuery } from "@/integrations/convex/hooks";
-import i18n from "@/integrations/i18n/i18n";
 
 export const Route = createFileRoute("/my-space/appointments/$appointmentId")({
 	component: AppointmentDetail,
@@ -28,7 +27,7 @@ export const Route = createFileRoute("/my-space/appointments/$appointmentId")({
 function AppointmentDetail() {
 	const { appointmentId } = Route.useParams();
 	const navigate = useNavigate();
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 
 	const { data: appointment } = useAuthenticatedConvexQuery(
 		api.functions.slots.getAppointmentById,
