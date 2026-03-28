@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Link2 } from "lucide-react";
 import type { CVThemeProps } from "../types";
 
 export function CVThemeModern({ data }: CVThemeProps) {
@@ -55,7 +55,7 @@ export function CVThemeModern({ data }: CVThemeProps) {
           {data.linkedinUrl && (
             <div className="flex items-center gap-3">
               <div className="p-2 bg-slate-800 rounded-lg">
-                <Linkedin size={13} />
+                <Link2 size={13} />
               </div>
               <span className="truncate text-xs">{data.linkedinUrl}</span>
             </div>
