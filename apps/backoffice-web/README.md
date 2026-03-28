@@ -1,0 +1,116 @@
+# backoffice-web — Back-Office Super Admin
+
+Interface d'administration centrale de la plateforme. Déployé sur **[admin.consulat.ga](https://admin.consulat.ga)**.
+
+## Fonctionnalités
+
+### Réseau diplomatique
+- **Organisations** — Gestion des consulats, ambassades et représentations
+- **Services** — Configuration globale des services consulaires
+- **Demandes** — Vue transverse de toutes les demandes
+- **Associations** — Gestion des associations de la diaspora
+
+### Population
+- **Utilisateurs** — Gestion des comptes utilisateurs
+- **Profils** — Profils citoyens (consultation, modération)
+- **Support** — Tickets de support
+
+### Sécurité & Système
+- **Audit logs** — Journal d'audit des actions
+- **Monitoring** — Tableau de bord système (GCP)
+- **Paramètres** — Configuration globale
+
+### Contrôle
+- **Postes & Rôles** — Gestion des postes consulaires et permissions
+- **Modules & Permissions** — Configuration fine des droits
+- **Représentations** — Réseau diplomatique
+- **Services** — Configuration des types de services
+- **Publications** — Gestion des actualités et tutoriels
+- **Événements** — Événements communautaires
+
+## Stack
+
+- **TanStack Start** — SSR + file-based routing
+- **Convex** — Backend temps-réel
+- **Better Auth** — Authentification
+- **PostHog** — Analytics
+
+## Développement
+
+```bash
+cd apps/backoffice-web
+
+# Lancer en dev
+bun run dev  # → http://localhost:3002
+
+# Build
+bun run build
+
+# Lint / Typecheck
+bun run lint
+bun run typecheck
+```
+
+### Variables d'environnement (`apps/backoffice-web/.env.local`)
+
+```env
+VITE_CONVEX_URL=https://acrobatic-mole-132.eu-west-1.convex.cloud
+VITE_CONVEX_SITE_URL=https://acrobatic-mole-132.eu-west-1.convex.site
+VITE_SITE_URL=http://localhost:3002
+VITE_POSTHOG_KEY=phc_xxx
+VITE_POSTHOG_HOST=https://eu.i.posthog.com
+VITE_DEV_ACCOUNTS='[...]'
+```
+
+## Structure
+
+```
+src/
+├── routes/
+│   ├── __root.tsx           # Layout racine
+│   ├── _app.tsx             # Layout protégé (auth + superadmin guard)
+│   └── _app/                # Routes protégées
+│       ├── index.tsx        # Dashboard admin
+│       ├── organizations/
+│       ├── services/
+│       ├── requests/
+│       ├── users/
+│       ├── profiles/
+│       ├── support/
+│       ├── audit-log/
+│       ├── monitoring/
+│       ├── settings/
+│       ├── positions/
+│       ├── modules/
+│       ├── representations/
+│       ├── posts/
+│       ├── tutorials/
+│       └── events/
+├── components/
+│   ├── sidebars/            # Sidebar super admin
+│   ├── guards/              # SuperadminGuard
+│   └── ui/                  # Composants locaux
+├── hooks/
+├── integrations/
+└── lib/
+```
+
+## Déploiement
+
+Automatique via GitHub Actions (`deploy-backoffice.yml`) au push sur `main`.
+
+- **Service Cloud Run** : `backoffice-web`
+- **Région** : `europe-west1`
+- **Domaine** : `admin.consulat.ga`
+- **Dockerfile** : `apps/backoffice-web/Dockerfile`
+- **Port** : 8080
+
+### Deploy manuel
+
+```bash
+gh workflow run deploy-backoffice.yml
+```
+
+## Accès
+
+Seuls les utilisateurs avec le rôle `super_admin`, `admin_system` ou `admin` peuvent accéder à cette interface. Les autres utilisateurs sont redirigés.
