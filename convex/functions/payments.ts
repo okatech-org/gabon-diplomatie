@@ -306,6 +306,16 @@ export const handleWebhook = internalAction({
 						currency: paymentIntent.currency,
 					});
 				}
+
+				// PostHog: track successful payment
+				await ctx.scheduler.runAfter(0, internal.actions.posthog.capture, {
+					distinctId: paymentIntent.metadata.userId ?? "unknown",
+					event: "server_payment_succeeded",
+					properties: {
+						requestId: paymentIntent.metadata.requestId ?? "",
+						amount: paymentIntent.amount / 100,
+					},
+				});
 				break;
 			}
 
@@ -325,6 +335,17 @@ export const handleWebhook = internalAction({
 					status: "failed",
 					failedAt: Date.now(),
 				});
+
+				// PostHog: track failed payment
+				await ctx.scheduler.runAfter(0, internal.actions.posthog.capture, {
+					distinctId: paymentIntent.metadata.userId ?? "unknown",
+					event: "server_payment_failed",
+					properties: {
+						requestId: paymentIntent.metadata.requestId ?? "",
+						amount: paymentIntent.amount / 100,
+						error: paymentIntent.last_payment_error?.message,
+					},
+				});
 				break;
 			}
 
@@ -334,6 +355,16 @@ export const handleWebhook = internalAction({
 					await ctx.runMutation(internal.functions.payments.updatePaymentStatus, {
 						stripePaymentIntentId: charge.payment_intent as string,
 						status: "refunded",
+					});
+
+					// PostHog: track refund
+					await ctx.scheduler.runAfter(0, internal.actions.posthog.capture, {
+						distinctId: "system",
+						event: "server_payment_refunded",
+						properties: {
+							requestId: charge.metadata?.requestId ?? "",
+							amount: (charge.amount_refunded ?? charge.amount) / 100,
+						},
 					});
 				}
 				break;

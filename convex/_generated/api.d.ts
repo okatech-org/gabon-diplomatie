@@ -10,6 +10,8 @@
 
 import type * as actions_gcpMonitoring from "../actions/gcpMonitoring.js";
 import type * as actions_livekit from "../actions/livekit.js";
+import type * as actions_posthog from "../actions/posthog.js";
+import type * as actions_posthogHealthCheck from "../actions/posthogHealthCheck.js";
 import type * as ai_adminChat from "../ai/adminChat.js";
 import type * as ai_adminTools from "../ai/adminTools.js";
 import type * as ai_adminVoice from "../ai/adminVoice.js";
@@ -25,6 +27,7 @@ import type * as betterAuth_auth from "../betterAuth/auth.js";
 import type * as check_id from "../check_id.js";
 import type * as crons from "../crons.js";
 import type * as crons_expiration from "../crons/expiration.js";
+import type * as crons_posthogHealthCheck from "../crons/posthogHealthCheck.js";
 import type * as functions_admin from "../functions/admin.js";
 import type * as functions_agentNotes from "../functions/agentNotes.js";
 import type * as functions_agentSchedules from "../functions/agentSchedules.js";
@@ -76,6 +79,7 @@ import type * as functions_tickets from "../functions/tickets.js";
 import type * as functions_tutorials from "../functions/tutorials.js";
 import type * as functions_userPreferences from "../functions/userPreferences.js";
 import type * as functions_users from "../functions/users.js";
+import type * as functions_warehouse from "../functions/warehouse.js";
 import type * as hippocampe from "../hippocampe.js";
 import type * as http from "../http.js";
 import type * as lib_aggregates from "../lib/aggregates.js";
@@ -91,6 +95,7 @@ import type * as lib_neocortex from "../lib/neocortex.js";
 import type * as lib_permissions from "../lib/permissions.js";
 import type * as lib_phone from "../lib/phone.js";
 import type * as lib_platform from "../lib/platform.js";
+import type * as lib_posthogEvents from "../lib/posthogEvents.js";
 import type * as lib_requestWorkflow from "../lib/requestWorkflow.js";
 import type * as lib_roles from "../lib/roles.js";
 import type * as lib_taskCodes from "../lib/taskCodes.js";
@@ -100,6 +105,7 @@ import type * as lib_types from "../lib/types.js";
 import type * as lib_users from "../lib/users.js";
 import type * as lib_utils from "../lib/utils.js";
 import type * as lib_validators from "../lib/validators.js";
+import type * as lib_warehouseAuth from "../lib/warehouseAuth.js";
 import type * as limbique from "../limbique.js";
 import type * as migrations_backfillAggregates from "../migrations/backfillAggregates.js";
 import type * as migrations_initCardCounter from "../migrations/initCardCounter.js";
@@ -180,6 +186,8 @@ import type {
 declare const fullApi: ApiFromModules<{
   "actions/gcpMonitoring": typeof actions_gcpMonitoring;
   "actions/livekit": typeof actions_livekit;
+  "actions/posthog": typeof actions_posthog;
+  "actions/posthogHealthCheck": typeof actions_posthogHealthCheck;
   "ai/adminChat": typeof ai_adminChat;
   "ai/adminTools": typeof ai_adminTools;
   "ai/adminVoice": typeof ai_adminVoice;
@@ -195,6 +203,7 @@ declare const fullApi: ApiFromModules<{
   check_id: typeof check_id;
   crons: typeof crons;
   "crons/expiration": typeof crons_expiration;
+  "crons/posthogHealthCheck": typeof crons_posthogHealthCheck;
   "functions/admin": typeof functions_admin;
   "functions/agentNotes": typeof functions_agentNotes;
   "functions/agentSchedules": typeof functions_agentSchedules;
@@ -246,6 +255,7 @@ declare const fullApi: ApiFromModules<{
   "functions/tutorials": typeof functions_tutorials;
   "functions/userPreferences": typeof functions_userPreferences;
   "functions/users": typeof functions_users;
+  "functions/warehouse": typeof functions_warehouse;
   hippocampe: typeof hippocampe;
   http: typeof http;
   "lib/aggregates": typeof lib_aggregates;
@@ -261,6 +271,7 @@ declare const fullApi: ApiFromModules<{
   "lib/permissions": typeof lib_permissions;
   "lib/phone": typeof lib_phone;
   "lib/platform": typeof lib_platform;
+  "lib/posthogEvents": typeof lib_posthogEvents;
   "lib/requestWorkflow": typeof lib_requestWorkflow;
   "lib/roles": typeof lib_roles;
   "lib/taskCodes": typeof lib_taskCodes;
@@ -270,6 +281,7 @@ declare const fullApi: ApiFromModules<{
   "lib/users": typeof lib_users;
   "lib/utils": typeof lib_utils;
   "lib/validators": typeof lib_validators;
+  "lib/warehouseAuth": typeof lib_warehouseAuth;
   limbique: typeof limbique;
   "migrations/backfillAggregates": typeof migrations_backfillAggregates;
   "migrations/initCardCounter": typeof migrations_initCardCounter;

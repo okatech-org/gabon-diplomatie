@@ -19,6 +19,7 @@
     "convex": "^1.34.1",
     "google-auth-library": "^10.6.2",
     "livekit-server-sdk": "^2.15.0",
+    "posthog-node": "^5.28.8",
     "remove.bg": "^1.3.0",
     "stripe": "^20.4.1"
   },

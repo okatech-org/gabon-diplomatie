@@ -8,10 +8,17 @@ import { components } from "../_generated/api";
 export const rateLimiter = new RateLimiter(components.rateLimiter, {
   // AI Chat: 20 messages per minute per user
   // Token bucket allows small bursts (5 messages) then rate limited
-  aiChat: { 
-    kind: "token bucket", 
-    rate: 20, 
-    period: MINUTE, 
-    capacity: 5 
+  aiChat: {
+    kind: "token bucket",
+    rate: 20,
+    period: MINUTE,
+    capacity: 5
+  },
+  // PostHog Data Warehouse sync: 60 requests per minute
+  warehouseSync: {
+    kind: "token bucket",
+    rate: 60,
+    period: MINUTE,
+    capacity: 10,
   },
 });

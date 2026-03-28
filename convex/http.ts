@@ -3,6 +3,8 @@ import { httpAction } from "./_generated/server";
 import { internal, components } from "./_generated/api";
 import { authComponent, createAuth } from "./betterAuth/auth";
 import { hashPassword } from "better-auth/crypto";
+import { validateWarehouseApiKey } from "./lib/warehouseAuth";
+import { WAREHOUSE_TABLES } from "./functions/warehouse";
 
 const http = httpRouter();
 
@@ -206,5 +208,71 @@ http.route({
     }
   }),
 });
+
+// ============================================================================
+// PostHog Data Warehouse: paginated table export endpoints
+// ============================================================================
+
+const warehouseHandler = httpAction(async (ctx, request) => {
+  // 1. Auth
+  if (!validateWarehouseApiKey(request)) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // 2. Rate limit
+  const { ok, retryAfter } = await ctx.runMutation(
+    internal.functions.warehouse.checkWarehouseRateLimit,
+    {},
+  );
+  if (!ok) {
+    return new Response(JSON.stringify({ error: "Rate limited" }), {
+      status: 429,
+      headers: {
+        "Content-Type": "application/json",
+        "Retry-After": String(Math.ceil(retryAfter / 1000)),
+      },
+    });
+  }
+
+  // 3. Extract table name from path: /warehouse/v1/{tableName}
+  const url = new URL(request.url);
+  const segments = url.pathname.split("/");
+  const tableName = segments[segments.length - 1];
+
+  // 4. Parse query params
+  const cursorParam = url.searchParams.get("cursor");
+  const cursor = cursorParam !== null ? Number(cursorParam) : null;
+  const limit = Math.min(Number(url.searchParams.get("limit") ?? 1000), 5000);
+
+  // 5. Fetch data
+  const data = await ctx.runQuery(
+    internal.functions.warehouse.paginatedTableExport,
+    { tableName, cursor, limit },
+  );
+
+  // 6. Audit log (fire-and-forget via scheduler to not block response)
+  await ctx.runMutation(internal.functions.warehouse.logAccess, {
+    tableName,
+    rowCount: data.results.length,
+    cursor,
+  });
+
+  // 7. Return PostHog-compatible response
+  return new Response(JSON.stringify(data), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
+});
+
+for (const tableName of WAREHOUSE_TABLES) {
+  http.route({
+    path: `/warehouse/v1/${tableName}`,
+    method: "GET",
+    handler: warehouseHandler,
+  });
+}
 
 export default http;

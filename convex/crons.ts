@@ -49,4 +49,11 @@ crons.daily(
   internal.plasticite.reevaluerPoidsGlobal
 );
 
+// PostHog health check: daily summary events for alerting
+crons.daily(
+  "posthog-health-check",
+  { hourUTC: 7, minuteUTC: 0 },
+  internal.actions.posthogHealthCheck.run,
+);
+
 export default crons;

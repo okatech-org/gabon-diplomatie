@@ -14,7 +14,8 @@ export const auditLogTable = defineTable({
   operation: v.union(
     v.literal("insert"),
     v.literal("update"),
-    v.literal("delete")
+    v.literal("delete"),
+    v.literal("read")
   ),
   
   // Actor (who made the change)
