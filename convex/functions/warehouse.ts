@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { internalMutation, internalQuery } from "../_generated/server";
+import { rateLimiter } from "../ai/rateLimiter";
 
 /**
  * Tables exposed to PostHog Data Warehouse.
@@ -103,7 +104,6 @@ export const logAccess = internalMutation({
 export const checkWarehouseRateLimit = internalMutation({
   args: {},
   handler: async (ctx) => {
-    const { rateLimiter } = await import("../ai/rateLimiter");
     const { ok, retryAfter } = await rateLimiter.limit(ctx, "warehouseSync", {
       key: "warehouse",
     });
