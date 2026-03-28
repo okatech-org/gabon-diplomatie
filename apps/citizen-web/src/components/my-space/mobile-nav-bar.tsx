@@ -51,22 +51,22 @@ export function MobileNavBar() {
 			items: [
 				{
 					title: t("mySpace.nav.profile"),
-					url: "/",
+					url: "/my-space",
 					icon: User,
 				},
 				{
 					title: t("mySpace.nav.icv"),
-					url: "/cv",
+					url: "/my-space/cv",
 					icon: ScrollText,
 				},
 				{
 					title: t("mySpace.nav.vault"),
-					url: "/vault",
+					url: "/my-space/vault",
 					icon: Lock,
 				},
 				{
 					title: t("mySpace.nav.iboite"),
-					url: "/iboite",
+					url: "/my-space/iboite",
 					icon: Mail,
 				},
 			],
@@ -76,37 +76,37 @@ export function MobileNavBar() {
 			items: [
 				{
 					title: t("mySpace.nav.catalog"),
-					url: "/services",
+					url: "/my-space/services",
 					icon: Briefcase,
 				},
 				{
 					title: t("mySpace.nav.myRequests"),
-					url: "/requests",
+					url: "/my-space/requests",
 					icon: ClipboardList,
 				},
 				{
 					title: t("mySpace.nav.appointments"),
-					url: "/appointments",
+					url: "/my-space/appointments",
 					icon: Calendar,
 				},
 				{
 					title: t("mySpace.nav.companies"),
-					url: "/companies",
+					url: "/my-space/companies",
 					icon: Building2,
 				},
 				{
 					title: t("mySpace.nav.associations"),
-					url: "/associations",
+					url: "/my-space/associations",
 					icon: Users,
 				},
 				{
 					title: t("mySpace.nav.support"),
-					url: "/support",
+					url: "/my-space/support",
 					icon: LifeBuoy,
 				},
 				{
 					title: t("mySpace.nav.settings"),
-					url: "/settings",
+					url: "/my-space/settings",
 					icon: Settings,
 				},
 			],
@@ -114,8 +114,8 @@ export function MobileNavBar() {
 	];
 
 	const isActive = (url: string) => {
-		if (url === "/") {
-			return location.pathname === "/";
+		if (url === "/my-space") {
+			return location.pathname === "/my-space" || location.pathname === "/my-space/";
 		}
 		return location.pathname.startsWith(url);
 	};

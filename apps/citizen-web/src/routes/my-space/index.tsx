@@ -194,7 +194,7 @@ function UserDashboard() {
 											{latestRequest.status === RequestStatus.Draft ? (
 												<Button asChild size="sm">
 													<Link
-														to="/requests/$reference"
+														to="/my-space/requests/$reference"
 														params={{
 															reference:
 																latestRequest.reference || latestRequest._id,
@@ -207,7 +207,7 @@ function UserDashboard() {
 											) : (
 												<Button asChild size="sm">
 													<Link
-														to="/requests/$reference"
+														to="/my-space/requests/$reference"
 														params={{
 															reference:
 																latestRequest.reference || latestRequest._id,

@@ -82,7 +82,7 @@ export function AssociationDetailContent({ slug }: { slug: string }) {
       <div className="space-y-4 p-1">
         <Button
           variant="ghost"
-          onClick={() => navigate({ to: "/associations" })}
+          onClick={() => navigate({ to: "/my-space/associations" })}
           className="gap-2"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -134,7 +134,7 @@ export function AssociationDetailContent({ slug }: { slug: string }) {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => navigate({ to: "/associations" })}
+          onClick={() => navigate({ to: "/my-space/associations" })}
         >
           <ArrowLeft className="h-5 w-5" />
         </Button>
@@ -621,7 +621,7 @@ function SettingsTab({ association }: { association: any }) {
       {
         onSuccess: () => {
           toast.success(t("associations.deleted"));
-          navigate({ to: "/associations" });
+          navigate({ to: "/my-space/associations" });
         },
         onError: () =>
           toast.error(t("common.error")),
@@ -637,7 +637,7 @@ function SettingsTab({ association }: { association: any }) {
           toast.success(
             t("associations.left"),
           );
-          navigate({ to: "/associations" });
+          navigate({ to: "/my-space/associations" });
         },
         onError: () =>
           toast.error(t("common.error")),

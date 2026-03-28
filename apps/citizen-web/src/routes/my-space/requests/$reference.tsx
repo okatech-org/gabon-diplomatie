@@ -443,7 +443,7 @@ function UserRequestDetail() {
 			{/* Header */}
 			<div className="flex items-center gap-4">
 				<Button variant="ghost" size="icon" asChild>
-					<Link to="/requests">
+					<Link to="/my-space/requests">
 						<ArrowLeft className="h-4 w-4" />
 					</Link>
 				</Button>

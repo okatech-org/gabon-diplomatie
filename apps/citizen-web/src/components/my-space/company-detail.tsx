@@ -84,7 +84,7 @@ export function CompanyDetailContent({ id }: { id: string }) {
       <div className="space-y-4 p-1">
         <Button
           variant="ghost"
-          onClick={() => navigate({ to: "/companies" })}
+          onClick={() => navigate({ to: "/my-space/companies" })}
           className="gap-2"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -151,7 +151,7 @@ export function CompanyDetailContent({ id }: { id: string }) {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => navigate({ to: "/companies" })}
+          onClick={() => navigate({ to: "/my-space/companies" })}
         >
           <ArrowLeft className="h-5 w-5" />
         </Button>
@@ -644,7 +644,7 @@ function SettingsTab({ company }: { company: any }) {
       {
         onSuccess: () => {
           toast.success(t("companies.deleted"));
-          navigate({ to: "/companies" });
+          navigate({ to: "/my-space/companies" });
         },
         onError: () =>
           toast.error(t("common.error")),
@@ -658,7 +658,7 @@ function SettingsTab({ company }: { company: any }) {
       {
         onSuccess: () => {
           toast.success(t("companies.left"));
-          navigate({ to: "/companies" });
+          navigate({ to: "/my-space/companies" });
         },
         onError: () =>
           toast.error(t("common.error")),

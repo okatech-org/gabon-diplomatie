@@ -331,7 +331,7 @@ function MyCompanyCard({ company }: { company: Company }) {
 				</div>
 				<div className="flex gap-2 pt-2">
 					<Button variant="outline" size="sm" className="flex-1" asChild>
-						<Link to="/companies/$id" params={{ id: company._id }}>
+						<Link to="/my-space/companies/$id" params={{ id: company._id }}>
 							{t("common.view")}
 							<ChevronRight className="h-4 w-4 ml-1" />
 						</Link>

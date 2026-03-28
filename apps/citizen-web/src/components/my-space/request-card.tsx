@@ -81,7 +81,7 @@ export function RequestCard({ request }: RequestCardProps) {
 
 	return (
 		<Link
-			to="/requests/$reference"
+			to="/my-space/requests/$reference"
 			params={{ reference: request.reference || request._id }}
 			className="block group h-full"
 		>

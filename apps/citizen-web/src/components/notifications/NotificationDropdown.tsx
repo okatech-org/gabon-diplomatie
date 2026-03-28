@@ -177,7 +177,7 @@ export function NotificationDropdown({ className }: NotificationDropdownProps) {
 				<DropdownMenuSeparator />
 				<DropdownMenuItem asChild>
 					<Link
-						to="/notifications"
+						to="/my-space/notifications"
 						className="w-full text-center justify-center text-primary"
 					>
 						{t("notifications.viewAll")}

@@ -144,7 +144,7 @@ function ProfileView({ profile }: { profile: Doc<"profiles"> }) {
 				subtitle={t("mySpace.screens.profile.subtitle")}
 				actions={
 					<Button asChild>
-						<Link to="/profile/edit">
+						<Link to="/my-space/profile/edit">
 							<Edit className="h-4 w-4 mr-2" />
 							{t("common.edit")}
 						</Link>

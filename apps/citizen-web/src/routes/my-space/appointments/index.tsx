@@ -116,7 +116,7 @@ function AppointmentsPage() {
 				icon={<Calendar className="h-6 w-6 text-primary" />}
 				actions={
 					<Button asChild>
-						<Link to="/appointments/new">
+						<Link to="/my-space/appointments/new">
 							<Calendar className="mr-2 h-4 w-4" />
 							{t("appointments.newButton")}
 						</Link>
@@ -145,7 +145,7 @@ function AppointmentsPage() {
 						upcomingAppointments.map((apt) => (
 							<Link
 								key={apt._id}
-								to="/appointments/$appointmentId"
+								to="/my-space/appointments/$appointmentId"
 								params={{ appointmentId: apt._id }}
 								className="block transition-transform hover:scale-[1.01] active:scale-[0.99]"
 							>
@@ -259,7 +259,7 @@ function AppointmentsPage() {
 						{pastAppointments.map((apt) => (
 							<Link
 								key={apt._id}
-								to="/appointments/$appointmentId"
+								to="/my-space/appointments/$appointmentId"
 								params={{ appointmentId: apt._id }}
 								className="block transition-transform hover:scale-[1.01] active:scale-[0.99]"
 							>

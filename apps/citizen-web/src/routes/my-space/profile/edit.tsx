@@ -424,7 +424,7 @@ function ProfileForm({ profile, updateProfile }: ProfileFormProps) {
 				transition={{ duration: 0.2 }}
 			>
 				<Button variant="ghost" size="sm" asChild className="mb-4">
-					<Link to="/profile">
+					<Link to="/my-space/profile">
 						<ArrowLeft className="h-4 w-4 mr-2" />
 						{t("common.back")}
 					</Link>

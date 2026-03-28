@@ -128,7 +128,7 @@ function TicketDetailPage() {
 				asChild
 				className="mb-2 -ml-4 text-muted-foreground hover:text-foreground"
 			>
-				<Link to="/support">
+				<Link to="/my-space/support">
 					<ChevronLeft className="mr-2 h-4 w-4" />
 					Retour
 				</Link>
@@ -262,7 +262,7 @@ function TicketDetailPage() {
 						)}
 					</p>
 					<Button variant="outline" className="mt-4" asChild>
-						<Link to="/support/new">{t("support.new")}</Link>
+						<Link to="/my-space/support/new">{t("support.new")}</Link>
 					</Button>
 				</div>
 			)}

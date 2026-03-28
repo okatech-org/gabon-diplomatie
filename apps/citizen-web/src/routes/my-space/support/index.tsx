@@ -89,7 +89,7 @@ function SupportPage() {
 				icon={<LifeBuoy className="h-6 w-6 text-primary" />}
 				actions={
 					<Button asChild>
-						<Link to="/support/new">
+						<Link to="/my-space/support/new">
 							<PlusCircle className="mr-2 h-4 w-4" />
 							{t("support.new")}
 						</Link>
@@ -114,7 +114,7 @@ function SupportPage() {
 								{t("support.tickets.empty.desc")}
 							</p>
 							<Button asChild>
-								<Link to="/support/new">
+								<Link to="/my-space/support/new">
 									<PlusCircle className="mr-2 h-4 w-4" />
 									{t("support.tickets.empty.action")}
 								</Link>
@@ -126,7 +126,7 @@ function SupportPage() {
 						{tickets.map((ticket: (typeof tickets)[0]) => (
 							<Link
 								key={ticket._id}
-								to="/support/$ticketId"
+								to="/my-space/support/$ticketId"
 								params={{ ticketId: ticket._id }}
 								className="block transition-transform hover:scale-[1.01] active:scale-[0.99] h-full"
 							>

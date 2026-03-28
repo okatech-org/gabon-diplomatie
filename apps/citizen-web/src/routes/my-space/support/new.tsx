@@ -81,7 +81,7 @@ function NewTicketPage() {
 				asChild
 				className="mb-2 -ml-4 text-muted-foreground hover:text-foreground"
 			>
-				<Link to="/support">
+				<Link to="/my-space/support">
 					<ChevronLeft className="mr-2 h-4 w-4" />
 					Retour
 				</Link>
@@ -156,7 +156,7 @@ function NewTicketPage() {
 
 						<div className="flex gap-4 justify-end pt-4">
 							<Button type="button" variant="outline" asChild>
-								<Link to="/support">
+								<Link to="/my-space/support">
 									{t("support.tickets.form.cancel")}
 								</Link>
 							</Button>

@@ -415,7 +415,7 @@ function MyAssociationCard({ association }: { association: Association }) {
 				<div className="flex gap-2 pt-2">
 					<Button variant="outline" size="sm" className="flex-1" asChild>
 						<Link
-							to="/associations/$slug"
+							to="/my-space/associations/$slug"
 							params={{ slug: association.slug }}
 						>
 							{t("common.view")}
@@ -498,7 +498,7 @@ function DiscoverAssociationCard({
 
 	return (
 		<Link
-			to="/associations/$slug"
+			to="/my-space/associations/$slug"
 			params={{ slug: association.slug }}
 			className="block"
 		>
