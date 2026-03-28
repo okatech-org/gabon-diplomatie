@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicegoodthings/tauri-types/main/tauri.conf.json",
+  "productName": "Diplomate.ga",
+  "version": "0.1.0",
+  "identifier": "ga.diplomate.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:3003",
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Diplomate.ga — Agenda X-TOP",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 600,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https://*.convex.cloud https://*.convex.site wss://*.convex.cloud https://eu.i.posthog.com https://diplomate.ga; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-eval'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "dmg", "deb", "appimage"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "wix": {
+        "language": "fr-FR"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "10.15"
+    }
+  },
+  "plugins": {}
+
+}
