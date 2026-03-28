@@ -115,7 +115,8 @@ export const createBatch = authMutation({
 		designVersion: v.number(),
 		jobs: v.array(
 			v.object({
-				profileId: v.id("profiles"),
+				profileId: v.optional(v.id("profiles")),
+				childProfileId: v.optional(v.id("childProfiles")),
 				profileName: v.string(),
 				fieldValues: v.any(),
 			}),
@@ -135,6 +136,7 @@ export const createBatch = authMutation({
 				designName: args.designName,
 				designVersion: args.designVersion,
 				profileId: job.profileId,
+				childProfileId: job.childProfileId,
 				profileName: job.profileName,
 				fieldValues: job.fieldValues,
 				copies: args.copies,

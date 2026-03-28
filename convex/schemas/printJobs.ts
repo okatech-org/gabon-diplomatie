@@ -15,6 +15,7 @@ export const printJobsTable = defineTable({
 
 	// Who to print for (optional — blank card if not set)
 	profileId: v.optional(v.id("profiles")),
+	childProfileId: v.optional(v.id("childProfiles")),
 	profileName: v.optional(v.string()), // denormalized "Nom Prénom"
 
 	// Resolved dynamic field values snapshot (so print is reproducible)
