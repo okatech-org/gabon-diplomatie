@@ -6,16 +6,16 @@ import { internalAction, internalMutation } from "../_generated/server";
 import { internal } from "../_generated/api";
 import { authQuery, authMutation } from "../lib/customFunctions";
 import { notificationTypeValidator } from "../lib/validators";
+import { getPlatformConfig, fromEmail } from "../lib/platform";
+import type { PlatformConfig } from "../lib/platform";
 
 // Initialize Resend with test mode off for production
 export const resend = new Resend(components.resend, {
   testMode: process.env.NODE_ENV !== "production" ? true : false,
 });
 
-// Email sender address — configurable via RESEND_FROM_EMAIL env var
-const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ??
-  "Consulat du Gabon <mail@updates.consulat.ga>";
+// Default platform config (citizen) — overridden per-call when platform is known
+const DEFAULT_PLATFORM = getPlatformConfig("citizen");
 
 // ============================================================================
 // EMAIL TEMPLATES
@@ -35,7 +35,7 @@ const getBaseStyles = () => `
 	</style>
 `;
 
-const emailLayout = (title: string, content: string) => `
+const emailLayout = (title: string, content: string, platform: PlatformConfig = DEFAULT_PLATFORM) => `
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,14 +46,14 @@ const emailLayout = (title: string, content: string) => `
 <body>
 	<div class="container">
 		<div class="header">
-			<h1>🇬🇦 Consulat du Gabon</h1>
+			<h1>${platform.headerTitle}</h1>
 			<p style="margin: 5px 0 0 0; opacity: 0.9;">${title}</p>
 		</div>
 		<div class="content">
 			${content}
 		</div>
 		<div class="footer">
-			<p>Consulat Général du Gabon en France</p>
+			<p>${platform.footerText}</p>
 			<p>Ce message a été envoyé automatiquement, merci de ne pas répondre.</p>
 		</div>
 	</div>
@@ -73,7 +73,7 @@ export const emailTemplates = {
     senderName: string;
     messagePreview: string;
     requestUrl: string;
-  }) => ({
+  }, platform?: PlatformConfig) => ({
     subject: `Nouveau message - Demande ${data.requestRef}`,
     html: emailLayout(
       "Nouveau Message",
@@ -88,6 +88,7 @@ export const emailTemplates = {
 				<a href="${data.requestUrl}" class="button">Voir la conversation</a>
 			</p>
 		`,
+      platform,
     ),
   }),
 
@@ -99,7 +100,7 @@ export const emailTemplates = {
     newStatus: string;
     statusLabel: string;
     requestUrl: string;
-  }) => ({
+  }, platform?: PlatformConfig) => ({
     subject: `Mise à jour - Demande ${data.requestRef}`,
     html: emailLayout(
       "Mise à jour de votre demande",
@@ -114,6 +115,7 @@ export const emailTemplates = {
 				<a href="${data.requestUrl}" class="button">Voir ma demande</a>
 			</p>
 		`,
+      platform,
     ),
   }),
 
@@ -125,7 +127,7 @@ export const emailTemplates = {
     appointmentDate: string;
     appointmentTime: string;
     address: string;
-  }) => ({
+  }, platform?: PlatformConfig) => ({
     subject: `Rappel RDV - ${data.appointmentDate}`,
     html: emailLayout(
       "Rappel de Rendez-vous",
@@ -133,10 +135,10 @@ export const emailTemplates = {
 			<p>Bonjour ${data.userName},</p>
 			<p>Ceci est un rappel pour votre rendez-vous de demain.</p>
 			<div class="warning-box">
-				<p><strong>📅 Date :</strong> ${data.appointmentDate}</p>
-				<p><strong>🕐 Heure :</strong> ${data.appointmentTime}</p>
-				<p><strong>📍 Lieu :</strong> ${data.address}</p>
-				<p><strong>📋 Service :</strong> ${data.serviceName}</p>
+				<p><strong>Date :</strong> ${data.appointmentDate}</p>
+				<p><strong>Heure :</strong> ${data.appointmentTime}</p>
+				<p><strong>Lieu :</strong> ${data.address}</p>
+				<p><strong>Service :</strong> ${data.serviceName}</p>
 			</div>
 			<p><strong>Documents à apporter :</strong></p>
 			<ul>
@@ -147,6 +149,7 @@ export const emailTemplates = {
 				En cas d'empêchement, veuillez nous contacter dès que possible.
 			</p>
 		`,
+      platform,
     ),
   }),
 
@@ -158,7 +161,7 @@ export const emailTemplates = {
     amount: string;
     currency: string;
     requestUrl: string;
-  }) => ({
+  }, platform?: PlatformConfig) => ({
     subject: `Paiement confirmé - ${data.requestRef}`,
     html: emailLayout(
       "Paiement Confirmé",
@@ -174,6 +177,7 @@ export const emailTemplates = {
 				<a href="${data.requestUrl}" class="button">Voir ma demande</a>
 			</p>
 		`,
+      platform,
     ),
   }),
 
@@ -184,8 +188,8 @@ export const emailTemplates = {
     actionMessage: string;
     deadline?: string;
     requestUrl: string;
-  }) => ({
-    subject: `⚠️ Action requise - ${data.requestRef}`,
+  }, platform?: PlatformConfig) => ({
+    subject: `Action requise - ${data.requestRef}`,
     html: emailLayout(
       "Action Requise",
       `
@@ -194,12 +198,13 @@ export const emailTemplates = {
 			<div class="warning-box">
 				<p><strong>Action demandée :</strong></p>
 				<p>${data.actionMessage}</p>
-				${data.deadline ? `<p><strong>⏰ Délai :</strong> ${data.deadline}</p>` : ""}
+				${data.deadline ? `<p><strong>Délai :</strong> ${data.deadline}</p>` : ""}
 			</div>
 			<p style="text-align: center; margin-top: 25px;">
 				<a href="${data.requestUrl}" class="button">Compléter ma demande</a>
 			</p>
 		`,
+      platform,
     ),
   }),
 
@@ -209,8 +214,8 @@ export const emailTemplates = {
     requestRef: string;
     serviceName: string;
     requestUrl: string;
-  }) => ({
-    subject: `✅ Demande traitée - ${data.requestRef}`,
+  }, platform?: PlatformConfig) => ({
+    subject: `Demande traitée - ${data.requestRef}`,
     html: emailLayout(
       "Demande Traitée",
       `
@@ -218,13 +223,14 @@ export const emailTemplates = {
 			<p>Bonne nouvelle ! Votre demande <strong>${data.requestRef}</strong> a été traitée avec succès.</p>
 			<div class="info-box">
 				<p><strong>Service :</strong> ${data.serviceName}</p>
-				<p><strong>Statut :</strong> ✅ Terminé</p>
+				<p><strong>Statut :</strong> Terminé</p>
 			</div>
 			<p>Vous pouvez consulter votre demande et télécharger les documents disponibles.</p>
 			<p style="text-align: center; margin-top: 25px;">
 				<a href="${data.requestUrl}" class="button">Voir ma demande</a>
 			</p>
 		`,
+      platform,
     ),
   }),
 };
@@ -238,6 +244,7 @@ export const sendNotificationEmail = internalAction({
     to: v.string(),
     template: v.string(),
     data: v.any(),
+    platform: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const templateFn =
@@ -247,11 +254,12 @@ export const sendNotificationEmail = internalAction({
       return { success: false, error: "Unknown template" };
     }
 
-    const email = templateFn(args.data);
+    const platformConfig = getPlatformConfig(args.platform);
+    const email = templateFn(args.data, platformConfig);
 
     try {
       await resend.sendEmail(ctx, {
-        from: FROM_EMAIL,
+        from: fromEmail(platformConfig),
         to: args.to,
         subject: email.subject,
         html: email.html,

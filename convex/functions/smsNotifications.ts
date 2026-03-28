@@ -20,14 +20,14 @@ const smsTexts = {
     appointmentTime: string;
     address: string;
   }) =>
-    `Consulat du Gabon — Rappel: RDV le ${data.appointmentDate} a ${data.appointmentTime}, ${data.address}. Munissez-vous de vos documents.`,
+    `Consulat.ga — Rappel: RDV le ${data.appointmentDate} a ${data.appointmentTime}, ${data.address}. Munissez-vous de vos documents.`,
 
   action_required: (data: {
     userName: string;
     requestRef: string;
     actionMessage: string;
   }) =>
-    `Consulat du Gabon — Action requise pour votre demande ${data.requestRef}: ${data.actionMessage}. Connectez-vous sur consulat.ga`,
+    `Consulat.ga — Action requise pour votre demande ${data.requestRef}: ${data.actionMessage}. Connectez-vous sur consulat.ga`,
 };
 
 // ============================================================================

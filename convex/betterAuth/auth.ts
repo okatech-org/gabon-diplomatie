@@ -8,6 +8,8 @@ import authConfig from "../auth.config";
 import { components } from "../_generated/api";
 import { mutation, query } from "../_generated/server";
 import { sendSms } from "../lib/bird";
+import { detectPlatform, fromEmail } from "../lib/platform";
+import type { PlatformConfig } from "../lib/platform";
 import type { GenericCtx } from "@convex-dev/better-auth";
 import type { DataModel } from "../_generated/dataModel";
 
@@ -19,16 +21,11 @@ const resend = new Resend(components.resend, {
   testMode: process.env.NODE_ENV !== "production" ? true : false,
 });
 
-// Sender email — configurable via RESEND_FROM_EMAIL env var
-const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ??
-  "Consulat du Gabon <mail@updates.consulat.ga>";
-
 // ============================================================================
-// OTP Email Template
+// OTP Email Template (platform-aware)
 // ============================================================================
 
-const otpEmailTemplate = (otp: string) => `
+const otpEmailTemplate = (otp: string, platform: PlatformConfig) => `
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,12 +44,12 @@ const otpEmailTemplate = (otp: string) => `
 <body>
 	<div class="container">
 		<div class="header">
-			<h1>🇬🇦 Consulat du Gabon</h1>
+			<h1>${platform.headerTitle}</h1>
 			<p style="margin: 5px 0 0 0; opacity: 0.9;">Code de connexion</p>
 		</div>
 		<div class="content">
 			<p>Bonjour,</p>
-			<p>Voici votre code de connexion à la plateforme Consulat.ga :</p>
+			<p>Voici votre code de connexion :</p>
 			<div class="otp-box">${otp}</div>
 			<p style="text-align: center; color: #6b7280; font-size: 14px;">
 				Ce code est valable <strong>5 minutes</strong>.<br>
@@ -60,7 +57,7 @@ const otpEmailTemplate = (otp: string) => `
 			</p>
 		</div>
 		<div class="footer">
-			<p>Consulat Général du Gabon en France</p>
+			<p>${platform.footerText}</p>
 			<p>Ce message a été envoyé automatiquement, merci de ne pas répondre.</p>
 		</div>
 	</div>
@@ -92,7 +89,11 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
       emailOTP({
         otpLength: 6,
         expiresIn: 300, // 5 minutes
-        async sendVerificationOTP({ email, otp, type }) {
+        async sendVerificationOTP({ email, otp, type }, reqCtx) {
+          // Detect platform from the Origin header
+          const origin = reqCtx?.request?.headers?.get("origin") ?? null;
+          const platform = detectPlatform(origin);
+
           const subject =
             type === "sign-in" ? `Votre code de connexion : ${otp}`
             : type === "email-verification" ?
@@ -100,10 +101,10 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
             : `Réinitialisation de mot de passe : ${otp}`;
 
           await resend.sendEmail(ctx as any, {
-            from: FROM_EMAIL,
+            from: fromEmail(platform),
             to: email,
             subject,
-            html: otpEmailTemplate(otp),
+            html: otpEmailTemplate(otp, platform),
           });
         },
       }),

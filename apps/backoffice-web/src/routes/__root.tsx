@@ -11,6 +11,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@workspace/ui/components/sonner";
 import AppConvexProvider from "@workspace/api/provider";
 import I18nProvider from "@workspace/i18n/provider";
+import { PostHogProvider } from "@/integrations/posthog/provider";
+import { PostHogPageviewTracker } from "@/integrations/posthog/pageview-tracker";
 import { api } from "@convex/_generated/api";
 import appCss from "../styles.css?url";
 
@@ -63,7 +65,12 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 });
 
 function RootLayout() {
-	return <Outlet />;
+	return (
+		<>
+			<PostHogPageviewTracker />
+			<Outlet />
+		</>
+	);
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -80,10 +87,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						initialToken={context?.token}
 						ensureUserMutation={api.functions.users.ensureUser}
 					>
-						<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-							{children}
-							<Toaster richColors />
-						</ThemeProvider>
+						<PostHogProvider>
+							<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+								{children}
+								<Toaster richColors />
+							</ThemeProvider>
+						</PostHogProvider>
 					</AppConvexProvider>
 				</I18nProvider>
 

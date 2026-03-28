@@ -11,7 +11,7 @@ if (
 		person_profiles: "identified_only",
 		capture_pageview: false,
 	});
-	posthog.register({ platform: "citizen" });
+	posthog.register({ platform: "backoffice" });
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
