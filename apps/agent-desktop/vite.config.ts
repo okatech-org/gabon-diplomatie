@@ -47,6 +47,8 @@ export default defineConfig({
         target: process.env.VITE_CONVEX_SITE_URL || "https://acrobatic-mole-132.eu-west-1.convex.site",
         changeOrigin: true,
         secure: true,
+        cookieDomainRewrite: "localhost",
+        cookiePathRewrite: "/",
       },
     },
   },

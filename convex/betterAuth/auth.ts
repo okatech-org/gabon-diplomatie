@@ -69,6 +69,9 @@ const otpEmailTemplate = (otp: string, platform: PlatformConfig) => `
 // ============================================================================
 
 export const createAuth = (ctx: GenericCtx<DataModel>) => {
+  // Detect if running in dev — disable Secure cookies so HTTP localhost works
+  const isDev = process.env.DEV_SIGNIN_ENABLED === "true";
+
   return betterAuth({
     appName: "Consulat.ga",
     // baseURL is intentionally omitted — Better Auth will infer it from
@@ -83,6 +86,12 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
     emailAndPassword: {
       enabled: true,
       requireEmailVerification: false,
+    },
+    advanced: {
+      // Convex always runs on HTTPS, so Better Auth infers Secure cookies.
+      // But dev clients connect via http://localhost proxy, which rejects
+      // __Secure- cookies. Force non-secure cookies in dev.
+      useSecureCookies: isDev ? false : undefined,
     },
     plugins: [
       convex({ authConfig }),

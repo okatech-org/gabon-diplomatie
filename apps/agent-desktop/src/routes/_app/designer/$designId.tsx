@@ -2,12 +2,14 @@ import { api } from "@convex/_generated/api";
 import type { Id } from "@convex/_generated/dataModel";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMutation } from "convex/react";
-import { ArrowLeft, Loader2, Save } from "lucide-react";
+import { ArrowLeft, Loader2, Printer, Save } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
 import { useAuthenticatedConvexQuery } from "@/integrations/convex/hooks";
 import { DesignerPage as Designer } from "@/features/designer/designer-page";
+import { SendToPrintDialog } from "@/features/print/send-to-print-dialog";
+import { useOrg } from "@/components/org/org-provider";
 import type { CardTemplate } from "@/lib/models/card-element";
 
 export const Route = createFileRoute("/_app/designer/$designId")({
@@ -17,6 +19,8 @@ export const Route = createFileRoute("/_app/designer/$designId")({
 function DesignerEditorPage() {
   const { designId } = Route.useParams();
   const navigate = useNavigate();
+  const { activeOrgId } = useOrg();
+  const [showPrintDialog, setShowPrintDialog] = useState(false);
 
   const { data: design, isPending } = useAuthenticatedConvexQuery(
     api.functions.cardDesigns.getById,
@@ -166,6 +170,14 @@ function DesignerEditorPage() {
         <div className="flex-1 min-w-0">
           <h1 className="text-lg font-semibold truncate">{design.name}</h1>
         </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setShowPrintDialog(true)}
+        >
+          <Printer className="h-4 w-4 mr-1.5" />
+          Imprimer
+        </Button>
         <div className="flex items-center gap-2 text-xs text-muted-foreground shrink-0">
           {isSaving ? (
             <>
@@ -197,6 +209,18 @@ function DesignerEditorPage() {
           onTemplateChange={handleTemplateChange}
         />
       </Card>
+
+      {activeOrgId && (
+        <SendToPrintDialog
+          open={showPrintDialog}
+          onOpenChange={setShowPrintDialog}
+          designId={design._id}
+          designName={design.name}
+          designVersion={design.version}
+          printDuplex={design.printDuplex}
+          orgId={activeOrgId}
+        />
+      )}
     </div>
   );
 }

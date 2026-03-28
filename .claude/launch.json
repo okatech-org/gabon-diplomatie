@@ -7,6 +7,13 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "cwd": "apps/citizen-web"
+    },
+    {
+      "name": "agent-desktop",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--port", "3003"],
+      "port": 3003,
+      "cwd": "apps/agent-desktop"
     }
   ]
 }

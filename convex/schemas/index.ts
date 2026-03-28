@@ -54,3 +54,4 @@ export {
 
 export { gcpMetricsCacheTable } from "./gcpMetricsCache";
 export { cardDesignsTable } from "./cardDesigns";
+export { printJobsTable } from "./printJobs";
