@@ -53,7 +53,7 @@ function RegisterPage() {
 	};
 
 	const handleComplete = () => {
-		navigate({ to: "/" });
+		navigate({ to: "/my-space" });
 	};
 
 	const handleBack = () => {
