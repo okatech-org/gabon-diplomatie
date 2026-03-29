@@ -30,7 +30,7 @@ export function ProfilesSection() {
 			subtitleKey: "profiles.resident.subtitle",
 			descriptionKey: "profiles.resident.description",
 			color: "green" as const,
-			to: hasProfile ? "/" : "/register?type=long_stay",
+			to: hasProfile ? "/my-space" : "/register?type=long_stay",
 			delay: 0,
 		},
 		{
@@ -39,7 +39,7 @@ export function ProfilesSection() {
 			subtitleKey: "profiles.passage.subtitle",
 			descriptionKey: "profiles.passage.description",
 			color: "yellow" as const,
-			to: hasProfile ? "/" : "/register?type=short_stay",
+			to: hasProfile ? "/my-space" : "/register?type=short_stay",
 			delay: 0.1,
 		},
 		{
@@ -48,12 +48,12 @@ export function ProfilesSection() {
 			subtitleKey: "profiles.visitor.subtitle",
 			descriptionKey: "profiles.visitor.description",
 			color: "blue" as const,
-			to: hasProfile ? "/" : "/register?type=visa_tourism",
+			to: hasProfile ? "/my-space" : "/register?type=visa_tourism",
 			delay: 0.2,
 		},
 	];
 
-	const ctaText = hasProfile ? t("heroCore.cta.mySpace") : t("profiles.cta");
+	const ctaText = t("heroCore.cta.mySpace");
 
 	return (
 		<section className="relative z-10 py-16 px-4 lg:px-8 bg-muted/30">
