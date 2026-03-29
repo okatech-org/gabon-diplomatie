@@ -29,7 +29,7 @@ export function Hero() {
 	const serviceCount = services?.length ?? 0;
 
 	// CTA destination & label
-	const ctaTo = hasProfile ? "/" : "/register";
+	const ctaTo = hasProfile ? "/my-space" : "/register";
 	const ctaLabel = hasProfile
 		? t("heroCore.cta.mySpace")
 		: t("heroCore.cta.register");
