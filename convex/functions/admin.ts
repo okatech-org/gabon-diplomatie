@@ -759,9 +759,189 @@ export const restoreUser = backofficeMutation({
   },
 });
 
+// ─── Helpers for user data collection ────────────────────────
+// Collect all entity IDs linked to a user for preview or deletion.
+
+async function collectUserEntities(ctx: any, userId: any) {
+  // 1. Profile & child profiles
+  const profile = await ctx.db
+    .query("profiles")
+    .withIndex("by_user", (q: any) => q.eq("userId", userId))
+    .unique();
+
+  const childProfiles = await ctx.db
+    .query("childProfiles")
+    .withIndex("by_author", (q: any) => q.eq("authorUserId", userId))
+    .collect();
+
+  // 2. Requests
+  const requests = await ctx.db
+    .query("requests")
+    .withIndex("by_user_status", (q: any) => q.eq("userId", userId))
+    .collect();
+  const requestIds = requests.map((r: any) => r._id);
+
+  // 3. Documents — owned by user, profile, or child profiles
+  const ownerIds = [
+    userId,
+    ...(profile ? [profile._id] : []),
+    ...childProfiles.map((cp: any) => cp._id),
+  ];
+  const allDocuments = [];
+  for (const ownerId of ownerIds) {
+    const docs = await ctx.db
+      .query("documents")
+      .withIndex("by_owner", (q: any) => q.eq("ownerId", ownerId))
+      .collect();
+    allDocuments.push(...docs);
+  }
+  // Also collect documents referenced in requests (may have different ownerId)
+  const requestDocIds = new Set<string>();
+  for (const req of requests) {
+    for (const docId of req.documents ?? []) {
+      requestDocIds.add(docId);
+    }
+  }
+  // Fetch request-referenced docs not already collected
+  const existingDocIds = new Set(allDocuments.map((d: any) => d._id));
+  for (const docId of requestDocIds) {
+    if (!existingDocIds.has(docId)) {
+      const doc = await ctx.db.get(docId);
+      if (doc) allDocuments.push(doc);
+    }
+  }
+
+  // 4. Events related to user's requests
+  const events = [];
+  for (const rid of requestIds) {
+    const evts = await ctx.db
+      .query("events")
+      .withIndex("by_target", (q: any) =>
+        q.eq("targetType", "request").eq("targetId", rid as unknown as string),
+      )
+      .collect();
+    events.push(...evts);
+  }
+
+  // 5. Agent notes on user's requests
+  const agentNotes = [];
+  for (const rid of requestIds) {
+    const notes = await ctx.db
+      .query("agentNotes")
+      .withIndex("by_request", (q: any) => q.eq("requestId", rid))
+      .collect();
+    agentNotes.push(...notes);
+  }
+
+  // 6. Simple userId-linked tables
+  const collectByUser = async (table: string, indexName: string, field: string) => {
+    try {
+      return await ctx.db
+        .query(table)
+        .withIndex(indexName, (q: any) => q.eq(field, userId))
+        .collect();
+    } catch {
+      // If index doesn't exist, fall back to filter
+      return await ctx.db
+        .query(table)
+        .filter((q: any) => q.eq(q.field(field), userId))
+        .collect();
+    }
+  };
+
+  const memberships = await collectByUser("memberships", "by_user_org", "userId");
+  const notifications = await collectByUser("notifications", "by_user", "userId");
+  const payments = await collectByUser("payments", "by_user", "userId");
+  const meetings = await collectByUser("meetings", "by_createdBy", "createdBy");
+  const cv = await collectByUser("cv", "by_user", "userId");
+  const digitalMail = await collectByUser("digitalMail", "by_user", "userId");
+  const deliveryPackages = await collectByUser("deliveryPackages", "by_user", "userId");
+  const associationMembers = await collectByUser("associationMembers", "by_user", "userId");
+  const associationClaims = await collectByUser("associationClaims", "by_user", "userId");
+  const companyMembers = await collectByUser("companyMembers", "by_user", "userId");
+  const conversations = await collectByUser("conversations", "by_user", "userId");
+  const callLines = await collectByUser("callLines", "by_user", "userId");
+  const tickets = await collectByUser("tickets", "by_user", "userId");
+  const messages = await collectByUser("messages", "by_sender", "senderId");
+
+  return {
+    profile,
+    childProfiles,
+    requests,
+    documents: allDocuments,
+    events,
+    agentNotes,
+    memberships,
+    notifications,
+    payments,
+    meetings,
+    cv,
+    digitalMail,
+    deliveryPackages,
+    associationMembers,
+    associationClaims,
+    companyMembers,
+    conversations,
+    callLines,
+    tickets,
+    messages,
+  };
+}
+
 /**
- * Permanently delete user
+ * Preview what will be deleted when permanently deleting a user.
+ * Returns counts for each entity type so the admin can confirm.
+ */
+export const getUserDeletionPreview = backofficeQuery({
+  args: { userId: v.id("users") },
+  handler: async (ctx, args) => {
+    const target = await ctx.db.get(args.userId);
+    if (!target) throw error(ErrorCode.NOT_FOUND);
+
+    const entities = await collectUserEntities(ctx, args.userId);
+
+    const counts: Record<string, number> = {
+      profile: entities.profile ? 1 : 0,
+      childProfiles: entities.childProfiles.length,
+      requests: entities.requests.length,
+      documents: entities.documents.length,
+      events: entities.events.length,
+      agentNotes: entities.agentNotes.length,
+      memberships: entities.memberships.length,
+      notifications: entities.notifications.length,
+      payments: entities.payments.length,
+      meetings: entities.meetings.length,
+      cv: entities.cv.length,
+      digitalMail: entities.digitalMail.length,
+      deliveryPackages: entities.deliveryPackages.length,
+      associationMembers: entities.associationMembers.length,
+      associationClaims: entities.associationClaims.length,
+      companyMembers: entities.companyMembers.length,
+      conversations: entities.conversations.length,
+      callLines: entities.callLines.length,
+      tickets: entities.tickets.length,
+      messages: entities.messages.length,
+    };
+
+    const totalItems = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    // Count storage files that will be cleaned up
+    let storageFileCount = 0;
+    for (const doc of entities.documents) {
+      storageFileCount += doc.files?.length ?? 0;
+    }
+
+    return { counts, totalItems, storageFileCount, userName: target.name || target.email };
+  },
+});
+
+/**
+ * Permanently delete user and ALL associated data.
  * Back-office users can permanently delete users they outrank.
+ * Cascade deletes: profile, child profiles, requests, documents (+ storage),
+ * events, agent notes, memberships, payments, notifications, meetings, cv,
+ * digital mail, delivery packages, association/company members, conversations,
+ * call lines, tickets, messages.
  */
 export const permanentlyDeleteUser = backofficeMutation({
   args: { userId: v.id("users") },
@@ -783,26 +963,81 @@ export const permanentlyDeleteUser = backofficeMutation({
     if (targetRank >= callerRank) {
       throw error(ErrorCode.INSUFFICIENT_PERMISSIONS);
     }
-    
-    // Delete associated profile if exists
-    const profile = await ctx.db
-      .query("profiles")
-      .withIndex("by_user", (q: any) => q.eq("userId", args.userId))
-      .unique();
-    if (profile) {
-      await ctx.db.delete(profile._id);
+
+    // Collect all linked entities
+    const entities = await collectUserEntities(ctx, args.userId);
+
+    // ── Delete in leaf-to-root order ──
+
+    // 1. Events (linked to requests)
+    for (const evt of entities.events) {
+      await ctx.db.delete(evt._id);
     }
-    
-    // Delete associated memberships
-    const memberships = await ctx.db
-      .query("memberships")
-      .filter((q: any) => q.eq(q.field("userId"), args.userId))
-      .collect();
-    for (const m of memberships) {
+
+    // 2. Agent notes (linked to requests)
+    for (const note of entities.agentNotes) {
+      await ctx.db.delete(note._id);
+    }
+
+    // 3. Messages
+    for (const msg of entities.messages) {
+      await ctx.db.delete(msg._id);
+    }
+
+    // 4. Documents — delete storage files, then documents
+    for (const doc of entities.documents) {
+      if (doc.files) {
+        for (const file of doc.files) {
+          try {
+            await ctx.storage.delete(file.storageId);
+          } catch {
+            // Storage file may already be gone — continue
+          }
+        }
+      }
+      await ctx.db.delete(doc._id);
+    }
+
+    // 5. Requests
+    for (const req of entities.requests) {
+      await ctx.db.delete(req._id);
+    }
+
+    // 6. Child profiles
+    for (const cp of entities.childProfiles) {
+      await ctx.db.delete(cp._id);
+    }
+
+    // 7. Profile
+    if (entities.profile) {
+      await ctx.db.delete(entities.profile._id);
+    }
+
+    // 8. Memberships
+    for (const m of entities.memberships) {
       await ctx.db.delete(m._id);
     }
-    
-    // Hard delete user
+
+    // 9. Secondary tables
+    const secondaryEntities = [
+      ...entities.notifications,
+      ...entities.payments,
+      ...entities.meetings,
+      ...entities.cv,
+      ...entities.digitalMail,
+      ...entities.deliveryPackages,
+      ...entities.associationMembers,
+      ...entities.associationClaims,
+      ...entities.companyMembers,
+      ...entities.conversations,
+      ...entities.callLines,
+      ...entities.tickets,
+    ];
+    for (const entity of secondaryEntities) {
+      await ctx.db.delete(entity._id);
+    }
+
+    // 10. Hard delete user
     await ctx.db.delete(args.userId);
   },
 });

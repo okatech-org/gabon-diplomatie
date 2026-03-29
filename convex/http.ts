@@ -3,6 +3,7 @@ import { httpAction } from "./_generated/server";
 import { internal, components } from "./_generated/api";
 import { authComponent, createAuth } from "./betterAuth/auth";
 import { hashPassword } from "better-auth/crypto";
+import { generateRandomString } from "better-auth/crypto";
 import { validateWarehouseApiKey } from "./lib/warehouseAuth";
 import { WAREHOUSE_TABLES } from "./functions/warehouse";
 
@@ -175,6 +176,50 @@ http.route({
         "Access-Control-Max-Age": "86400",
       },
     });
+  }),
+});
+
+// ============================================================================
+// Desktop app auth: generate OTT and redirect to deep link
+// Called from the browser after the user signs in on diplomate.ga.
+// The session cookie must be present (user is already authenticated).
+// ============================================================================
+http.route({
+  path: "/desktop/generate-ott",
+  method: "GET",
+  handler: httpAction(async (ctx, request) => {
+    const auth = createAuth(ctx);
+
+    // Validate the user's session via Better Auth
+    const session = await auth.api.getSession({
+      headers: request.headers,
+    });
+
+    if (!session?.session) {
+      // Not authenticated — redirect to sign-in with desktop flag
+      const siteUrl = process.env.SITE_URL ?? "https://diplomate.ga";
+      return Response.redirect(`${siteUrl}/sign-in?from=desktop`, 302);
+    }
+
+    // Generate a one-time token linked to this session
+    const token = generateRandomString(32);
+    const expiresAt = new Date(Date.now() + 3 * 60 * 1000); // 3 minutes
+
+    await ctx.runMutation(components.betterAuth.adapter.create, {
+      input: {
+        model: "verification",
+        data: {
+          value: session.session.token,
+          identifier: `one-time-token:${token}`,
+          expiresAt: expiresAt.getTime(),
+          createdAt: Date.now(),
+          updatedAt: Date.now(),
+        },
+      },
+    } as any);
+
+    // Redirect to the Tauri deep link with the OTT
+    return Response.redirect(`diplomate://auth?ott=${token}`, 302);
   }),
 });
 

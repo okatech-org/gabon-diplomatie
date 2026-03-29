@@ -14,7 +14,7 @@ import {
 	Loader2,
 	Send,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Component, type ErrorInfo, type ReactNode, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { RequestActionModal } from "@/components/admin/RequestActionModal";
@@ -45,8 +45,54 @@ import {
 	useConvexMutationQuery,
 } from "@/integrations/convex/hooks";
 
+// Error boundary to prevent full page crash
+class RequestErrorBoundary extends Component<
+	{ children: ReactNode },
+	{ hasError: boolean; error: Error | null }
+> {
+	constructor(props: { children: ReactNode }) {
+		super(props);
+		this.state = { hasError: false, error: null };
+	}
+	static getDerivedStateFromError(error: Error) {
+		return { hasError: true, error };
+	}
+	componentDidCatch(error: Error, info: ErrorInfo) {
+		console.error("[RequestDetail] Render error:", error, info);
+	}
+	render() {
+		if (this.state.hasError) {
+			return (
+				<div className="p-8 space-y-4">
+					<h2 className="text-lg font-semibold text-destructive">
+						Erreur d'affichage
+					</h2>
+					<p className="text-muted-foreground text-sm">
+						Impossible d'afficher les détails de cette demande. L'erreur a été
+						enregistrée.
+					</p>
+					<pre className="text-xs bg-muted p-4 rounded-md overflow-auto max-h-40">
+						{this.state.error?.message}
+					</pre>
+					<Button
+						variant="outline"
+						onClick={() => this.setState({ hasError: false, error: null })}
+					>
+						Réessayer
+					</Button>
+				</div>
+			);
+		}
+		return this.props.children;
+	}
+}
+
 export const Route = createFileRoute("/_app/requests/$requestId")({
-	component: RequestDetailPage,
+	component: () => (
+		<RequestErrorBoundary>
+			<RequestDetailPage />
+		</RequestErrorBoundary>
+	),
 });
 
 // Helper to render form data values properly
@@ -187,7 +233,9 @@ function RequestDetailPage() {
 
 	// Get service name from the catalog service (not orgService)
 	const serviceName =
-		getLocalized(request.service?.name, "fr") || "Service inconnu";
+		getLocalized(request.service?.name, i18n.language) ||
+		getLocalized(request.orgService?.name, i18n.language) ||
+		"Service inconnu";
 
 	// Parse formData
 	let formDataObj: Record<string, unknown> = {};

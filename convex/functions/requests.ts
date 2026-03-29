@@ -243,11 +243,11 @@ export const getById = query({
 
     return {
       ...request,
-      user,
-      org,
-      orgService,
-      service,
-      assignedTo,
+      user: user ?? null,
+      org: org ?? null,
+      orgService: orgService ?? null,
+      service: service ?? null,
+      assignedTo: assignedTo ?? null,
       documents,
       notes,
       statusHistory,

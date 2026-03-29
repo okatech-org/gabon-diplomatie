@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
 	ArrowLeft,
 	KeyRound,
@@ -9,7 +9,6 @@ import {
 import { useEffect, useId, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthLayout } from "@/components/auth/AuthLayout";
-import { IDNSignInButton } from "@/components/auth/IDNSignInButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -37,8 +36,12 @@ const AUTH_ERROR_MAP: Record<string, string> = {
 
 function SignInPage() {
 	const { t } = useTranslation();
-	const navigate = useNavigate();
 	const formId = useId();
+
+	// Detect if this sign-in was initiated from the desktop app
+	const isDesktopAuth =
+		typeof window !== "undefined" &&
+		new URLSearchParams(window.location.search).get("from") === "desktop";
 
 	/** Translate a Better Auth error to French */
 	const translateAuthError = (message: string | undefined, fallbackKey: string) => {
@@ -59,6 +62,33 @@ function SignInPage() {
 	const otpInputRef = useRef<HTMLInputElement>(null);
 
 	const identifier = loginMode === "email" ? email : phone;
+
+	/** Redirect after successful sign-in — to desktop deep link or home page */
+	const redirectAfterSignIn = async (signInResult?: { data?: unknown }) => {
+		if (isDesktopAuth) {
+			// Extract session token from sign-in response
+			const data = signInResult?.data as Record<string, any> | undefined;
+			const sessionToken = data?.token || data?.session?.token;
+			if (sessionToken) {
+				window.location.href = `diplomate://auth?session_token=${encodeURIComponent(sessionToken)}`;
+				return;
+			}
+			// Fallback: try OTT generation endpoint
+			try {
+				const res = await fetch("/api/auth/one-time-token/generate", {
+					credentials: "include",
+				});
+				if (res.ok) {
+					const { token } = await res.json();
+					window.location.href = `diplomate://auth?ott=${encodeURIComponent(token)}`;
+					return;
+				}
+			} catch (e) {
+				console.error("Failed to generate OTT for desktop:", e);
+			}
+		}
+		window.location.href = "/";
+	};
 
 	useEffect(() => {
 		if (step === "otp-code" && otpInputRef.current) {
@@ -121,7 +151,7 @@ function SignInPage() {
 					setError(translateAuthError(result.error.message, "errors.auth.otp.invalidCode"));
 				} else {
 					captureEvent("user_logged_in", { method: "sms_otp" });
-					window.location.href = "/";
+					await redirectAfterSignIn(result);
 				}
 			} else {
 				const result = await authClient.signIn.emailOtp({
@@ -132,7 +162,7 @@ function SignInPage() {
 					setError(translateAuthError(result.error.message, "errors.auth.otp.invalidCode"));
 				} else {
 					captureEvent("user_logged_in", { method: "email_otp" });
-					window.location.href = "/";
+					await redirectAfterSignIn(result);
 				}
 			}
 		} catch {
@@ -157,7 +187,7 @@ function SignInPage() {
 				setError(translateAuthError(result.error.message, "errors.auth.signInFailed"));
 			} else {
 				captureEvent("user_logged_in", { method: "password" });
-				window.location.href = "/";
+				await redirectAfterSignIn(result);
 			}
 		} catch {
 			setError(t("errors.auth.signInFailed"));
