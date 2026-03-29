@@ -4097,7 +4097,10 @@
 			"noResults": "No logs found for these filters",
 			"service": {
 				"all": "All services",
-				"cloudRun": "Cloud Run",
+				"cloudRun": "Cloud Run (all)",
+				"agentWeb": "Agent Web",
+				"citizenWeb": "Citizen Web",
+				"backofficeWeb": "Backoffice Web",
 				"livekitVm": "LiveKit VM"
 			},
 			"severity": {

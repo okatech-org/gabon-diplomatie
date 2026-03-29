@@ -77,7 +77,7 @@ interface VmData {
 }
 
 interface InfraData {
-	cloudRun: CloudRunData;
+	cloudRunServices: CloudRunData[];
 	livekitVm: VmData;
 	fetchedAt: number;
 }
@@ -95,6 +95,17 @@ interface LogEntry {
 		latency: string;
 	} | null;
 	insertId: string;
+}
+
+// ─── Service color config ────────────────────────────────────
+const SERVICE_COLORS: Record<string, { accent: string; bg: string; bar: string }> = {
+	"agent-web": { accent: "bg-blue-500", bg: "bg-blue-500/10", bar: "bg-blue-500" },
+	"citizen-web": { accent: "bg-emerald-500", bg: "bg-emerald-500/10", bar: "bg-emerald-500" },
+	"backoffice-web": { accent: "bg-amber-500", bg: "bg-amber-500/10", bar: "bg-amber-500" },
+};
+
+function getServiceColor(name: string) {
+	return SERVICE_COLORS[name] ?? { accent: "bg-blue-500", bg: "bg-blue-500/10", bar: "bg-blue-500" };
 }
 
 // ─── Helpers ─────────────────────────────────────────────────
@@ -265,13 +276,15 @@ function LogRow({ entry }: { entry: LogEntry }) {
 }
 
 // ─── Logs Panel ──────────────────────────────────────────────
+type LogServiceFilter = "all" | "cloud_run" | "agent-web" | "citizen-web" | "backoffice-web" | "livekit_vm";
+
 function LogsPanel() {
 	const { t } = useTranslation();
 	const fetchLogs = useAction(api.actions.gcpMonitoring.fetchLogs);
 	const [logs, setLogs] = useState<LogEntry[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-	const [service, setService] = useState<"all" | "cloud_run" | "livekit_vm">("all");
+	const [service, setService] = useState<LogServiceFilter>("all");
 	const [severity, setSeverity] = useState<string | undefined>(undefined);
 
 	const loadLogs = useCallback(async () => {
@@ -310,20 +323,23 @@ function LogsPanel() {
 						<MultiSelect
 							type="single"
 							selected={service}
-							onChange={(v) => setService(v as "all" | "cloud_run" | "livekit_vm")}
+							onChange={(v: string) => setService(v as LogServiceFilter)}
 							placeholder={t("monitoring.logs.service.all")}
 							searchPlaceholder={t("common.search")}
-							className="h-10 md:h-8 w-[160px] text-xs"
+							className="h-10 md:h-8 w-[180px] text-xs"
 							options={[
 								{ value: "all", label: t("monitoring.logs.service.all") },
 								{ value: "cloud_run", label: t("monitoring.logs.service.cloudRun") },
+								{ value: "agent-web", label: t("monitoring.logs.service.agentWeb") },
+								{ value: "citizen-web", label: t("monitoring.logs.service.citizenWeb") },
+								{ value: "backoffice-web", label: t("monitoring.logs.service.backofficeWeb") },
 								{ value: "livekit_vm", label: t("monitoring.logs.service.livekitVm") },
 							]}
 						/>
 						<MultiSelect
 							type="single"
 							selected={severity ?? "_all"}
-							onChange={(v) => setSeverity(v === "_all" ? undefined : v)}
+							onChange={(v: string) => setSeverity(v === "_all" ? undefined : v)}
 							placeholder={t("monitoring.logs.severity.all")}
 							searchPlaceholder={t("common.search")}
 							className="h-10 md:h-8 w-[130px] text-xs"
@@ -377,6 +393,97 @@ function LogsPanel() {
 	);
 }
 
+// ─── Cloud Run Service Card ──────────────────────────────────
+function CloudRunCard({ service, t }: { service: CloudRunData; t: (key: string) => string }) {
+	const colors = getServiceColor(service.name);
+
+	return (
+		<Card className="relative overflow-hidden">
+			<div className={`absolute left-0 top-0 h-full w-1.5 rounded-l-xl ${colors.accent}`} />
+			<CardHeader className="pb-3">
+				<div className="flex items-center justify-between">
+					<CardTitle className="flex items-center gap-2 text-base">
+						<div className={`flex h-8 w-8 items-center justify-center rounded-lg ${colors.bg}`}>
+							<Cloud className={`h-4 w-4 ${colors.accent.replace("bg-", "text-")}`} />
+						</div>
+						{service.name}
+					</CardTitle>
+					<StatusBadge
+						status={service.isReady ? t("monitoring.cloudRun.ready") : t("monitoring.cloudRun.notReady")}
+						isReady={service.isReady}
+					/>
+				</div>
+				{service.uri && (
+					<CardDescription className="flex items-center gap-2 mt-1">
+						<Globe className="h-3.5 w-3.5" />
+						<a
+							href={service.uri}
+							target="_blank"
+							rel="noreferrer"
+							className="text-blue-500 hover:underline text-xs truncate"
+						>
+							{service.uri.replace("https://", "")}
+						</a>
+					</CardDescription>
+				)}
+			</CardHeader>
+			<CardContent className="space-y-3">
+				{/* Info row */}
+				<div className="grid grid-cols-2 gap-2">
+					<div className="rounded-lg bg-muted/50 p-2.5 space-y-0.5">
+						<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+							{t("monitoring.cloudRun.revision")}
+						</p>
+						<p className="text-xs font-mono font-medium truncate">
+							{service.latestRevision}
+						</p>
+					</div>
+					<div className="rounded-lg bg-muted/50 p-2.5 space-y-0.5">
+						<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+							{t("monitoring.cloudRun.instances")}
+						</p>
+						<p className="text-xs font-mono font-medium">
+							{service.metrics.instanceCount !== null
+								? Math.round(service.metrics.instanceCount)
+								: "—"}
+						</p>
+					</div>
+				</div>
+
+				{/* Metrics */}
+				<div className="space-y-2.5">
+					<MetricBar
+						label={t("monitoring.cloudRun.cpu")}
+						value={service.metrics.cpuUtilization}
+						color={colors.bar}
+					/>
+					<MetricBar
+						label={t("monitoring.cloudRun.memory")}
+						value={service.metrics.memoryUtilization}
+						color={colors.bar}
+					/>
+				</div>
+
+				{/* Stats row */}
+				<div className="flex items-center gap-3 text-xs text-muted-foreground pt-2 border-t border-border/50">
+					{service.metrics.requestCount !== null && (
+						<span className="flex items-center gap-1">
+							<Activity className="h-3 w-3" />
+							{Math.round(service.metrics.requestCount)} {t("monitoring.cloudRun.requests")}
+						</span>
+					)}
+					{service.metrics.latencyMs !== null && (
+						<span className="flex items-center gap-1">
+							<Timer className="h-3 w-3" />
+							{Math.round(service.metrics.latencyMs)}ms
+						</span>
+					)}
+				</div>
+			</CardContent>
+		</Card>
+	);
+}
+
 // ─── Exported Component ──────────────────────────────────────
 export function InfrastructureMonitoring() {
 	const { t } = useTranslation();
@@ -418,10 +525,12 @@ export function InfrastructureMonitoring() {
 	if (loading) {
 		return (
 			<div className="space-y-6 pt-4">
-				<div className="grid gap-4 md:grid-cols-2">
-					<Skeleton className="h-[350px] rounded-xl" />
-					<Skeleton className="h-[350px] rounded-xl" />
+				<div className="grid gap-4 md:grid-cols-3">
+					<Skeleton className="h-[300px] rounded-xl" />
+					<Skeleton className="h-[300px] rounded-xl" />
+					<Skeleton className="h-[300px] rounded-xl" />
 				</div>
+				<Skeleton className="h-[300px] rounded-xl" />
 			</div>
 		);
 	}
@@ -471,200 +580,115 @@ export function InfrastructureMonitoring() {
 				</Button>
 			</div>
 
-			{/* ── Service Cards ───────────────────── */}
-			<div className="grid gap-6 lg:grid-cols-2">
-				{/* Cloud Run Card */}
-				<Card className="relative overflow-hidden">
-					<div className="absolute left-0 top-0 h-full w-1.5 rounded-l-xl bg-blue-500" />
-					<CardHeader className="pb-3">
-						<div className="flex items-center justify-between">
-							<CardTitle className="flex items-center gap-2.5 text-lg">
-								<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10">
-									<Cloud className="h-5 w-5 text-blue-500" />
-								</div>
-								{t("monitoring.cloudRun.title")}
-							</CardTitle>
-							<StatusBadge
-								status={data.cloudRun.isReady ? t("monitoring.cloudRun.ready") : t("monitoring.cloudRun.notReady")}
-								isReady={data.cloudRun.isReady}
-							/>
-						</div>
-						<CardDescription className="flex items-center gap-2 mt-1">
-							<Globe className="h-3.5 w-3.5" />
-							<span className="font-mono text-xs">{data.cloudRun.name}</span>
-							{data.cloudRun.uri && (
-								<>
-									<span className="text-muted-foreground">•</span>
-									<a
-										href={data.cloudRun.uri}
-										target="_blank"
-										rel="noreferrer"
-										className="text-blue-500 hover:underline text-xs"
-									>
-										{data.cloudRun.uri.replace("https://", "")}
-									</a>
-								</>
-							)}
-						</CardDescription>
-					</CardHeader>
-					<CardContent className="space-y-4">
-						{/* Info row */}
-						<div className="grid grid-cols-2 gap-3">
-							<div className="rounded-lg bg-muted/50 p-3 space-y-1">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-									{t("monitoring.cloudRun.revision")}
-								</p>
-								<p className="text-xs font-mono font-medium truncate">
-									{data.cloudRun.latestRevision}
-								</p>
-							</div>
-							<div className="rounded-lg bg-muted/50 p-3 space-y-1">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-									{t("monitoring.cloudRun.instances")}
-								</p>
-								<p className="text-xs font-mono font-medium">
-									{data.cloudRun.metrics.instanceCount !== null
-										? Math.round(data.cloudRun.metrics.instanceCount)
-										: "—"}
-								</p>
-							</div>
-						</div>
-
-						{/* Metrics */}
-						<div className="space-y-3">
-							<MetricBar
-								label={t("monitoring.cloudRun.cpu")}
-								value={data.cloudRun.metrics.cpuUtilization}
-								color="bg-blue-500"
-							/>
-							<MetricBar
-								label={t("monitoring.cloudRun.memory")}
-								value={data.cloudRun.metrics.memoryUtilization}
-								color="bg-indigo-500"
-							/>
-						</div>
-
-						{/* Stats row */}
-						<div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t border-border/50">
-							{data.cloudRun.metrics.requestCount !== null && (
-								<span className="flex items-center gap-1.5">
-									<Activity className="h-3 w-3" />
-									{Math.round(data.cloudRun.metrics.requestCount)} {t("monitoring.cloudRun.requests")}
-								</span>
-							)}
-							{data.cloudRun.metrics.latencyMs !== null && (
-								<span className="flex items-center gap-1.5">
-									<Timer className="h-3 w-3" />
-									{Math.round(data.cloudRun.metrics.latencyMs)}ms {t("monitoring.cloudRun.latency")}
-								</span>
-							)}
-						</div>
-					</CardContent>
-				</Card>
-
-				{/* LiveKit VM Card */}
-				<Card className="relative overflow-hidden">
-					<div className="absolute left-0 top-0 h-full w-1.5 rounded-l-xl bg-purple-500" />
-					<CardHeader className="pb-3">
-						<div className="flex items-center justify-between">
-							<CardTitle className="flex items-center gap-2.5 text-lg">
-								<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-500/10">
-									<Video className="h-5 w-5 text-purple-500" />
-								</div>
-								{t("monitoring.livekit.title")}
-							</CardTitle>
-							<StatusBadge status={data.livekitVm.status} />
-						</div>
-						<CardDescription className="flex items-center gap-2 mt-1">
-							<Server className="h-3.5 w-3.5" />
-							<span className="font-mono text-xs">
-								{data.livekitVm.name}
-							</span>
-							<span className="text-muted-foreground">•</span>
-							<span className="text-xs">{data.livekitVm.machineType}</span>
-							<span className="text-muted-foreground">•</span>
-							<span className="text-xs">{data.livekitVm.zone}</span>
-						</CardDescription>
-					</CardHeader>
-					<CardContent className="space-y-4">
-						{/* Info row */}
-						<div className="grid grid-cols-3 gap-3">
-							<div className="rounded-lg bg-muted/50 p-3 space-y-1">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-									{t("monitoring.livekit.externalIp")}
-								</p>
-								<p className="text-xs font-mono font-medium">
-									{data.livekitVm.externalIp}
-								</p>
-							</div>
-							<div className="rounded-lg bg-muted/50 p-3 space-y-1">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-									{t("monitoring.livekit.cpu")}
-								</p>
-								<p className="text-xs font-mono font-medium">
-									{data.livekitVm.cpuPlatform || "—"}
-								</p>
-							</div>
-							<div className="rounded-lg bg-muted/50 p-3 space-y-1">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-									{t("monitoring.livekit.uptime")}
-								</p>
-								<p className="text-xs font-mono font-medium">
-									{formatUptime(data.livekitVm.metrics.uptimeSeconds)}
-								</p>
-							</div>
-						</div>
-
-						{/* Metrics */}
-						<div className="space-y-3">
-							<MetricBar
-								label={t("monitoring.livekit.cpu")}
-								value={data.livekitVm.metrics.cpuUtilization}
-								color="bg-purple-500"
-							/>
-						</div>
-
-						{/* Network stats */}
-						<div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t border-border/50">
-							<span className="flex items-center gap-1.5">
-								<Wifi className="h-3 w-3" />
-								↓ {formatBytes(data.livekitVm.metrics.networkInBytes)}
-							</span>
-							<span className="flex items-center gap-1.5">
-								<Network className="h-3 w-3" />
-								↑ {formatBytes(data.livekitVm.metrics.networkOutBytes)}
-							</span>
-							{data.livekitVm.metrics.diskReadBytes !== null && (
-								<span className="flex items-center gap-1.5">
-									<HardDrive className="h-3 w-3" />
-									{formatBytes(data.livekitVm.metrics.diskReadBytes)} {t("monitoring.livekit.disk")}
-								</span>
-							)}
-						</div>
-
-						{/* Disks */}
-						{data.livekitVm.disks.length > 0 && (
-							<div className="pt-2 border-t border-border/50">
-								<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-2">
-									{t("monitoring.livekit.disks")}
-								</p>
-								<div className="flex flex-wrap gap-2">
-									{data.livekitVm.disks.map((disk) => (
-										<Badge
-											key={disk.name}
-											variant="outline"
-											className="font-mono text-[10px]"
-										>
-											<HardDrive className="h-3 w-3 mr-1" />
-											{disk.name} ({disk.sizeGb}GB)
-										</Badge>
-									))}
-								</div>
-							</div>
-						)}
-					</CardContent>
-				</Card>
+			{/* ── Cloud Run Service Cards ──────────── */}
+			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+				{data.cloudRunServices.map((service) => (
+					<CloudRunCard key={service.name} service={service} t={t} />
+				))}
 			</div>
+
+			{/* ── LiveKit VM Card ──────────────────── */}
+			<Card className="relative overflow-hidden">
+				<div className="absolute left-0 top-0 h-full w-1.5 rounded-l-xl bg-purple-500" />
+				<CardHeader className="pb-3">
+					<div className="flex items-center justify-between">
+						<CardTitle className="flex items-center gap-2.5 text-lg">
+							<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-500/10">
+								<Video className="h-5 w-5 text-purple-500" />
+							</div>
+							{t("monitoring.livekit.title")}
+						</CardTitle>
+						<StatusBadge status={data.livekitVm.status} />
+					</div>
+					<CardDescription className="flex items-center gap-2 mt-1">
+						<Server className="h-3.5 w-3.5" />
+						<span className="font-mono text-xs">
+							{data.livekitVm.name}
+						</span>
+						<span className="text-muted-foreground">•</span>
+						<span className="text-xs">{data.livekitVm.machineType}</span>
+						<span className="text-muted-foreground">•</span>
+						<span className="text-xs">{data.livekitVm.zone}</span>
+					</CardDescription>
+				</CardHeader>
+				<CardContent className="space-y-4">
+					{/* Info row */}
+					<div className="grid grid-cols-3 gap-3">
+						<div className="rounded-lg bg-muted/50 p-3 space-y-1">
+							<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+								{t("monitoring.livekit.externalIp")}
+							</p>
+							<p className="text-xs font-mono font-medium">
+								{data.livekitVm.externalIp}
+							</p>
+						</div>
+						<div className="rounded-lg bg-muted/50 p-3 space-y-1">
+							<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+								{t("monitoring.livekit.cpu")}
+							</p>
+							<p className="text-xs font-mono font-medium">
+								{data.livekitVm.cpuPlatform || "—"}
+							</p>
+						</div>
+						<div className="rounded-lg bg-muted/50 p-3 space-y-1">
+							<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+								{t("monitoring.livekit.uptime")}
+							</p>
+							<p className="text-xs font-mono font-medium">
+								{formatUptime(data.livekitVm.metrics.uptimeSeconds)}
+							</p>
+						</div>
+					</div>
+
+					{/* Metrics */}
+					<div className="space-y-3">
+						<MetricBar
+							label={t("monitoring.livekit.cpu")}
+							value={data.livekitVm.metrics.cpuUtilization}
+							color="bg-purple-500"
+						/>
+					</div>
+
+					{/* Network stats */}
+					<div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t border-border/50">
+						<span className="flex items-center gap-1.5">
+							<Wifi className="h-3 w-3" />
+							↓ {formatBytes(data.livekitVm.metrics.networkInBytes)}
+						</span>
+						<span className="flex items-center gap-1.5">
+							<Network className="h-3 w-3" />
+							↑ {formatBytes(data.livekitVm.metrics.networkOutBytes)}
+						</span>
+						{data.livekitVm.metrics.diskReadBytes !== null && (
+							<span className="flex items-center gap-1.5">
+								<HardDrive className="h-3 w-3" />
+								{formatBytes(data.livekitVm.metrics.diskReadBytes)} {t("monitoring.livekit.disk")}
+							</span>
+						)}
+					</div>
+
+					{/* Disks */}
+					{data.livekitVm.disks.length > 0 && (
+						<div className="pt-2 border-t border-border/50">
+							<p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-2">
+								{t("monitoring.livekit.disks")}
+							</p>
+							<div className="flex flex-wrap gap-2">
+								{data.livekitVm.disks.map((disk) => (
+									<Badge
+										key={disk.name}
+										variant="outline"
+										className="font-mono text-[10px]"
+									>
+										<HardDrive className="h-3 w-3 mr-1" />
+										{disk.name} ({disk.sizeGb}GB)
+									</Badge>
+								))}
+							</div>
+						</div>
+					)}
+				</CardContent>
+			</Card>
 
 			{/* ── Logs Panel ────────────────────────── */}
 			<LogsPanel />

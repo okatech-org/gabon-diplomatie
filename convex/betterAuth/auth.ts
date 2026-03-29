@@ -2,7 +2,7 @@ import { betterAuth } from "better-auth/minimal";
 import { emailOTP, genericOAuth, phoneNumber } from "better-auth/plugins";
 import { v } from "convex/values";
 import { createClient } from "@convex-dev/better-auth";
-import { convex } from "@convex-dev/better-auth/plugins";
+import { convex, crossDomain } from "@convex-dev/better-auth/plugins";
 import { Resend } from "@convex-dev/resend";
 import authConfig from "../auth.config";
 import { components } from "../_generated/api";
@@ -78,10 +78,28 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
     // the incoming request, which is required for our multi-domain
     // architecture (consulat.ga, diplomate.ga, etc.)
     secret: process.env.BETTER_AUTH_SECRET,
-    trustedOrigins: (process.env.TRUSTED_ORIGINS ?? "")
-      .split(",")
-      .map((o) => o.trim())
-      .filter(Boolean),
+    trustedOrigins: isDev
+      ? (request) => {
+          const origins = (process.env.TRUSTED_ORIGINS ?? "")
+            .split(",")
+            .map((o) => o.trim())
+            .filter(Boolean);
+          // In dev, trust any localhost/127.0.0.1 origin regardless of port
+          const reqOrigin = request?.headers?.get("origin");
+          if (reqOrigin) {
+            try {
+              const url = new URL(reqOrigin);
+              if (url.hostname === "localhost" || url.hostname === "127.0.0.1") {
+                origins.push(reqOrigin);
+              }
+            } catch { /* ignore invalid origin */ }
+          }
+          return origins;
+        }
+      : (process.env.TRUSTED_ORIGINS ?? "")
+          .split(",")
+          .map((o) => o.trim())
+          .filter(Boolean),
     database: authComponent.adapter(ctx),
     emailAndPassword: {
       enabled: true,
@@ -95,6 +113,9 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
     },
     plugins: [
       convex({ authConfig }),
+      crossDomain({
+        siteUrl: process.env.SITE_URL ?? "https://diplomate.ga",
+      }),
       emailOTP({
         otpLength: 6,
         expiresIn: 300, // 5 minutes

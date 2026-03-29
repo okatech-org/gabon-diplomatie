@@ -6,6 +6,8 @@
  * Calls GCP REST APIs (Cloud Run, Compute Engine, Cloud Monitoring)
  * using a service account key stored in env vars.
  * Runs in Node.js environment for google-auth-library.
+ *
+ * Monitors 3 Cloud Run services + 1 LiveKit VM in the gabon-diplomatie project.
  */
 import { v } from "convex/values";
 import { action } from "../_generated/server";
@@ -13,10 +15,10 @@ import { internal } from "../_generated/api";
 import { GoogleAuth } from "google-auth-library";
 
 // ─── Constants ───────────────────────────────────────────────
-const PROJECT_ID = "gen-lang-client-0558867015";
+const PROJECT_ID = "gabon-diplomatie";
 const REGION = "europe-west1";
 const ZONE = "europe-west1-b";
-const CLOUD_RUN_SERVICE = "consulat-ga";
+const CLOUD_RUN_SERVICES = ["agent-web", "citizen-web", "backoffice-web"] as const;
 const LIVEKIT_VM = "livekit-server";
 
 // Cache TTL: 60 seconds
@@ -59,29 +61,24 @@ async function fetchWithAuth(url: string): Promise<any> {
 
 // ─── Cloud Run Status ────────────────────────────────────────
 
-async function fetchCloudRunStatus() {
-  const url = `https://run.googleapis.com/v2/projects/${PROJECT_ID}/locations/${REGION}/services/${CLOUD_RUN_SERVICE}`;
+async function fetchCloudRunStatusForService(serviceName: string) {
+  const url = `https://run.googleapis.com/v2/projects/${PROJECT_ID}/locations/${REGION}/services/${serviceName}`;
   const data = await fetchWithAuth(url);
 
-  // Cloud Run v2: check terminalCondition or conditions array
   const conditions = data.conditions || [];
   const terminalCondition = data.terminalCondition;
-  
-  // A service is ready if:
-  // 1. terminalCondition.type === "Ready" and state is successful, OR
-  // 2. Any condition of type "Ready" has a successful state
-  const readyCondition = terminalCondition?.type === "Ready" 
-    ? terminalCondition 
+
+  const readyCondition = terminalCondition?.type === "Ready"
+    ? terminalCondition
     : conditions.find((c: any) => c.type === "Ready");
-  
-  const isReady = readyCondition?.state === "CONDITION_SUCCEEDED" 
+
+  const isReady = readyCondition?.state === "CONDITION_SUCCEEDED"
     || readyCondition?.state === "True"
     || readyCondition?.status === "True"
-    // Fallback: if reconciling is false and we have a latest revision, consider it ready
     || (data.latestReadyRevision && !data.reconciling);
 
   return {
-    name: CLOUD_RUN_SERVICE,
+    name: serviceName,
     uri: data.uri || "",
     latestRevision: data.latestReadyRevision?.split("/").pop() || "unknown",
     isReady: !!isReady,
@@ -97,20 +94,25 @@ async function fetchCloudRunStatus() {
   };
 }
 
+async function fetchAllCloudRunStatuses() {
+  return Promise.all(
+    CLOUD_RUN_SERVICES.map((s) => fetchCloudRunStatusForService(s)),
+  );
+}
+
 // ─── Compute Engine VM Status ────────────────────────────────
 
 async function fetchVmStatus() {
   const url = `https://compute.googleapis.com/compute/v1/projects/${PROJECT_ID}/zones/${ZONE}/instances/${LIVEKIT_VM}`;
   const data = await fetchWithAuth(url);
 
-  // Extract network info
   const networkInterface = data.networkInterfaces?.[0];
   const externalIp =
     networkInterface?.accessConfigs?.[0]?.natIP || "No external IP";
 
   return {
     name: LIVEKIT_VM,
-    status: data.status, // RUNNING, STOPPED, TERMINATED, etc.
+    status: data.status,
     machineType: data.machineType?.split("/").pop() || "unknown",
     zone: ZONE,
     externalIp,
@@ -157,7 +159,6 @@ async function fetchTimeSeriesMetric(
     const data = await fetchWithAuth(url);
     return data.timeSeries || [];
   } catch {
-    // Metric may not have data yet, return empty
     return [];
   }
 }
@@ -170,32 +171,17 @@ function extractLatestValue(timeSeries: any[]): number | null {
   return val.doubleValue ?? val.int64Value ?? val.distributionValue?.mean ?? null;
 }
 
-async function fetchCloudRunMetrics() {
-  // Cloud Run request count
-  const requestCount = await fetchTimeSeriesMetric(
-    "run.googleapis.com/request_count",
-    "cloud_run_revision",
-  );
-  // Cloud Run request latencies
-  const latencies = await fetchTimeSeriesMetric(
-    "run.googleapis.com/request_latencies",
-    "cloud_run_revision",
-  );
-  // Cloud Run instance count
-  const instanceCount = await fetchTimeSeriesMetric(
-    "run.googleapis.com/container/instance_count",
-    "cloud_run_revision",
-  );
-  // Cloud Run CPU utilization
-  const cpuUtilization = await fetchTimeSeriesMetric(
-    "run.googleapis.com/container/cpu/utilizations",
-    "cloud_run_revision",
-  );
-  // Cloud Run memory utilization
-  const memoryUtilization = await fetchTimeSeriesMetric(
-    "run.googleapis.com/container/memory/utilizations",
-    "cloud_run_revision",
-  );
+async function fetchCloudRunMetricsForService(serviceName: string) {
+  const serviceFilter = `resource.labels.service_name="${serviceName}"`;
+
+  const [requestCount, latencies, instanceCount, cpuUtilization, memoryUtilization] =
+    await Promise.all([
+      fetchTimeSeriesMetric("run.googleapis.com/request_count", "cloud_run_revision", serviceFilter),
+      fetchTimeSeriesMetric("run.googleapis.com/request_latencies", "cloud_run_revision", serviceFilter),
+      fetchTimeSeriesMetric("run.googleapis.com/container/instance_count", "cloud_run_revision", serviceFilter),
+      fetchTimeSeriesMetric("run.googleapis.com/container/cpu/utilizations", "cloud_run_revision", serviceFilter),
+      fetchTimeSeriesMetric("run.googleapis.com/container/memory/utilizations", "cloud_run_revision", serviceFilter),
+    ]);
 
   return {
     requestCount: extractLatestValue(requestCount),
@@ -206,39 +192,23 @@ async function fetchCloudRunMetrics() {
   };
 }
 
+async function fetchAllCloudRunMetrics() {
+  const entries = await Promise.all(
+    CLOUD_RUN_SERVICES.map(async (s) => [s, await fetchCloudRunMetricsForService(s)] as const),
+  );
+  return Object.fromEntries(entries) as Record<string, Awaited<ReturnType<typeof fetchCloudRunMetricsForService>>>;
+}
+
 async function fetchLivekitVmMetrics() {
   const instanceFilter = `resource.labels.instance_id != ""`;
 
-  // CPU utilization
-  const cpu = await fetchTimeSeriesMetric(
-    "compute.googleapis.com/instance/cpu/utilization",
-    "gce_instance",
-    instanceFilter,
-  );
-  // Network received bytes
-  const networkIn = await fetchTimeSeriesMetric(
-    "compute.googleapis.com/instance/network/received_bytes_count",
-    "gce_instance",
-    instanceFilter,
-  );
-  // Network sent bytes
-  const networkOut = await fetchTimeSeriesMetric(
-    "compute.googleapis.com/instance/network/sent_bytes_count",
-    "gce_instance",
-    instanceFilter,
-  );
-  // Disk read bytes
-  const diskRead = await fetchTimeSeriesMetric(
-    "compute.googleapis.com/instance/disk/read_bytes_count",
-    "gce_instance",
-    instanceFilter,
-  );
-  // Uptime
-  const uptime = await fetchTimeSeriesMetric(
-    "compute.googleapis.com/instance/uptime",
-    "gce_instance",
-    instanceFilter,
-  );
+  const [cpu, networkIn, networkOut, diskRead, uptime] = await Promise.all([
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/cpu/utilization", "gce_instance", instanceFilter),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/received_bytes_count", "gce_instance", instanceFilter),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/sent_bytes_count", "gce_instance", instanceFilter),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/disk/read_bytes_count", "gce_instance", instanceFilter),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/uptime", "gce_instance", instanceFilter),
+  ]);
 
   return {
     cpuUtilization: extractLatestValue(cpu),
@@ -258,7 +228,6 @@ async function fetchLivekitVmMetrics() {
 export const fetchInfrastructureHealth = action({
   args: {},
   handler: async (ctx): Promise<Record<string, any>> => {
-    // Check auth (superadmin only)
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) {
       throw new Error("NOT_AUTHENTICATED");
@@ -275,19 +244,28 @@ export const fetchInfrastructureHealth = action({
     }
 
     // Fetch all data in parallel
-    const [cloudRunStatus, vmStatus, cloudRunMetrics, vmMetrics] =
+    const [cloudRunStatuses, vmStatus, cloudRunMetricsMap, vmMetrics] =
       await Promise.all([
-        fetchCloudRunStatus(),
+        fetchAllCloudRunStatuses(),
         fetchVmStatus(),
-        fetchCloudRunMetrics(),
+        fetchAllCloudRunMetrics(),
         fetchLivekitVmMetrics(),
       ]);
 
-    const result = {
-      cloudRun: {
-        ...cloudRunStatus,
-        metrics: cloudRunMetrics,
+    // Merge status + metrics per service
+    const cloudRunServices = cloudRunStatuses.map((status) => ({
+      ...status,
+      metrics: cloudRunMetricsMap[status.name] ?? {
+        requestCount: null,
+        latencyMs: null,
+        instanceCount: null,
+        cpuUtilization: null,
+        memoryUtilization: null,
       },
+    }));
+
+    const result = {
+      cloudRunServices,
       livekitVm: {
         ...vmStatus,
         metrics: vmMetrics,
@@ -310,14 +288,33 @@ export const fetchInfrastructureHealth = action({
 
 // ─── Logs Action ─────────────────────────────────────────────
 
+// Build Cloud Run service filter for all or a specific service
+function buildCloudRunFilter(serviceName?: string): string {
+  if (serviceName) {
+    return `resource.type="cloud_run_revision" AND resource.labels.service_name="${serviceName}"`;
+  }
+  // All Cloud Run services
+  const serviceConditions = CLOUD_RUN_SERVICES
+    .map((s) => `resource.labels.service_name="${s}"`)
+    .join(" OR ");
+  return `resource.type="cloud_run_revision" AND (${serviceConditions})`;
+}
+
 /**
  * Fetch recent logs from Cloud Logging API.
- * Supports filtering by service (Cloud Run / LiveKit VM) and severity.
+ * Supports filtering by individual Cloud Run service, all Cloud Run, LiveKit VM, or all.
  */
 export const fetchLogs = action({
   args: {
-    service: v.union(v.literal("cloud_run"), v.literal("livekit_vm"), v.literal("all")),
-    severity: v.optional(v.string()), // "ERROR", "WARNING", "INFO", "DEBUG", or undefined for all
+    service: v.union(
+      v.literal("cloud_run"),
+      v.literal("agent-web"),
+      v.literal("citizen-web"),
+      v.literal("backoffice-web"),
+      v.literal("livekit_vm"),
+      v.literal("all"),
+    ),
+    severity: v.optional(v.string()),
     pageSize: v.optional(v.number()),
   },
   handler: async (ctx, { service, severity, pageSize }): Promise<Record<string, any>> => {
@@ -331,12 +328,14 @@ export const fetchLogs = action({
     // Build resource filter based on service
     let resourceFilter = "";
     if (service === "cloud_run") {
-      resourceFilter = `resource.type="cloud_run_revision" AND resource.labels.service_name="${CLOUD_RUN_SERVICE}"`;
+      resourceFilter = buildCloudRunFilter();
+    } else if (service === "agent-web" || service === "citizen-web" || service === "backoffice-web") {
+      resourceFilter = buildCloudRunFilter(service);
     } else if (service === "livekit_vm") {
       resourceFilter = `resource.type="gce_instance"`;
     } else {
-      // All: both Cloud Run and Compute Engine
-      resourceFilter = `(resource.type="cloud_run_revision" AND resource.labels.service_name="${CLOUD_RUN_SERVICE}") OR resource.type="gce_instance"`;
+      // All: Cloud Run + Compute Engine
+      resourceFilter = `(${buildCloudRunFilter()}) OR resource.type="gce_instance"`;
     }
 
     // Add severity filter
@@ -376,7 +375,9 @@ export const fetchLogs = action({
     const entries = (data.entries || []).map((entry: any) => ({
       timestamp: entry.timestamp,
       severity: entry.severity || "DEFAULT",
-      resource: entry.resource?.type === "cloud_run_revision" ? "Cloud Run" : "LiveKit VM",
+      resource: entry.resource?.type === "cloud_run_revision"
+        ? (entry.resource?.labels?.service_name || "Cloud Run")
+        : "LiveKit VM",
       logName: entry.logName?.split("/").pop() || "",
       message:
         entry.textPayload ||
