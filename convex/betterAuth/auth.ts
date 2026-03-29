@@ -74,9 +74,9 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
 
   return betterAuth({
     appName: "Consulat.ga",
-    // baseURL is intentionally omitted — Better Auth will infer it from
-    // the incoming request, which is required for our multi-domain
-    // architecture (consulat.ga, diplomate.ga, etc.)
+    // Use the Convex HTTP endpoint as the auth server's base URL.
+    // CONVEX_SITE_URL is automatically provided by Convex in all environments.
+    baseURL: process.env.CONVEX_SITE_URL,
     secret: process.env.BETTER_AUTH_SECRET,
     trustedOrigins: isDev
       ? (request) => {
