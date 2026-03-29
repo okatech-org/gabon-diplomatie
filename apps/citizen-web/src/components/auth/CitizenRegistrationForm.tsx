@@ -55,6 +55,7 @@ import {
 	FieldLegend,
 	FieldSet,
 } from "@/components/ui/field";
+import { CountrySelect } from "@/components/ui/country-select";
 import { Input } from "@/components/ui/input";
 import { MultiSelect } from "@/components/ui/multi-select";
 import { useCitizenData } from "@/hooks/use-citizen-data";
@@ -1680,16 +1681,21 @@ export function CitizenRegistrationForm({
 								<Controller
 									name="basicInfo.nationality"
 									control={form.control}
-									render={({ field }) => (
-										<Field>
+									render={({ field, fieldState }) => (
+										<Field data-invalid={fieldState.invalid}>
 											<FieldLabel htmlFor="nationality">
 												{t("profile.fields.nationality")}
 											</FieldLabel>
-											<Input
+											<CountrySelect
 												id="nationality"
-												placeholder="Gabonaise"
-												{...field}
+												type="single"
+												selected={field.value as CountryCode | undefined}
+												onChange={field.onChange}
+												placeholder={t("common.select")}
 											/>
+											{fieldState.error && (
+												<FieldError errors={[fieldState.error]} />
+											)}
 										</Field>
 									)}
 								/>
