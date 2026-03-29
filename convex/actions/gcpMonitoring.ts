@@ -21,10 +21,6 @@ const ZONE = "europe-west1-b";
 const CLOUD_RUN_SERVICES = ["agent-web", "citizen-web", "backoffice-web"] as const;
 const LIVEKIT_VM = "livekit-server";
 
-// LiveKit VM is still hosted in the old monolith project.
-// TODO: Remove this once the VM is migrated to gabon-diplomatie.
-const LIVEKIT_PROJECT_ID = "gen-lang-client-0558867015";
-
 // Cache TTL: 60 seconds
 const CACHE_TTL_MS = 60_000;
 
@@ -107,7 +103,7 @@ async function fetchAllCloudRunStatuses() {
 // ─── Compute Engine VM Status ────────────────────────────────
 
 async function fetchVmStatus() {
-  const url = `https://compute.googleapis.com/compute/v1/projects/${LIVEKIT_PROJECT_ID}/zones/${ZONE}/instances/${LIVEKIT_VM}`;
+  const url = `https://compute.googleapis.com/compute/v1/projects/${PROJECT_ID}/zones/${ZONE}/instances/${LIVEKIT_VM}`;
   const data = await fetchWithAuth(url);
 
   const networkInterface = data.networkInterfaces?.[0];
@@ -208,11 +204,11 @@ async function fetchLivekitVmMetrics() {
   const instanceFilter = `resource.labels.instance_id != ""`;
 
   const [cpu, networkIn, networkOut, diskRead, uptime] = await Promise.all([
-    fetchTimeSeriesMetric("compute.googleapis.com/instance/cpu/utilization", "gce_instance", instanceFilter, 30, LIVEKIT_PROJECT_ID),
-    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/received_bytes_count", "gce_instance", instanceFilter, 30, LIVEKIT_PROJECT_ID),
-    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/sent_bytes_count", "gce_instance", instanceFilter, 30, LIVEKIT_PROJECT_ID),
-    fetchTimeSeriesMetric("compute.googleapis.com/instance/disk/read_bytes_count", "gce_instance", instanceFilter, 30, LIVEKIT_PROJECT_ID),
-    fetchTimeSeriesMetric("compute.googleapis.com/instance/uptime", "gce_instance", instanceFilter, 30, LIVEKIT_PROJECT_ID),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/cpu/utilization", "gce_instance", instanceFilter, 30, PROJECT_ID),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/received_bytes_count", "gce_instance", instanceFilter, 30, PROJECT_ID),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/network/sent_bytes_count", "gce_instance", instanceFilter, 30, PROJECT_ID),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/disk/read_bytes_count", "gce_instance", instanceFilter, 30, PROJECT_ID),
+    fetchTimeSeriesMetric("compute.googleapis.com/instance/uptime", "gce_instance", instanceFilter, 30, PROJECT_ID),
   ]);
 
   return {
@@ -355,16 +351,8 @@ export const fetchLogs = action({
     const tokenResponse = await client.getAccessToken();
     const token = tokenResponse.token;
 
-    // LiveKit VM logs are in the old project; Cloud Run logs are in the new one.
-    const includesLiveKit = service === "livekit_vm" || service === "all";
-    const includesCloudRun = service !== "livekit_vm";
-    const resourceNames = [
-      ...(includesCloudRun ? [`projects/${PROJECT_ID}`] : []),
-      ...(includesLiveKit ? [`projects/${LIVEKIT_PROJECT_ID}`] : []),
-    ];
-
     const body = {
-      resourceNames,
+      resourceNames: [`projects/${PROJECT_ID}`],
       filter,
       orderBy: "timestamp desc",
       pageSize: limit,
